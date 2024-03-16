@@ -31,7 +31,7 @@
   "properties":[
     {"$GMObjectProperty":"","%Name":"breaking","filters":[],"listItems":[],"multiselect":false,"name":"breaking","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"","%Name":"timeTouchingPlayer","filters":[],"listItems":[],"multiselect":false,"name":"timeTouchingPlayer","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"","%Name":"fallingTime","filters":[],"listItems":[],"multiselect":false,"name":"fallingTime","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
+    {"$GMObjectProperty":"","%Name":"fallingTime","filters":[],"listItems":[],"multiselect":false,"name":"fallingTime","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.75","varType":0,},
     {"$GMObjectProperty":"","%Name":"fallingAcceleration","filters":[],"listItems":[],"multiselect":false,"name":"fallingAcceleration","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"15","varType":0,},
     {"$GMObjectProperty":"","%Name":"currentSpeed","filters":[],"listItems":[],"multiselect":false,"name":"currentSpeed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"","%Name":"floorNumber","filters":[],"listItems":[],"multiselect":false,"name":"floorNumber","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":1,},
@@ -39,10 +39,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprHexagonUnbreakable",
-    "path":"sprites/sprHexagonUnbreakable/sprHexagonUnbreakable.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
