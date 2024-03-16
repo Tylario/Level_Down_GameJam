@@ -1,0 +1,1 @@
+timeTouchingPlayer = timeTouchingPlayer + delta_time
