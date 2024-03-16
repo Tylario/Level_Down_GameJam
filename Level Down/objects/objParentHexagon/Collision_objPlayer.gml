@@ -1,1 +1,1 @@
-timeTouchingPlayer = timeTouchingPlayer + delta_time
+timeTouchingPlayer = timeTouchingPlayer + delta_time / 1000000;

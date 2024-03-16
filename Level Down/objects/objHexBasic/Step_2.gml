@@ -1,4 +1,8 @@
-if (timeTouchingPlayer > timeUntilBreak and breaking == false)
+if (timeTouchingPlayer > 0)
 {
-	breaking = true;
+	timeUntilBreak = timeUntilBreak - delta_time / 1000000;
+	if (timeUntilBreak <= 0)
+	{
+		breaking = true;
+	}
 }

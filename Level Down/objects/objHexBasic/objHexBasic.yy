@@ -29,14 +29,14 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"","%Name":"timeUntilBreak","filters":[],"listItems":[],"multiselect":false,"name":"timeUntilBreak","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
+    {"$GMObjectProperty":"","%Name":"timeUntilBreak","filters":[],"listItems":[],"multiselect":false,"name":"timeUntilBreak","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.5","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprTempHexagon",
-    "path":"sprites/sprTempHexagon/sprTempHexagon.yy",
+    "name":"sprHexagonUnbreakable",
+    "path":"sprites/sprHexagonUnbreakable/sprHexagonUnbreakable.yy",
   },
   "spriteMaskId":null,
   "visible":true,

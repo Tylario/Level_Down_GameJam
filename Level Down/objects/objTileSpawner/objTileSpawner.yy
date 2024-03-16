@@ -1,12 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"objLevelManager",
-  "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"objTileSpawner",
+  "eventList":[],
   "managed":true,
-  "name":"objLevelManager",
+  "name":"objTileSpawner",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
