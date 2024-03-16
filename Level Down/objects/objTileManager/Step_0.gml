@@ -3,9 +3,9 @@ if (objPlayer.currentFloor != lastFloor)
     lastFloor = objPlayer.currentFloor;
 
 	var layers = 11;
-	var floors = 4; // Updated to include floor 3 as an example
-	var xDiff = 49; // Adjust based on the width of your hexagon tiles
-	var yDiff = 10; // Adjust based on the height difference between the centers of adjacent hexagon tiles
+	var floors = 4; 
+	var xDiff = 49; 
+	var yDiff = 10; 
 	var floorHeight = 200; // Height difference between floors
 
 	// Adjust this to set the center position
@@ -13,13 +13,19 @@ if (objPlayer.currentFloor != lastFloor)
 	var startY = room_height - 400;
 
 	// Loop to create each floor
-	for (var floorNum = 0; floorNum < floors; floorNum++) {
-	    // Create the center tile for each floor
-	    create_hexagon_ring(startX, startY, 0, xDiff, yDiff, floorNum, floorHeight);
-
-	    // Create layers of tiles for each floor
-	    for (var i = 1; i <= layers; i++) {
+	for (var floorNum = 0; floorNum < floors; floorNum++) 
+	{
+	    for (var i = 0; i <= layers; i++) 
+		{
 	        create_hexagon_ring(startX, startY, i, xDiff, yDiff, floorNum, floorHeight);
 	    }
 	}
+	
+	if (lastFloor != -1)
+	{
+		show_debug_message(lastFloor);
+		destroyTileLayer(lastFloor);
+	}
+	
+	
 }

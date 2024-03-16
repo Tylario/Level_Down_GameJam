@@ -1,4 +1,4 @@
-depth = -100;
+depth = -10000;
 timeSinceTouchingGround = 0.25;
 iceTime = 0;
 arrowDirection = "";
