@@ -1,3 +1,5 @@
+arrowMultiplier = 1;
+
 var movingLeft = keyboard_check(vk_left);
 var movingRight = keyboard_check(vk_right);
 var movingUp = keyboard_check(vk_up);
@@ -111,7 +113,7 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
             break;
         case "Down": // Straight down
             y += moveAmount;
-            break;
+            break;	 
         case "Down Left": // Approx 180 + 28 degrees
             y += moveAmount * 0.46947; // Adjusted for demonstration
             x -= moveAmount * 0.88295; // Adjusted for demonstration
@@ -124,12 +126,64 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
     
     // Implementing the jump effect
     y -= jumpEffect;
-	
-	x = x + clamp(xMomentum, -maxSpeed, maxSpeed) * 0.3;
-	y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * 0.71 * 0.3; // this 0.71 is  to consider the 45 degree angle
+
+	arrowMultiplier = 0.3;
 }
 else
 {
-	x = x + clamp(xMomentum, -maxSpeed, maxSpeed);
-	y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * 0.71; // this 0.71 is  to consider the 45 degree angle
+	arrowMultiplier = 1;
 }
+
+x = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier;
+y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier; // this 0.71 is  to consider the 45 degree angle
+
+//walk idles and animations
+/*
+if keyboard_check_pressed(vk_right) { //right
+	sprite_index = sprWalkRight;
+} else {
+	sprite_index = sprRightIdle;
+}
+
+if keyboard_check_pressed(vk_left) { //left
+	sprite_index = sprWalkLeft
+} else {
+	sprite_index = sprLeftIdle;
+}
+
+if keyboard_check_pressed(vk_up) { //up
+	sprite_index = sprWalkBack;
+} else {
+	sprite_index = sprBackIdle;
+}
+
+if keyboard_check_pressed(vk_down) { // down
+	sprite_index = sprWalkFront;
+} else {
+	sprite_index = sprFrontIdle;
+}
+
+if (keyboard_check_pressed(vk_down) && keyboard_check_pressed(vk_right)) { //down and right
+	sprite_index = sprWalkFrontRight;
+} else {
+	sprite_index = sprFrontRightIdle;
+}
+
+if (keyboard_check_pressed(vk_down) && keyboard_check_pressed(vk_left)) { // down and left
+	sprite_index = sprWalkFrontLeft;
+} else {
+	sprite_index = sprFrontLeftIdle;
+}
+
+if (keyboard_check_pressed(vk_up) && keyboard_check_pressed(vk_right)) { //up and right
+	sprite_index = sprWalkBackRight;
+} else {
+	sprite_index = sprBackRightIdle;
+}
+
+if (keyboard_check_pressed(vk_up) && keyboard_check_pressed(vk_left)) { //up and left
+	sprite_index = sprWalkBackLeft;
+} else {
+	sprite_index = sprBackLeftIdle;
+}
+*/
