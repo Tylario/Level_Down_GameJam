@@ -91,3 +91,40 @@ else
 {
 	acceleration = 16;
 }
+
+// Arrow tiles
+arrowJumpingTimer += delta_time / 1000000;
+if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
+{
+    var someValue = 3; // Define the scale of the jump effect
+    var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
+	var moveAmount = 0.41 / arrowJumpTime;
+    
+    switch(arrowDirection) {
+        case "Up": // Directly up
+            y -= moveAmount;
+            break;
+        case "Up Right":  // Approx 28 degrees
+            y -= moveAmount * 0.46947; // Adjusted for demonstration
+            x += moveAmount * 0.88295; // Adjusted for demonstration
+            break;
+        case "Down Right": // Approx -28 degrees
+            y += moveAmount * 0.46947; // Adjusted for demonstration
+            x += moveAmount * 0.88295; // Adjusted for demonstration
+            break;
+        case "Down": // Straight down
+            y += moveAmount;
+            break;
+        case "Down Left": // Approx 180 + 28 degrees
+            y += moveAmount * 0.46947; // Adjusted for demonstration
+            x -= moveAmount * 0.88295; // Adjusted for demonstration
+            break;
+        case "Up Left": // Approx 180 - 28 degrees
+            y -= moveAmount * 0.46947; // Adjusted for demonstration
+            x -= moveAmount * 0.88295; // Adjusted for demonstration
+            break;
+    }
+    
+    // Implementing the jump effect
+    y -= jumpEffect;
+}
