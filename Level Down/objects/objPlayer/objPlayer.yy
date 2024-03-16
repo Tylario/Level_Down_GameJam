@@ -47,10 +47,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprIdleFront",
-    "path":"sprites/sprIdleFront/sprIdleFront.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":{
     "name":"sprPlayerSpriteMask",
     "path":"sprites/sprPlayerSpriteMask/sprPlayerSpriteMask.yy",
