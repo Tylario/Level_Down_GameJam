@@ -1,1 +1,4 @@
-timeTouchingPlayer = timeTouchingPlayer + delta_time / 1000000;
+if (other.currentFloor == floorNumber)
+{
+	timeTouchingPlayer = timeTouchingPlayer + delta_time / 1000000;
+}

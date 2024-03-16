@@ -30,7 +30,7 @@
   ],
   "name":"sprWalkBackLeft",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"walk",
     "path":"folders/Sprites/player/walk.yy",
@@ -104,7 +104,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":8,
-    "yorigin":14,
+    "yorigin":29,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

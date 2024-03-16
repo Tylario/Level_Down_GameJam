@@ -23,7 +23,7 @@
   ],
   "name":"sprBackRightIdle",
   "nineSlice":null,
-  "origin":4,
+  "origin":7,
   "parent":{
     "name":"idle",
     "path":"folders/Sprites/player/idle.yy",
@@ -76,7 +76,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":8,
-    "yorigin":15,
+    "yorigin":31,
   },
   "swatchColours":null,
   "swfPrecision":0.5,
