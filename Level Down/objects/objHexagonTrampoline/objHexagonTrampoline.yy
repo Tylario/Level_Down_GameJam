@@ -1,15 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"objTileSpawner",
+  "%Name":"objHexagonTrampoline",
   "eventList":[],
   "managed":true,
-  "name":"objTileSpawner",
+  "name":"objHexagonTrampoline",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objParentHexagon",
+    "path":"objects/objParentHexagon/objParentHexagon.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -23,13 +26,17 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[
-    {"$GMObjectProperty":"","%Name":"variable_name","filters":[],"listItems":[],"multiselect":false,"name":"variable_name","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":5,},
-  ],
+  "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
-  "spriteMaskId":null,
+  "spriteId":{
+    "name":"sprHexagonUnbreakable",
+    "path":"sprites/sprHexagonUnbreakable/sprHexagonUnbreakable.yy",
+  },
+  "spriteMaskId":{
+    "name":"sprHexagonParent",
+    "path":"sprites/sprHexagonParent/sprHexagonParent.yy",
+  },
   "visible":true,
 }

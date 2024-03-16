@@ -72,9 +72,6 @@ if ((movingUp || movingDown) && (movingLeft || movingRight)) {
     }
 }
 
-x = x + clamp(xMomentum, -maxSpeed, maxSpeed);
-y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * 0.71; // this 0.71 is  to consider the 45 degree angle
-
 // Reset timer if not falling
 
 timeSinceTouchingGround = timeSinceTouchingGround - (delta_time / 1000000);
@@ -98,7 +95,7 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
 {
     var someValue = 3; // Define the scale of the jump effect
     var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	var moveAmount = 0.41 / arrowJumpTime;
+	var moveAmount = 0.43 / arrowJumpTime;
     
     switch(arrowDirection) {
         case "Up": // Directly up
@@ -127,4 +124,12 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
     
     // Implementing the jump effect
     y -= jumpEffect;
+	
+	x = x + clamp(xMomentum, -maxSpeed, maxSpeed) * 0.3;
+	y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * 0.71 * 0.3; // this 0.71 is  to consider the 45 degree angle
+}
+else
+{
+	x = x + clamp(xMomentum, -maxSpeed, maxSpeed);
+	y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * 0.71; // this 0.71 is  to consider the 45 degree angle
 }
