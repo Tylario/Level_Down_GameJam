@@ -9,8 +9,8 @@
     {"name":"Sprites","order":1,"path":"folders/Sprites.yy",},
     {"name":"hexagon","order":27,"path":"folders/Sprites/hexagon.yy",},
     {"name":"player","order":28,"path":"folders/Sprites/player.yy",},
-    {"name":"walk","order":3,"path":"folders/Sprites/player/walk.yy",},
     {"name":"idle","order":2,"path":"folders/Sprites/player/idle.yy",},
+    {"name":"walk","order":3,"path":"folders/Sprites/player/walk.yy",},
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
   ],
   "ResourceOrderSettings":[
