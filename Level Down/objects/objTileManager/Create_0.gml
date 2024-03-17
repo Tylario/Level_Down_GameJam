@@ -4,6 +4,8 @@ lastFloor = -1;
 function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) {
 
     centerY -= floorNum * floorHeight;
+	
+	show_debug_message(floorNum);
 
     var tileType; 
 
@@ -18,7 +20,19 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
         case 2:
             tileType = hexagonIce;
             break;
-        default: // For floor 3 and above
+		case 3:
+			tileType = hexagonArrow;
+			break;
+		case 4:
+			tileType = hexagonIce;
+			break;
+		case 5:
+			tileType = hexagonBreakable;
+			break;
+		case 6:
+			tileType = hexagonBreakable;
+			break;
+        default:
             tileType = hexagonArrow;
     }
     // If it's the first layer, create the center tile
@@ -63,7 +77,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 	
 
 function destroyTileLayer(floorNum) {
-    with (objParentHexagon) { // Assuming objTile is your tile object
+    with (objParentHexagon) { 
         if (floorNumber > floorNum) {
             instance_destroy();
         }

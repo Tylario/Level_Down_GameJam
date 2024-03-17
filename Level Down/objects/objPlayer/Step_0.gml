@@ -4,6 +4,7 @@ var movingLeft = keyboard_check(vk_left);
 var movingRight = keyboard_check(vk_right);
 var movingUp = keyboard_check(vk_up);
 var movingDown = keyboard_check(vk_down);
+var jumpingPressed = keyboard_check(vk_space);
 
 // horizontal movement 
 if (movingLeft xor movingRight) { 
@@ -233,3 +234,24 @@ if (isMoving) {
 
 // Adjust image_speed for animations
 image_speed = isMoving ? 0.5 : 0; // Set this according to your game's needs
+
+
+//jumping
+jumpTimer = jumpTimer + delta_time / 1000000;
+
+if (jumpingPressed and jumpTimer > 0.75)
+{
+	jumpTimer = 0;
+}
+
+if (jumpTimer > 0 and jumpTimer < 0.5)
+{
+	jumping = true;
+	y = y + ((jumpTimer - 0.25) * 25);
+	//set sprite equal to one of 6 directions, starting at the direction relative to current facing should appear to rotate
+}
+else
+{
+	jumping = false
+}
+

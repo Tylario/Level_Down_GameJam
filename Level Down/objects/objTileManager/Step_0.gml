@@ -3,10 +3,10 @@ if (objPlayer.currentFloor != lastFloor)
     lastFloor = objPlayer.currentFloor;
 
 	var layers = 11;
-	var floors = 4; 
+	var floors = 10; 
 	var xDiff = 49; 
 	var yDiff = 10; 
-	var floorHeight = 200; // Height difference between floors
+	var floorHeight = 100; // Height difference between floors
 
 	// Adjust this to set the center position
 	var startX = room_width / 2;
@@ -23,9 +23,6 @@ if (objPlayer.currentFloor != lastFloor)
 	
 	if (lastFloor != -1)
 	{
-		show_debug_message(lastFloor);
 		destroyTileLayer(lastFloor);
 	}
-	
-	
 }

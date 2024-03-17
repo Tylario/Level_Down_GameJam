@@ -1,4 +1,4 @@
-if (other.currentFloor == floorNumber)
+if (other.currentFloor == floorNumber && objPlayer.jumping == false)
 {
 	timeTouchingPlayer = timeTouchingPlayer + delta_time / 1000000;
 }
