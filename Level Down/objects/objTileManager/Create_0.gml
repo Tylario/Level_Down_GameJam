@@ -4,12 +4,9 @@ lastFloor = -1;
 function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) {
 
     centerY -= floorNum * floorHeight;
-	
-	show_debug_message(floorNum);
 
     var tileType; 
 
-    // Determine the tile type based on the floor number
     switch(floorNum) {
         case 0:
             tileType = objHexagonUnbreakable;
@@ -35,15 +32,14 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
         default:
             tileType = hexagonArrow;
     }
-    // If it's the first layer, create the center tile
+
     if (layer == 0) {
         var centerTile = instance_create_layer(centerX, centerY, "Instances", tileType);
-        centerTile.depth = -centerTile.y + 4000 - (floorNum * 1000);
-        centerTile.floorNumber = floorNum; // Set the floorNumber variable for the tile
-        return; // Exit the function after creating the center tile
+        centerTile.depth = -centerTile.y + 6000 - (floorNum * 1000);
+        centerTile.floorNumber = floorNum; 
+        return; 
     }
    
-    // Determine the starting position for this layer
     var layerStartX = centerX + layer * xDiff;
     var layerStartY = centerY;
    
@@ -64,10 +60,9 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
             var posX = layerStartX + i * directionX;
             var posY = layerStartY + i * directionY;
            
-            // Create the tile and adjust its depth for rendering order
             var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
             tileInstance.depth = -tileInstance.y + 4000 - (floorNum * 1000);
-            tileInstance.floorNumber = floorNum; // Set the floorNumber variable for the tile
+            tileInstance.floorNumber = floorNum;
         }
        
         layerStartX += layer * directionX;
