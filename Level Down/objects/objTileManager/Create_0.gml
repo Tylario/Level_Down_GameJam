@@ -2,51 +2,23 @@ lastFloor = -1;
 
 
 function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) {
-
     centerY -= floorNum * floorHeight;
-
-    var tileType; 
-
-    switch(floorNum) {
-        case 0:
-            tileType = objHexagonUnbreakable;
-            break;
-        case 1:
-            tileType = hexagonBreakable;
-            break;
-        case 2:
-            tileType = hexagonIce;
-            break;
-		case 3:
-			tileType = hexagonArrow;
-			break;
-		case 4:
-			tileType = hexagonIce;
-			break;
-		case 5:
-			tileType = hexagonBreakable;
-			break;
-		case 6:
-			tileType = hexagonBreakable;
-			break;
-        default:
-            tileType = hexagonArrow;
-    }
-
+   
     if (layer == 0) {
-        var centerTile = instance_create_layer(centerX, centerY, "Instances", tileType);
-        centerTile.depth = -centerTile.y + 6000 - (floorNum * 1000);
-        centerTile.floorNumber = floorNum; 
-        return; 
+        var centerTileType = determineTileType(floorNum);
+        if (centerTileType != noone) {
+            var centerTile = instance_create_layer(centerX, centerY, "Instances", centerTileType);
+            centerTile.depth = -centerTile.y + 4000 - (floorNum * 1000);
+            centerTile.floorNumber = floorNum;
+        }
+        return;
     }
    
     var layerStartX = centerX + layer * xDiff;
     var layerStartY = centerY;
    
     for (var side = 0; side < 6; side++) {
-        var directionX = 0;
-        var directionY = 0;
-       
+        var directionX = 0, directionY = 0;
         switch (side) {
             case 0: directionX = -xDiff / 2; directionY = yDiff; break;
             case 1: directionX = -xDiff; break;
@@ -60,16 +32,65 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
             var posX = layerStartX + i * directionX;
             var posY = layerStartY + i * directionY;
            
-            var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
-            tileInstance.depth = -tileInstance.y + 4000 - (floorNum * 1000);
-            tileInstance.floorNumber = floorNum;
+            var tileType = determineTileType(floorNum); // Determine the tile type for each tile individually
+
+            if (tileType != noone) { 
+                var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
+				show_debug_message("Floor: " + string(floorNum) + ", TileType: " + string(tileType) + ", Position: (" + string(posX) + ", " + string(posY) + ")");
+				
+                tileInstance.depth = (-tileInstance.y * 2) + 4000 - (floorNum * 50);
+                tileInstance.floorNumber = floorNum;
+
+            }
         }
        
         layerStartX += layer * directionX;
         layerStartY += layer * directionY;
     }
 }
-	
+
+// Helper function to determine the tile type based on floorNum and randomness
+function determineTileType(floorNum) {
+    var tileType = noone;
+    var randomNumber = irandom(100); // Random number for each tile
+    
+    switch(floorNum) {
+        case 0:
+            tileType = objHexagonUnbreakable;
+            break;
+        case 1:
+            if (randomNumber < 80) { 
+                tileType = hexagonBreakable;
+            }
+            break;
+        case 2:
+            if (randomNumber < 10) tileType = hexagonArrow; 
+            else if (randomNumber < 80) tileType = hexagonIce; 
+            break;
+        case 3:
+            if (randomNumber < 60) { 
+                tileType = hexagonBreakable;
+            }
+            break;
+        case 4:
+
+            if (randomNumber < 80) { 
+                tileType = hexagonBreakable;
+            }
+            break;
+        case 5:
+            tileType = hexagonBreakable;
+            break;
+        case 6:
+            tileType = hexagonBreakable;
+            break;
+        default:
+            tileType = hexagonArrow;
+    }
+    
+    return tileType;
+}
+
 
 function destroyTileLayer(floorNum) {
     with (objParentHexagon) { 

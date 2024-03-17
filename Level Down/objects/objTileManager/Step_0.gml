@@ -3,7 +3,7 @@ if (objPlayer.currentFloor != lastFloor)
     lastFloor = objPlayer.currentFloor;
 
 	var layers = 11;
-	var floors = 10; 
+	var floors = 6; 
 	var xDiff = 49; 
 	var yDiff = 10; 
 	var floorHeight = 100; // Height difference between floors

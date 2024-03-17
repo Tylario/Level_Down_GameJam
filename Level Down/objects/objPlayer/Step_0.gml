@@ -1,9 +1,9 @@
 arrowMultiplier = 1;
 
-var movingLeft = keyboard_check(vk_left);
-var movingRight = keyboard_check(vk_right);
-var movingUp = keyboard_check(vk_up);
-var movingDown = keyboard_check(vk_down);
+var movingLeft = keyboard_check(vk_left) || keyboard_check(ord("A"));
+var movingRight = keyboard_check(vk_right) || keyboard_check(ord("D"));
+var movingUp = keyboard_check(vk_up) || keyboard_check(ord("W"));
+var movingDown = keyboard_check(vk_down) || keyboard_check(ord("S"));
 var jumpingPressed = keyboard_check(vk_space);
 
 // horizontal movement 
@@ -98,7 +98,7 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
 {
     var someValue = 3; // Define the scale of the jump effect
     var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	var moveAmount = 0.43 / arrowJumpTime;
+	var moveAmount = 0.47 / arrowJumpTime;
     
     switch(arrowDirection) {
         case "Up": // Directly up
