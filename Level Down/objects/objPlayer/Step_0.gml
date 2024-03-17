@@ -148,7 +148,7 @@ var newX = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncin
 var newY = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
 
 // Check for collisions at the new positions
-if (!place_meeting(newX, y, objHexagonTall) && !place_meeting(x, newY, objHexagonTall)) {
+if (currentFloor!= 0 or (!place_meeting(newX, y, objHexagonTall) && !place_meeting(x, newY, objHexagonTall))) {
     // No collision with objHexagonTall at new positions, so it's safe to move
     x = newX;
     y = newY;
