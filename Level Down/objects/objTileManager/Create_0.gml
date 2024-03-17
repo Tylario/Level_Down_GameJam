@@ -114,7 +114,9 @@ function determineTileType(floorNum, posX, posY) {
 			}
             break;
         case 6:
-            tileType = hexagonBreakable;
+            tileType = hexagonArrow;
+		case 7:
+			tileType = hexagonBreakable;
             break;
         default:
             tileType = hexagonArrow;
