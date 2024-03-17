@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"objWallParent",
-  "eventList":[],
+  "%Name":"objLogo",
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"objWallParent",
+  "name":"objLogo",
   "overriddenProperties":[],
   "parent":{
-    "name":"wall objects",
-    "path":"folders/Objects/wall objects.yy",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sprLogo",
+    "path":"sprites/sprLogo/sprLogo.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

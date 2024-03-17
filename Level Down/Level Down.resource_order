@@ -1,7 +1,6 @@
 {
   "FolderOrderSettings":[
     {"name":"Objects","order":6,"path":"folders/Objects.yy",},
-    {"name":"wall objects","order":10,"path":"folders/Objects/wall objects.yy",},
     {"name":"Rooms","order":7,"path":"folders/Rooms.yy",},
     {"name":"Sounds","order":2,"path":"folders/Sounds.yy",},
     {"name":"backgrounds","order":30,"path":"folders/Sprites/backgrounds.yy",},
@@ -13,6 +12,7 @@
     {"name":"walls","order":32,"path":"folders/Sprites/walls.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"Object13","order":13,"path":"objects/Object13/Object13.yy",},
     {"name":"objHexagonArrow","order":8,"path":"objects/objHexagonArrow/objHexagonArrow.yy",},
     {"name":"objHexagonIce","order":6,"path":"objects/objHexagonIce/objHexagonIce.yy",},
     {"name":"objHexagonTall","order":11,"path":"objects/objHexagonTall/objHexagonTall.yy",},
@@ -21,10 +21,9 @@
     {"name":"objHexagonWin","order":7,"path":"objects/objHexagonWin/objHexagonWin.yy",},
     {"name":"objHexBreakable","order":2,"path":"objects/objHexBreakable/objHexBreakable.yy",},
     {"name":"objLevelManager","order":3,"path":"objects/objLevelManager/objLevelManager.yy",},
+    {"name":"objLogo","order":12,"path":"objects/objLogo/objLogo.yy",},
     {"name":"objParentHexagon","order":1,"path":"objects/objParentHexagon/objParentHexagon.yy",},
     {"name":"objTileManager","order":4,"path":"objects/objTileManager/objTileManager.yy",},
-    {"name":"objWall345","order":7,"path":"objects/objWall345/objWall345.yy",},
-    {"name":"objWallParent","order":8,"path":"objects/objWallParent/objWallParent.yy",},
     {"name":"sndFall","order":1,"path":"sounds/sndFall/sndFall.yy",},
     {"name":"sndHexagon","order":3,"path":"sounds/sndHexagon/sndHexagon.yy",},
     {"name":"sndJump","order":2,"path":"sounds/sndJump/sndJump.yy",},
@@ -45,8 +44,6 @@
     {"name":"sprHexagonUnbreakable","order":10,"path":"sprites/sprHexagonUnbreakable/sprHexagonUnbreakable.yy",},
     {"name":"sprHexagonWin","order":11,"path":"sprites/sprHexagonWin/sprHexagonWin.yy",},
     {"name":"sprHexagonWinTemp","order":12,"path":"sprites/sprHexagonWinTemp/sprHexagonWinTemp.yy",},
-    {"name":"sprWall45","order":4,"path":"sprites/sprWall45/sprWall45.yy",},
-    {"name":"sprWallTransparent","order":12,"path":"sprites/sprWallTransparent/sprWallTransparent.yy",},
     {"name":"sprLeftIdle","order":8,"path":"sprites/sprLeftIdle/sprLeftIdle.yy",},
     {"name":"sprLogo","order":29,"path":"sprites/sprLogo/sprLogo.yy",},
     {"name":"sprPlanet10","order":5,"path":"sprites/sprPlanet10/sprPlanet10.yy",},
@@ -83,8 +80,11 @@
     {"name":"sprWall23","order":3,"path":"sprites/sprWall23/sprWall23.yy",},
     {"name":"sprWall234","order":7,"path":"sprites/sprWall234/sprWall234.yy",},
     {"name":"sprWall345","order":9,"path":"sprites/sprWall345/sprWall345.yy",},
+    {"name":"sprWall45","order":4,"path":"sprites/sprWall45/sprWall45.yy",},
     {"name":"sprWall56","order":5,"path":"sprites/sprWall56/sprWall56.yy",},
     {"name":"sprWall612","order":10,"path":"sprites/sprWall612/sprWall612.yy",},
+    {"name":"sprWallTransparent","order":12,"path":"sprites/sprWallTransparent/sprWallTransparent.yy",},
     {"name":"sprYouWin","order":31,"path":"sprites/sprYouWin/sprYouWin.yy",},
+    {"name":"subtitle","order":33,"path":"sprites/subtitle/subtitle.yy",},
   ],
 }

@@ -2,9 +2,18 @@ if (objPlayer.currentFloor != lastFloor) {
 	
 	if (objPlayer.currentFloor < 0)
 	{
-		
 		room_restart()
 	}
+	
+	if (objPlayer.currentFloor == 0)
+	{
+	    objLogo.image_alpha = 0.75; // 50% opacity
+	}
+	else
+	{
+	    objLogo.image_alpha = 0.0; // 90% opacity
+	}
+
 	
     lastFloor = objPlayer.currentFloor;
 
