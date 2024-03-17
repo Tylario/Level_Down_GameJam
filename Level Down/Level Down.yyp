@@ -79,7 +79,6 @@
     {"id":{"name":"sprWalkRight","path":"sprites/sprWalkRight/sprWalkRight.yy",},},
     {"id":{"name":"sprWalkUp","path":"sprites/sprWalkUp/sprWalkUp.yy",},},
     {"id":{"name":"sprWalkUpRight","path":"sprites/sprWalkUpRight/sprWalkUpRight.yy",},},
-    {"id":{"name":"sprWallUpLeft","path":"sprites/sprWallUpLeft/sprWallUpLeft.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

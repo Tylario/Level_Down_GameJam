@@ -232,4 +232,4 @@ if (isMoving) {
 }
 
 // Adjust image_speed for animations
-image_speed = isMoving ? 1 : 0; // Set this according to your game's needs
+image_speed = isMoving ? 0.5 : 0; // Set this according to your game's needs

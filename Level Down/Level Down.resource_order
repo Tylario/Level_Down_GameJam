@@ -56,6 +56,5 @@
     {"name":"sprWalkLeft","order":6,"path":"sprites/sprWalkLeft/sprWalkLeft.yy",},
     {"name":"sprWalkRight","order":7,"path":"sprites/sprWalkRight/sprWalkRight.yy",},
     {"name":"sprWalkUpRight","order":2,"path":"sprites/sprWalkUpRight/sprWalkUpRight.yy",},
-    {"name":"sprWallUpLeft","order":1,"path":"sprites/sprWallUpLeft/sprWallUpLeft.yy",},
   ],
 }
