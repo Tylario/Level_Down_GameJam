@@ -137,3 +137,99 @@ else
 x = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier;
 y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier; // this 0.71 is  to consider the 45 degree angle
 
+// Initialize a variable for the last direction in the Create Event
+// Possible values: "left", "right", "up", "down", "upLeft", "upRight", "downLeft", "downRight"
+lastDirection = "none";
+
+// Update the lastDirection based on movement (in the Step Event)
+if (xMomentum < 0) {
+    lastDirection = "left";
+} else if (xMomentum > 0) {
+    lastDirection = "right";
+}
+
+if (yMomentum < 0) {
+    if (lastDirection == "left") {
+        lastDirection = "upLeft";
+    } else if (lastDirection == "right") {
+        lastDirection = "upRight";
+    } else {
+        lastDirection = "up";
+    }
+} else if (yMomentum > 0) {
+    if (lastDirection == "left") {
+        lastDirection = "downLeft";
+    } else if (lastDirection == "right") {
+        lastDirection = "downRight";
+    } else {
+        lastDirection = "down";
+    }
+}
+
+// Decide whether the player is moving
+var isMoving = xMomentum != 0 || yMomentum != 0;
+
+// Select the correct sprite based on movement and direction
+if (isMoving) {
+    switch(lastDirection) {
+        case "left":
+            sprite_index = sprWalkLeft;
+            break;
+        case "right":
+            sprite_index = sprWalkRight;
+            break;
+        case "up":
+            sprite_index = sprWalkUp;
+            break;
+        case "down":
+            sprite_index = sprWalkDown;
+            break;
+        case "upLeft":
+            sprite_index = sprWalkUpLeft;
+            break;
+        case "upRight":
+            sprite_index = sprWalkUpRight;
+            break;
+        case "downLeft":
+            sprite_index = sprWalkDownLeft;
+            break;
+        case "downRight":
+            sprite_index = sprWalkDownRight;
+            break;
+    }
+} else {
+    // When not moving, switch to the corresponding idle sprite
+    switch(lastDirection) {
+        case "left":
+            sprite_index = sprLeftIdle;
+            break;
+        case "right":
+            sprite_index = sprRightIdle;
+            break;
+        case "up":
+            sprite_index = sprUpIdle;
+            break;
+        case "down":
+            sprite_index = sprDownIdle;
+            break;
+        case "upLeft":
+            sprite_index = sprUpLeftIdle;
+            break;
+        case "upRight":
+            sprite_index = sprUpRightIdle;
+            break;
+        case "downLeft":
+            sprite_index = sprDownLeftIdle;
+            break;
+        case "downRight":
+            sprite_index = sprDownRightIdle;
+            break;
+        default:
+            // Optional: Decide on a default idle sprite if no direction is set
+            sprite_index = sprDownIdle; // Example default
+            break;
+    }
+}
+
+// Adjust image_speed for animations
+image_speed = isMoving ? 1 : 0; // Set this according to your game's needs
