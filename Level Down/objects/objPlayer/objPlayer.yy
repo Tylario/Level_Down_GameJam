@@ -44,8 +44,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprFrontIdle",
-    "path":"sprites/sprFrontIdle/sprFrontIdle.yy",
+    "name":"sprDownIdle",
+    "path":"sprites/sprDownIdle/sprDownIdle.yy",
   },
   "spriteMaskId":{
     "name":"sprPlayerSpriteMask",
