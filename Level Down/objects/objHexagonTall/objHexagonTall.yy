@@ -9,7 +9,10 @@
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objParentHexagon",
+    "path":"objects/objParentHexagon/objParentHexagon.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -31,6 +34,9 @@
     "name":"sprHexagonTall",
     "path":"sprites/sprHexagonTall/sprHexagonTall.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"sprHexagonParent",
+    "path":"sprites/sprHexagonParent/sprHexagonParent.yy",
+  },
   "visible":true,
 }

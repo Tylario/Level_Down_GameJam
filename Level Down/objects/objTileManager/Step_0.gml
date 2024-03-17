@@ -1,4 +1,11 @@
 if (objPlayer.currentFloor != lastFloor) {
+	
+	if (objPlayer.currentFloor < 0)
+	{
+		
+		room_restart()
+	}
+	
     lastFloor = objPlayer.currentFloor;
 
     var layers = 11;

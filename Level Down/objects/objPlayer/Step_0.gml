@@ -143,8 +143,18 @@ else
 }
 
 
-x = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
-y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier; // this 0.71 is  to consider the 45 degree angle
+// Calculate potential new positions
+var newX = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
+var newY = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
+
+// Check for collisions at the new positions
+if (!place_meeting(newX, y, objHexagonTall) && !place_meeting(x, newY, objHexagonTall)) {
+    // No collision with objHexagonTall at new positions, so it's safe to move
+    x = newX;
+    y = newY;
+} else {
+    // Optional: handle the collision, e.g., stop movement, bounce back, etc.
+}
 
 // Initialize a variable for the last direction in the Create Event
 // Possible values: "left", "right", "up", "down", "upLeft", "upRight", "downLeft", "downRight"

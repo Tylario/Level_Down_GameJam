@@ -4,17 +4,15 @@ lastFloor = -1;
 function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) {
     centerY -= floorNum * floorHeight;
    
-    if (layer == 0) 
-	{
-	    var centerTileType = determineTileType(floorNum, centerX, centerY); // Assuming centerX and centerY passed correctly
-	    if (centerTileType != noone) {
-	        var centerTile = instance_create_layer(centerX, centerY, "Instances", centerTileType);
-	        // Adjusted depth calculation to match other tiles
-	        centerTile.depth = (-centerTile.y * 2) + 4000 - (floorNum * 50);
-	        centerTile.floorNumber = floorNum;
-	    }
-	    return;
-	}
+    if (layer == 0) {
+        var centerTileType = determineTileType(floorNum, centerX, centerY); // Assuming centerX and centerY passed correctly
+        if (centerTileType != noone) {
+            var centerTile = instance_create_layer(centerX, centerY, "Instances", centerTileType);
+            centerTile.depth = (-centerTile.y * 2) + 4000 - (floorNum * 50);
+            centerTile.floorNumber = floorNum;
+        }
+        return;
+    }
    
     var layerStartX = centerX + layer * xDiff;
     var layerStartY = centerY;
@@ -34,8 +32,15 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
             var posX = layerStartX + i * directionX;
             var posY = layerStartY + i * directionY;
            
-            // Now passing posX and posY
-            var tileType = determineTileType(floorNum, posX, posY);
+            // Determine if this is the outermost layer on floor 0
+            var isOutermostLayerOnFloor0;
+if (floorNum == 0 && (layer == 14 or layer == 13)) {
+    isOutermostLayerOnFloor0 = true;
+} else {
+    isOutermostLayerOnFloor0 = false;
+}
+
+            var tileType = isOutermostLayerOnFloor0 ? objHexagonTall : determineTileType(floorNum, posX, posY);
 
             if (tileType != noone) { 
                 var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
@@ -48,6 +53,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
         layerStartY += layer * directionY;
     }
 }
+
 
 
 
