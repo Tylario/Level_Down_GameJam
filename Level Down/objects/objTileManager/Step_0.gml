@@ -11,6 +11,11 @@ if (objPlayer.currentFloor != lastFloor)
 	// Adjust this to set the center position
 	var startX = room_width / 2;
 	var startY = room_height - 400;
+	
+	with (objParentHexagon) 
+	{ 
+		instance_destroy();
+    }
 
 	// Loop to create each floor
 	for (var floorNum = 0; floorNum < floors; floorNum++) 

@@ -56,7 +56,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 function determineTileType(floorNum) {
     var tileType = noone;
     var randomNumber = irandom(100); // Random number for each tile
-    /*
+  
     switch(floorNum) {
         case 0:
             tileType = objHexagonUnbreakable;
@@ -77,12 +77,17 @@ function determineTileType(floorNum) {
             break;
         case 4:
 
-            if (randomNumber < 80) { 
+            if (randomNumber < 45) { 
                 tileType = hexagonBreakable;
+            }
+			if (randomNumber < 15) { 
+                tileType = hexagonArrow;
             }
             break;
         case 5:
-            tileType = hexagonBreakable;
+           if (randomNumber < 55) { 
+                tileType = hexagonIce;
+            }
             break;
         case 6:
             tileType = hexagonBreakable;
@@ -90,35 +95,7 @@ function determineTileType(floorNum) {
         default:
             tileType = hexagonArrow;
     }
-	*/
-	
-	switch(floorNum) {
-        case 0:
-            tileType = objHexagonUnbreakable;
-            break;
-        case 1:
-            tileType = objHexagonUnbreakable;
-            break;
-        case 2:
-            tileType = objHexagonUnbreakable;
-            break;
-        case 3:
-            tileType = hexagonIce; 
-            break;
-        case 4:
-            if (randomNumber < 80) { 
-                tileType = hexagonBreakable;
-            }
-            break;
-        case 5:
-            tileType = hexagonBreakable;
-            break;
-        case 6:
-            tileType = hexagonBreakable;
-            break;
-        default:
-            tileType = hexagonArrow;
-    }
+
 	
     
     return tileType;
