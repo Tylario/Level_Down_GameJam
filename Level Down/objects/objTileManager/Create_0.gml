@@ -143,7 +143,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
             }
             break;
         case 3:
-            if (randomNumber < 60) { 
+            if (randomNumber < 70) { 
                 tileType = hexagonBreakable;
             }
             if (posX == level3TrampolineX && posY == level3TrampolineY) {
@@ -151,7 +151,23 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
             }
             break;
         case 4:
-            if (randomNumber < 50) { 
+            if (randomNumber < 40) { 
+                tileType = hexagonArrow;
+            }
+			if (randomNumber < 50) { 
+                tileType = hexagonBreakable;
+            }
+            break;
+        case 5:
+            if (randomNumber < 70) { 
+                tileType = hexagonIce;
+            }
+            if (posX == level5TrampolineX && posY == level5TrampolineY) {
+                tileType = hexagonTrampoline;
+            }
+            break;
+        case 6:	
+			if (randomNumber < 50) { 
                 tileType = hexagonIce;
             }
             if (randomNumber < 15) { 
@@ -164,22 +180,18 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
                 tileType = hexagonTrampoline;
             }
             break;
-        case 5:
-            if (randomNumber < 55) { 
-                tileType = hexagonIce;
-            }
-            if (posX == level5TrampolineX && posY == level5TrampolineY) {
-                tileType = hexagonTrampoline;
-            }
-            break;
-        case 6:
-            tileType = hexagonArrow;
-            break;
         case 7:
-            tileType = hexagonBreakable;
+            if (randomNumber < 15) { 
+                tileType = hexagonArrow;
+            }
+			if (randomNumber < 50) { 
+                tileType = hexagonBreakable;
+            }
             break;
         default:
-            tileType = hexagonArrow;
+           if (randomNumber < 40) { 
+                tileType = hexagonIce;
+            }
     }
 
     return tileType;
