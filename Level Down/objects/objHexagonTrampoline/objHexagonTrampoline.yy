@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"objHexagonTrampoline",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"objHexagonTrampoline",
   "overriddenProperties":[],
@@ -31,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprHexagonUnbreakable",
-    "path":"sprites/sprHexagonUnbreakable/sprHexagonUnbreakable.yy",
+    "name":"sprHexagonTrampoline",
+    "path":"sprites/sprHexagonTrampoline/sprHexagonTrampoline.yy",
   },
   "spriteMaskId":{
     "name":"sprHexagonParent",

@@ -255,3 +255,12 @@ else
 	jumping = false
 }
 
+bounceTimer = bounceTimer - (delta_time / 1000000);
+
+if (bounceTimer > 0) {
+    y = y - bounceTimer * 13; // Move the player up based on the bounceTimer
+    hasBounced = true; // Set the flag to true since bouncing is occurring
+} else if (hasBounced) { // Check if the bounce just finished
+    currentFloor += 1; // Increment the floor once per bounce
+    hasBounced = false; // Reset the flag to prepare for the next bounce
+}

@@ -4,3 +4,5 @@ iceTime = 0;
 arrowDirection = "";
 arrowJumpingTimer = 10;
 jumpTimer = 0.5;
+bounceTimer = 0;
+hasBounced = false;
