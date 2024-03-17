@@ -76,9 +76,7 @@ if ((movingUp || movingDown) && (movingLeft || movingRight)) {
 }
 
 // Reset timer if not falling
-
 timeSinceTouchingGround = timeSinceTouchingGround - (delta_time / 1000000);
-
 
 // ice tile
 iceTime = iceTime - (delta_time / 1000000);
@@ -271,7 +269,33 @@ if (bounceTimer > 0) {
     y = y - bounceTimer * 13; // Move the player up based on the bounceTimer
     hasBounced = true; // Set the flag to true since bouncing is occurring
 } else if (hasBounced) { // Check if the bounce just finished
-    currentFloor += 1; // Increment the floor once per bounce
+    currentFloor = currentFloor + 1;
     hasBounced = false; // Reset the flag to prepare for the next bounce
 	bouncing = false;
 }
+
+bouncingTimer2 = bouncingTimer2 - delta_time / 1000000
+
+if (timeSinceTouchingGround < 0)
+{
+	falling = true;
+	if (bouncingTimer2 < -1)
+	{
+		bouncingTimer2 = 0.5;
+	}
+}
+
+if (bouncingTimer2 > 0)
+{
+	y = y + -1 * (bouncingTimer2 - 0.5) * 14;
+}
+
+if (bouncingTimer2 < 0 and bouncingTimer2 > -1)
+{	
+	falling = false;
+	timeSinceTouchingGround = 0.5;
+	currentFloor = currentFloor - 1;
+	bouncingTimer2 = -5;
+	
+}
+

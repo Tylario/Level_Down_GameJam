@@ -52,9 +52,6 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 
 // Helper function to determine the tile type based on floorNum and randomness
 function determineTileType(floorNum, posX, posY) {
-	
-	show_debug_message(string(floorNum) + ": " + string(posX) + ", " + string(posY));
-
     var tileType = noone;
     var randomNumber = irandom(100); // Random number for each tile
   
@@ -129,8 +126,6 @@ function determineTileType(floorNum, posX, posY) {
 
 
 function destroyTileLayer(floorNum) {
-	show_debug_message(objPlayer.currentFloor)
-	show_debug_message(floorNum);
     with (objParentHexagon) { 
         if (floorNumber > floorNum) {
             instance_destroy();

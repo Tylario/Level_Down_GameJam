@@ -8,3 +8,4 @@ bounceTimer = 0;
 hasBounced = false;
 bouncing = false;
 bouncingMultiplier = 1;
+bouncingTimer2 = -5;
