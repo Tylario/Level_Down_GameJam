@@ -135,8 +135,18 @@ else
 	arrowMultiplier = 1;
 }
 
-x = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier;
-y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier; // this 0.71 is  to consider the 45 degree angle
+if (bouncing)
+{
+	bouncingMultiplier = 0.3;
+}
+else
+{
+	bouncingMultiplier = 1;
+}
+
+
+x = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
+y = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier; // this 0.71 is  to consider the 45 degree angle
 
 // Initialize a variable for the last direction in the Create Event
 // Possible values: "left", "right", "up", "down", "upLeft", "upRight", "downLeft", "downRight"
@@ -263,4 +273,5 @@ if (bounceTimer > 0) {
 } else if (hasBounced) { // Check if the bounce just finished
     currentFloor += 1; // Increment the floor once per bounce
     hasBounced = false; // Reset the flag to prepare for the next bounce
+	bouncing = false;
 }

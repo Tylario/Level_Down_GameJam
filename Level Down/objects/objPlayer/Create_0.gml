@@ -6,3 +6,5 @@ arrowJumpingTimer = 10;
 jumpTimer = 0.5;
 bounceTimer = 0;
 hasBounced = false;
+bouncing = false;
+bouncingMultiplier = 1;
