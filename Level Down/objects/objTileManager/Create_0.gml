@@ -51,30 +51,60 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 
 
 
-function determineTileType(floorNum, posX, posY) {
-	
-	var message = "Floor Number: " + string(floorNum) + ", posX: " + string(posX) + ", posY: " + string(posY);
-    show_debug_message(message);
-	
-	var level0TrampolineX = 777.50, level0TrampolineY = 2470;
-	var level1TrampolineX = 1096, level1TrampolineY = 2380;
-	var level2TrampolineX = 581.50, level2TrampolineY = 2250;
-	var level3TrampolineX = 1194, level3TrampolineY = 2160;
-	var level4TrampolineX = 1022.50, level4TrampolineY = 2090;
-	var level5TrampolineX = 998, level5TrampolineY = 1840;
-	
-	
+function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
+    //var message = "Floor Number: " + floorNum + ", posX: " + posX + ", posY: " + posY;
+    //show_debug_message(message);
+    
+    var level0TrampolineX = 777.50, level0TrampolineY = 2470;
+    var level1TrampolineX = 1096, level1TrampolineY = 2380;
+    var level2TrampolineX = 581.50, level2TrampolineY = 2250;
+    var level3TrampolineX = 1194, level3TrampolineY = 2160;
+    var level4TrampolineX = 1022.50, level4TrampolineY = 2090;
+    var level5TrampolineX = 998, level5TrampolineY = 1840;
+
     var tileType = noone;
     var randomNumber = irandom(100); // Random number for each tile
     var floorHeight = 100; // Height difference between floors
 
-    // Checking for a trampoline in the same position on the previous floor
-    if (floorNum > 0) {
+    // Only check for trampolines below if not already checking below (to prevent infinite recursion)
+    if (floorNum > 0 && !isCheckingBelow) {
+        var xDiff = 49; 
+        var yDiff = 10;
+        
         var belowPosY = posY + floorHeight; // Calculate the Y position of the tile directly below on the previous floor
-        // This checks for a trampoline below and sets this tile to unbreakable if found
-        var belowTileType = determineTileType(floorNum - 1, posX, belowPosY);
-        if (belowTileType == hexagonTrampoline) {
-			//show_debug_message(message);
+        var isTrampolineBelow = false;
+
+        // Modify these checks to pass 'true' for the isCheckingBelow parameter
+        if (determineTileType(floorNum - 1, posX, belowPosY, true) == hexagonTrampoline) 
+		{
+            isTrampolineBelow = true;
+        } 
+		else if (determineTileType(floorNum - 1, posX - xDiff / 2, belowPosY + yDiff, true) == hexagonTrampoline) 
+		{
+            isTrampolineBelow = true;
+        } 
+		else if (determineTileType(floorNum - 1, posX + xDiff / 2, belowPosY + yDiff, true) == hexagonTrampoline) 
+		{
+            isTrampolineBelow = true;
+        } 
+		else if (determineTileType(floorNum - 1, posX, belowPosY + yDiff * 2, true) == hexagonTrampoline) 
+		{
+            isTrampolineBelow = true;
+        } 
+		else if (determineTileType(floorNum - 1, posX, belowPosY - yDiff * 2, true) == hexagonTrampoline) 
+		{
+            isTrampolineBelow = true;
+        } 
+		else if (determineTileType(floorNum - 1, posX - xDiff / 2, belowPosY - yDiff, true) == hexagonTrampoline) 
+		{
+            isTrampolineBelow = true;
+        } 
+		else if (determineTileType(floorNum - 1, posX + xDiff / 2, belowPosY - yDiff, true) == hexagonTrampoline) 
+		{
+            isTrampolineBelow = true;
+        } 
+
+        if (isTrampolineBelow) {
             return objHexagonUnbreakable; // Force this tile to be an unbreakable hexagon
         }
     }

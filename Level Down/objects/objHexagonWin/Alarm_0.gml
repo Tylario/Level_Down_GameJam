@@ -1,0 +1,1 @@
+layer_sprite_destroy("logo");
