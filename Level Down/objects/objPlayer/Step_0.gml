@@ -299,3 +299,7 @@ if (bouncingTimer2 < 0 and bouncingTimer2 > -1)
 	
 }
 
+//falling sound effect test
+if falling {
+	alarm[0] = fallSoundDelay;
+}

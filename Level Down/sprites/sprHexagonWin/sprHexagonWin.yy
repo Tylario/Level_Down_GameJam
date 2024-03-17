@@ -5,21 +5,21 @@
   "bbox_bottom":39,
   "bbox_left":0,
   "bbox_right":34,
-  "bbox_top":6,
+  "bbox_top":1,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
   "For3D":false,
   "frames":[
-    {"$GMSpriteFrame":"","%Name":"e557afb3-493e-4e57-b9a9-14a903ea29ab","name":"e557afb3-493e-4e57-b9a9-14a903ea29ab","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
+    {"$GMSpriteFrame":"","%Name":"93613ba0-e9c0-4112-9d03-f5a16aec3393","name":"93613ba0-e9c0-4112-9d03-f5a16aec3393","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
   "height":40,
   "HTile":false,
   "layers":[
-    {"$GMImageLayer":"","%Name":"5926ad2a-43d1-4961-920c-55225ccfb892","blendMode":0,"displayName":"default","isLocked":false,"name":"5926ad2a-43d1-4961-920c-55225ccfb892","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
+    {"$GMImageLayer":"","%Name":"521e862e-df73-4c6f-ad4c-595a07426bd4","blendMode":0,"displayName":"default","isLocked":false,"name":"521e862e-df73-4c6f-ad4c-595a07426bd4","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
   ],
   "name":"sprHexagonWin",
   "nineSlice":null,
@@ -69,8 +69,8 @@
     "tracks":[
       {"$GMSpriteFramesTrack":"","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"$KeyframeStore<SpriteFrameKeyframe>":"","Keyframes":[
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"e557afb3-493e-4e57-b9a9-14a903ea29ab","path":"sprites/sprHexagonWin/sprHexagonWin.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"edd3ba24-a6bc-413a-a374-624b968f56f4","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
+                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"93613ba0-e9c0-4112-9d03-f5a16aec3393","path":"sprites/sprHexagonWin/sprHexagonWin.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
+              },"Disabled":false,"id":"86218539-fef7-49df-a49f-5e995a1ff3b5","IsCreationKey":false,"Key":0.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
