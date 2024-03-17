@@ -299,3 +299,6 @@ if (bouncingTimer2 < 0 and bouncingTimer2 > -1)
 	
 }
 
+if falling {
+	alarm[0] = fallEffect;
+}
