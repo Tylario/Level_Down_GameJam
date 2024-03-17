@@ -46,7 +46,7 @@
     {"name":"sprPlayerSpriteMask","order":4,"path":"sprites/sprPlayerSpriteMask/sprPlayerSpriteMask.yy",},
     {"name":"sprRightIdle","order":7,"path":"sprites/sprRightIdle/sprRightIdle.yy",},
     {"name":"sprTempBackground","order":2,"path":"sprites/sprTempBackground/sprTempBackground.yy",},
-    {"name":"sprWallUpLeft","order":1,"path":"sprites/sprWallUpLeft/sprWallUpLeft.yy",},
+    {"name":"sprWalkUpLeft","order":1,"path":"sprites/sprWalkUpLeft/sprWalkUpLeft.yy",},
     {"name":"sprWalkUpRight","order":2,"path":"sprites/sprWalkUpRight/sprWalkUpRight.yy",},
     {"name":"sprWalkDown","order":3,"path":"sprites/sprWalkDown/sprWalkDown.yy",},
     {"name":"sprWalkDownLeft","order":4,"path":"sprites/sprWalkDownLeft/sprWalkDownLeft.yy",},

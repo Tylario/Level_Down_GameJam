@@ -68,7 +68,7 @@
     {"id":{"name":"sprTempBackground","path":"sprites/sprTempBackground/sprTempBackground.yy",},},
     {"id":{"name":"sprTempPlayer","path":"sprites/sprTempPlayer/sprTempPlayer.yy",},},
     {"id":{"name":"sprWalkUp","path":"sprites/sprWalkUp/sprWalkUp.yy",},},
-    {"id":{"name":"sprWallUpLeft","path":"sprites/sprWallUpLeft/sprWallUpLeft.yy",},},
+    {"id":{"name":"sprWalkUpLeft","path":"sprites/sprWalkUpLeft/sprWalkUpLeft.yy",},},
     {"id":{"name":"sprWalkUpRight","path":"sprites/sprWalkUpRight/sprWalkUpRight.yy",},},
     {"id":{"name":"sprWalkDown","path":"sprites/sprWalkDown/sprWalkDown.yy",},},
     {"id":{"name":"sprWalkDownLeft","path":"sprites/sprWalkDownLeft/sprWalkDownLeft.yy",},},
