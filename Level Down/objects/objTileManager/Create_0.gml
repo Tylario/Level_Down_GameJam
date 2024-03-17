@@ -50,11 +50,23 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 }
 
 
-// Helper function to determine the tile type based on floorNum and randomness
+
 function determineTileType(floorNum, posX, posY) {
+	
+	var message = "Floor Number: " + string(floorNum) + ", posX: " + string(posX) + ", posY: " + string(posY);
+    show_debug_message(message);
+	
+	var level0TrampolineX = 777.50, level0TrampolineY = 2470;
+	var level1TrampolineX = 1096, level1TrampolineY = 2380;
+	var level2TrampolineX = 532.50, level2TrampolineY = 2150;
+	var level3TrampolineX = 1194, level3TrampolineY = 2160;
+	var level4TrampolineX = 1022.50, level4TrampolineY = 2090;
+	var level5TrampolineX = 998, level5TrampolineY = 1840;
+	
+	
     var tileType = noone;
     var randomNumber = irandom(100); // Random number for each tile
-    var floorHeight = 100; // Height difference between floors, adjust if your game uses a different value
+    var floorHeight = 100; // Height difference between floors
 
     // Checking for a trampoline in the same position on the previous floor
     if (floorNum > 0) {
@@ -66,31 +78,30 @@ function determineTileType(floorNum, posX, posY) {
         }
     }
 
-    // Original tile determination logic with all level setups included
+    // Use the previously defined variables for trampoline positions
     switch(floorNum) {
         case 0:
             tileType = objHexagonUnbreakable;
-            if (posX == 777.50 && posY == 2470) {
+            if (posX == level0TrampolineX && posY == level0TrampolineY) {
                 tileType = hexagonTrampoline;
             }
             break;
         case 1:
             if (randomNumber < 90) { 
                 tileType = hexagonBreakable;
-            } else if (randomNumber < 5) { 
+            }
+            if (randomNumber < 3) { 
                 tileType = hexagonArrow;
             }
-            if (posX == 1096 && posY == 2380) {
+            if (posX == level1TrampolineX && posY == level1TrampolineY) {
                 tileType = hexagonTrampoline;
             }
             break;
         case 2:
-            if (randomNumber < 10) {
-                tileType = hexagonArrow; 
-            } else if (randomNumber < 90) {
+            if (randomNumber < 90) {
                 tileType = hexagonIce; 
             }
-            if (posX == 1219.50 && posY == 2190) {
+            if (posX == level2TrampolineX && posY == level2TrampolineY) {
                 tileType = hexagonTrampoline;
             }
             break;
@@ -98,17 +109,21 @@ function determineTileType(floorNum, posX, posY) {
             if (randomNumber < 60) { 
                 tileType = hexagonBreakable;
             }
-            if (posX == 1194 && posY == 2160) {
+            if (posX == level3TrampolineX && posY == level3TrampolineY) {
                 tileType = hexagonTrampoline;
             }
             break;
         case 4:
-            if (randomNumber < 45) { 
-                tileType = hexagonBreakable;
-            } else if (randomNumber < 15) { 
+            if (randomNumber < 50) { 
+                tileType = hexagonIce;
+            }
+            if (randomNumber < 15) { 
                 tileType = hexagonArrow;
             }
-            if (posX == 1022.50 && posY == 2090) {
+            if (randomNumber < 15) { 
+                tileType = hexagonBreakable;
+            }
+            if (posX == level4TrampolineX && posY == level4TrampolineY) {
                 tileType = hexagonTrampoline;
             }
             break;
@@ -116,22 +131,23 @@ function determineTileType(floorNum, posX, posY) {
             if (randomNumber < 55) { 
                 tileType = hexagonIce;
             }
-            if (posX == 998 && posY == 1840) {
+            if (posX == level5TrampolineX && posY == level5TrampolineY) {
                 tileType = hexagonTrampoline;
             }
             break;
         case 6:
-            tileType = hexagonArrow; // Assuming an arbitrary rule for simplicity
+            tileType = hexagonArrow;
             break;
         case 7:
-            tileType = hexagonBreakable; // Another arbitrary rule for this floor
+            tileType = hexagonBreakable;
             break;
         default:
-            tileType = hexagonArrow; // Default case if none of the above conditions are met
+            tileType = hexagonArrow;
     }
 
     return tileType;
 }
+
 
 
 
