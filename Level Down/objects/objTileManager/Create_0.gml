@@ -58,7 +58,7 @@ function determineTileType(floorNum, posX, posY) {
 	
 	var level0TrampolineX = 777.50, level0TrampolineY = 2470;
 	var level1TrampolineX = 1096, level1TrampolineY = 2380;
-	var level2TrampolineX = 532.50, level2TrampolineY = 2150;
+	var level2TrampolineX = 581.50, level2TrampolineY = 2250;
 	var level3TrampolineX = 1194, level3TrampolineY = 2160;
 	var level4TrampolineX = 1022.50, level4TrampolineY = 2090;
 	var level5TrampolineX = 998, level5TrampolineY = 1840;
@@ -74,6 +74,7 @@ function determineTileType(floorNum, posX, posY) {
         // This checks for a trampoline below and sets this tile to unbreakable if found
         var belowTileType = determineTileType(floorNum - 1, posX, belowPosY);
         if (belowTileType == hexagonTrampoline) {
+			//show_debug_message(message);
             return objHexagonUnbreakable; // Force this tile to be an unbreakable hexagon
         }
     }
@@ -161,27 +162,37 @@ function destroyTileLayer(floorNum) {
 
 
 var layers = 11;
-    var floors = 7; 
-    var xDiff = 49; 
-    var yDiff = 10; 
-    var floorHeight = 100; // Height difference between floors
+var floors = 7; 
+var xDiff = 49; 
+var yDiff = 10; 
+var floorHeight = 100; // Height difference between floors
 
-    // Adjust this to set the center position
-    var startX = room_width / 2;
-    var startY = room_height - 400;
+// Adjust this to set the center position
+var startX = room_width / 2;
+var startY = room_height - 400;
     
-    // Destroy all hexagons before creating new ones
-    with (objParentHexagon) 
-	{ 
-		if (floorNumber > objPlayer.currentFloor)
-		{
-			instance_destroy();
-		}
+// Destroy all hexagons before creating new ones
+with (objParentHexagon) 
+{
+	if (floorNumber > objPlayer.currentFloor)
+	{
+		instance_destroy();
 	}
+}
 
-    // Loop to create each floor
-    for (var floorNum = 0; floorNum < floors; floorNum++) {
-        for (var i = 0; i <= layers; i++) {
-            create_hexagon_ring(startX, startY, i, xDiff, yDiff, floorNum, floorHeight);
-        }
+// Loop to create each floor
+for (var floorNum = 0; floorNum < floors; floorNum++) 
+{
+	if (floorNum == 0)
+	{
+		layers = 14;
+	}
+	else
+	{
+		layers = 11;
+	}
+    for (var i = 0; i <= layers; i++) 
+	{
+        create_hexagon_ring(startX, startY, i, xDiff, yDiff, floorNum, floorHeight);
     }
+}

@@ -20,6 +20,15 @@ if (objPlayer.currentFloor != lastFloor) {
 		}
 	}
 
+	if (objPlayer.currentFloor == 0)
+	{
+		layers = 14;
+	}
+	else
+	{
+		layers = 11;
+	}
+
     // Loop to create each floor
     for (var i = 0; i <= layers; i++) {
         create_hexagon_ring(startX, startY, i, xDiff, yDiff, objPlayer.currentFloor, floorHeight);
