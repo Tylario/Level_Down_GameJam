@@ -132,3 +132,30 @@ function destroyTileLayer(floorNum) {
         }
     }
 }
+
+
+var layers = 11;
+    var floors = 7; 
+    var xDiff = 49; 
+    var yDiff = 10; 
+    var floorHeight = 100; // Height difference between floors
+
+    // Adjust this to set the center position
+    var startX = room_width / 2;
+    var startY = room_height - 400;
+    
+    // Destroy all hexagons before creating new ones
+    with (objParentHexagon) 
+	{ 
+		if (floorNumber > objPlayer.currentFloor)
+		{
+			instance_destroy();
+		}
+	}
+
+    // Loop to create each floor
+    for (var floorNum = 0; floorNum < floors; floorNum++) {
+        for (var i = 0; i <= layers; i++) {
+            create_hexagon_ring(startX, startY, i, xDiff, yDiff, floorNum, floorHeight);
+        }
+    }

@@ -12,15 +12,17 @@ if (objPlayer.currentFloor != lastFloor) {
     var startY = room_height - 400;
     
     // Destroy all hexagons before creating new ones
-    with (objParentHexagon) { 
-        instance_destroy();
-    }
+    with (objParentHexagon) 
+	{ 
+		if (floorNumber > objPlayer.currentFloor)
+		{
+			instance_destroy();
+		}
+	}
 
     // Loop to create each floor
-    for (var floorNum = 0; floorNum < floors; floorNum++) {
-        for (var i = 0; i <= layers; i++) {
-            create_hexagon_ring(startX, startY, i, xDiff, yDiff, floorNum, floorHeight);
-        }
+    for (var i = 0; i <= layers; i++) {
+        create_hexagon_ring(startX, startY, i, xDiff, yDiff, objPlayer.currentFloor, floorHeight);
     }
     
     if (lastFloor != -1) {
