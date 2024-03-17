@@ -14,7 +14,7 @@ if (objPlayer.currentFloor != lastFloor) {
     // Destroy all hexagons before creating new ones
     with (objParentHexagon) 
 	{ 
-		if (floorNumber > objPlayer.currentFloor)
+		if (floorNumber >= objPlayer.currentFloor)
 		{
 			instance_destroy();
 		}
@@ -25,8 +25,8 @@ if (objPlayer.currentFloor != lastFloor) {
         create_hexagon_ring(startX, startY, i, xDiff, yDiff, objPlayer.currentFloor, floorHeight);
     }
     
-    if (lastFloor != -1) {
-        destroyTileLayer(lastFloor);
+    if (objPlayer.currentFloor != -1) {
+        destroyTileLayer(objPlayer.currentFloor);
     }
 
     // Set opacity of non-current floor hexagons to 50%
