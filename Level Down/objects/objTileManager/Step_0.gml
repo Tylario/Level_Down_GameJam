@@ -4,21 +4,11 @@ if (objPlayer.currentFloor != lastFloor) {
 	{
 		room_restart()
 	}
-	
-	if (objPlayer.currentFloor == 0)
-	{
-	    objLogo.image_alpha = 0.75; // 50% opacity
-	}
-	else
-	{
-	    objLogo.image_alpha = 0.0; // 90% opacity
-	}
-
-	
+		
     lastFloor = objPlayer.currentFloor;
 
     var layers = 11;
-    var floors = 7; 
+    var floors = 30; 
     var xDiff = 49; 
     var yDiff = 10; 
     var floorHeight = 100; // Height difference between floors
@@ -38,7 +28,7 @@ if (objPlayer.currentFloor != lastFloor) {
 
 	if (objPlayer.currentFloor == 0)
 	{
-		layers = 14;
+		layers = 12;
 	}
 	else
 	{

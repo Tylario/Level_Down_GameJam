@@ -9,6 +9,6 @@ with (objPlayer) {
 	{
 		bounceTimer = 0.5;
 		bouncing = true;
-		timeSinceTouchingGround = 0.25;
+		timeSinceTouchingGround = 1;
 	}
 }

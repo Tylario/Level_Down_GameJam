@@ -96,7 +96,7 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
 {
     var someValue = 3; // Define the scale of the jump effect
     var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	var moveAmount = 0.47 / arrowJumpTime;
+	var moveAmount = 0.7 / arrowJumpTime;
     
     switch(arrowDirection) {
         case "Up": // Directly up
@@ -193,31 +193,42 @@ if (isMoving) {
     switch(lastDirection) {
         case "left":
             sprite_index = sprWalkLeft;
+            image_speed = 1; // Ensure animation plays while moving
             break;
         case "right":
             sprite_index = sprWalkRight;
+            image_speed = 1; // Ensure animation plays while moving
             break;
         case "up":
             sprite_index = sprWalkUp;
+            image_speed = 1; // Ensure animation plays while moving
             break;
         case "down":
             sprite_index = sprWalkDown;
+            image_speed = 1; // Ensure animation plays while moving
             break;
         case "upLeft":
             sprite_index = sprWalkUpLeft;
+            image_speed = 1; // Ensure animation plays while moving
             break;
         case "upRight":
             sprite_index = sprWalkUpRight;
+            image_speed = 1; // Ensure animation plays while moving
             break;
         case "downLeft":
             sprite_index = sprWalkDownLeft;
+            image_speed = 1; // Ensure animation plays while moving
             break;
         case "downRight":
             sprite_index = sprWalkDownRight;
+            image_speed = 1; // Ensure animation plays while moving
             break;
     }
 } else {
-    // When not moving, switch to the corresponding idle sprite
+    // When not moving, ensure the sprite is set to the first frame of the idle animation
+    image_speed = 0; // Stop the animation
+    image_index = 0; // Reset to the first frame
+    
     switch(lastDirection) {
         case "left":
             sprite_index = sprLeftIdle;
@@ -244,11 +255,11 @@ if (isMoving) {
             sprite_index = sprDownRightIdle;
             break;
         default:
-            // Optional: Decide on a default idle sprite if no direction is set
-            sprite_index = sprDownIdle; // Example default
+            // Handle a default case if necessary
             break;
     }
 }
+
 
 // Adjust image_speed for animations
 image_speed = isMoving ? 0.5 : 0; // Set this according to your game's needs

@@ -1,7 +1,8 @@
 lastFloor = -1;
 
 
-function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) {
+function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) 
+{
     centerY -= floorNum * floorHeight;
    
     if (layer == 0) {
@@ -34,18 +35,19 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
            
             // Determine if this is the outermost layer on floor 0
             var isOutermostLayerOnFloor0;
-if (floorNum == 0 && (layer == 14 or layer == 13)) {
-    isOutermostLayerOnFloor0 = true;
-} else {
-    isOutermostLayerOnFloor0 = false;
-}
+			
+		if (floorNum == 0 && (layer == 14 or layer == 13)) {
+		    isOutermostLayerOnFloor0 = true;
+		} else {
+		    isOutermostLayerOnFloor0 = false;
+		}
 
-            var tileType = isOutermostLayerOnFloor0 ? objHexagonTall : determineTileType(floorNum, posX, posY);
+            var tileType = determineTileType(floorNum, posX, posY);
 
             if (tileType != noone) { 
                 var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
                 tileInstance.depth = (-tileInstance.y * 2) + 4000 - (floorNum * 50);
-                tileInstance.floorNumber = floorNum;
+                tileInstance.floorNumber = floorNum;				
             }
         }
        
@@ -55,24 +57,28 @@ if (floorNum == 0 && (layer == 14 or layer == 13)) {
 }
 
 
-
-
 function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
-    //var message = "Floor Number: " + floorNum + ", posX: " + posX + ", posY: " + posY;
-    //show_debug_message(message);
+    var difficulty = 1 - (0.02 * floorNum);
+    var chanceForEmpty = 1 - difficulty;
+    var randomNumber = irandom(100); // Random number for each tile
+
+    // Adjust trampoline positioning logic for floor height
+    var floorHeight = 100; // Height difference between floors
+    var adjustedFloorHeight = floorHeight * floorNum; // Adjust for current floorNum
     
-    var level0TrampolineX = 777.50, level0TrampolineY = 2470;
-    var level1TrampolineX = 1096, level1TrampolineY = 2380;
-    var level2TrampolineX = 581.50, level2TrampolineY = 2250;
-    var level3TrampolineX = 1194, level3TrampolineY = 2160;
-    var level4TrampolineX = 1022.50, level4TrampolineY = 2090;
-    var level5TrampolineX = 998, level5TrampolineY = 1840;
+    var trampolineX, trampolineY;
+    if (floorNum % 2 == 0) { // Alternating trampoline positions based on even or odd floorNum
+        trampolineX = 777.50 - (49 * 2.5); // Adjusted for X position
+        trampolineY = (2470 - (2 * 40 - 10)) - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
+    } else {
+        trampolineX = 777.50 + (49 * 7.5); // Adjusted for X position
+        trampolineY = (2470 - (2 * 40 - 10)) - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
+    }
+
 
     var tileType = noone;
-    var randomNumber = irandom(100); // Random number for each tile
-    var floorHeight = 100; // Height difference between floors
 
-    // Only check for trampolines below if not already checking below (to prevent infinite recursion)
+// Check for trampolines below if not already checking below (to prevent infinite recursion)
     if (floorNum > 0 && !isCheckingBelow) {
         var xDiff = 49; 
         var yDiff = 10;
@@ -81,122 +87,77 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
         var isTrampolineBelow = false;
 
         // Modify these checks to pass 'true' for the isCheckingBelow parameter
-        if (determineTileType(floorNum - 1, posX, belowPosY, true) == hexagonTrampoline) 
-		{
+        if (determineTileType(floorNum - 1, posX, belowPosY, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
-        } 
-		else if (determineTileType(floorNum - 1, posX - xDiff / 2, belowPosY + yDiff, true) == hexagonTrampoline) 
-		{
+        } else if (determineTileType(floorNum - 1, posX - xDiff / 2, belowPosY + yDiff, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
-        } 
-		else if (determineTileType(floorNum - 1, posX + xDiff / 2, belowPosY + yDiff, true) == hexagonTrampoline) 
-		{
+        } else if (determineTileType(floorNum - 1, posX + xDiff / 2, belowPosY + yDiff, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
-        } 
-		else if (determineTileType(floorNum - 1, posX, belowPosY + yDiff * 2, true) == hexagonTrampoline) 
-		{
+        } else if (determineTileType(floorNum - 1, posX, belowPosY + yDiff * 2, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
-        } 
-		else if (determineTileType(floorNum - 1, posX, belowPosY - yDiff * 2, true) == hexagonTrampoline) 
-		{
+        } else if (determineTileType(floorNum - 1, posX, belowPosY - yDiff * 2, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
-        } 
-		else if (determineTileType(floorNum - 1, posX - xDiff / 2, belowPosY - yDiff, true) == hexagonTrampoline) 
-		{
+        } else if (determineTileType(floorNum - 1, posX - xDiff / 2, belowPosY - yDiff, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
-        } 
-		else if (determineTileType(floorNum - 1, posX + xDiff / 2, belowPosY - yDiff, true) == hexagonTrampoline) 
-		{
+        } else if (determineTileType(floorNum - 1, posX + xDiff / 2, belowPosY - yDiff, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
-        } 
+        }
 
         if (isTrampolineBelow) {
+            // Ensure unbreakable tiles are spawned above trampolines
+            // No additional check required here as isTrampolineBelow flag covers it
             return objHexagonUnbreakable; // Force this tile to be an unbreakable hexagon
         }
     }
+	
+	    // Procedural generation check for empty tile
 
-    // Use the previously defined variables for trampoline positions
-    switch(floorNum) {
-        case 0:
-            tileType = objHexagonUnbreakable;
-            if (posX == level0TrampolineX && posY == level0TrampolineY) {
-                tileType = hexagonTrampoline;
-            }
-            break;
-        case 1:
-            if (randomNumber < 90) { 
-                tileType = hexagonBreakable;
-            }
-            if (randomNumber < 3) { 
-                tileType = hexagonArrow;
-            }
-            if (posX == level1TrampolineX && posY == level1TrampolineY) {
-                tileType = hexagonTrampoline;
-            }
-            break;
-        case 2:
-            if (randomNumber < 90) {
-                tileType = hexagonIce; 
-            }
-            if (posX == level2TrampolineX && posY == level2TrampolineY) {
-                tileType = hexagonTrampoline;
-            }
-            break;
-        case 3:
-            if (randomNumber < 70) { 
-                tileType = hexagonBreakable;
-            }
-            if (posX == level3TrampolineX && posY == level3TrampolineY) {
-                tileType = hexagonTrampoline;
-            }
-            break;
-        case 4:
-            if (randomNumber < 40) { 
-                tileType = hexagonArrow;
-            }
-			if (randomNumber < 50) { 
-                tileType = hexagonBreakable;
-            }
-            break;
-        case 5:
-            if (randomNumber < 70) { 
-                tileType = hexagonIce;
-            }
-            if (posX == level5TrampolineX && posY == level5TrampolineY) {
-                tileType = hexagonTrampoline;
-            }
-            break;
-        case 6:	
-			if (randomNumber < 50) { 
-                tileType = hexagonIce;
-            }
-            if (randomNumber < 15) { 
-                tileType = hexagonArrow;
-            }
-            if (randomNumber < 15) { 
-                tileType = hexagonBreakable;
-            }
-            if (posX == level4TrampolineX && posY == level4TrampolineY) {
-                tileType = hexagonTrampoline;
-            }
-            break;
-        case 7:
-            if (randomNumber < 15) { 
-                tileType = hexagonArrow;
-            }
-			if (randomNumber < 50) { 
-                tileType = hexagonBreakable;
-            }
-            break;
-        default:
-           if (randomNumber < 40) { 
-                tileType = hexagonIce;
-            }
+
+    // Tile type based on level logic
+    var levelType = floorNum % 4; // For cycling through types
+    randomNumber = irandom(100); // Re-generate random number for tile type decision
+
+	if (floorNum == 0) {
+		tileType = hexagonUnbreakable;
+	} else {
+		switch(levelType) {
+		    case 0:
+		        if (randomNumber < 6) { // 10% chance for arrows in ice
+		            tileType = hexagonArrow;
+		        } else {
+		            tileType = hexagonIce;
+		        }
+		        break;
+		    case 1:
+		        tileType = hexagonBreakable; // All breakable
+		        break;
+		    case 2:
+		        tileType = hexagonIce; // All ice
+		        break;
+		    case 3:
+		        if (randomNumber < 12) { // 6% chance for arrows in breakable
+		            tileType = hexagonArrow;
+		        } else {
+		            tileType = hexagonBreakable;
+		        }
+		        break;
+		}
+	}
+
+    // Ensuring trampoline spawns on each floor based on adjusted trampolineX and trampolineY positions
+    if (posX == trampolineX && posY == trampolineY) {
+        tileType = hexagonTrampoline;
     }
+	else
+	{
+		if (!isCheckingBelow && randomNumber < chanceForEmpty * 100)
+		{
+			return noone; // Tile is empty
+		}
+	}
 
     return tileType;
 }
-
 
 
 
@@ -222,7 +183,7 @@ var startY = room_height - 400;
 // Destroy all hexagons before creating new ones
 with (objParentHexagon) 
 {
-	if (floorNumber > objPlayer.currentFloor)
+	if (floorNumber > objPlayer.curreloor)
 	{
 		instance_destroy();
 	}

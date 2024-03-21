@@ -33,7 +33,7 @@
     {"$GMObjectProperty":"","%Name":"hexagonArrow","filters":[],"listItems":[],"multiselect":false,"name":"hexagonArrow","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonArrow","varType":5,},
     {"$GMObjectProperty":"","%Name":"hexagonTrampoline","filters":[],"listItems":[],"multiselect":false,"name":"hexagonTrampoline","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonTrampoline","varType":5,},
     {"$GMObjectProperty":"","%Name":"hexagonWin","filters":[],"listItems":[],"multiselect":false,"name":"hexagonWin","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonWin","varType":5,},
-    {"$GMObjectProperty":"","%Name":"hexagonWall","filters":[],"listItems":[],"multiselect":false,"name":"hexagonWall","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonTall","varType":5,},
+    {"$GMObjectProperty":"","%Name":"hexagonWall","filters":[],"listItems":[],"multiselect":false,"name":"hexagonWall","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"sprHexagonUnbreakable","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

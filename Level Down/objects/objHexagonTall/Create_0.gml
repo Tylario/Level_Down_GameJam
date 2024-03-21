@@ -1,1 +1,1 @@
-floorNumber = 0;
+floorNumber = -1;

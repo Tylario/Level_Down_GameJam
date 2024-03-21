@@ -32,10 +32,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprWallTransparent",
-    "path":"sprites/sprWallTransparent/sprWallTransparent.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":{
     "name":"sprHexagonParent",
     "path":"sprites/sprHexagonParent/sprHexagonParent.yy",
