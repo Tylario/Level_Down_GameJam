@@ -297,7 +297,7 @@ if (bounceTimer > 0) {
 
 bouncingTimer2 = bouncingTimer2 - delta_time / 1000000
 
-if (timeSinceTouchingGround < 0)
+if (timeSinceTouchingGround < 0 && bouncing == false)
 {
 	falling = true;
 	if (bouncingTimer2 < -1)
