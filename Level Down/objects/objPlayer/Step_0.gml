@@ -268,7 +268,7 @@ image_speed = isMoving ? 0.5 : 0; // Set this according to your game's needs
 //jumping
 jumpTimer = jumpTimer + delta_time / 1000000;
 
-if (jumpingPressed and jumpTimer > 0.75)
+if (jumpingPressed and jumpTimer > 0.75 and not bouncing and not falling and arrowJumpingTimer >= arrowJumpTime)
 {
 	jumpTimer = 0;
 }
