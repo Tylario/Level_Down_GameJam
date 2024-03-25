@@ -17,6 +17,7 @@ with (objPlayer)
 	        timeSinceTouchingGround = 1;
 	        // Indicate a valid collision has occurred
 	        validCollision = true;
+			
 	    }
 	}
 }

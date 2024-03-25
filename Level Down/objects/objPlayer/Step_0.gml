@@ -271,6 +271,7 @@ jumpTimer = jumpTimer + delta_time / 1000000;
 if (jumpingPressed and jumpTimer > 0.75 and not bouncing and not falling and arrowJumpingTimer >= arrowJumpTime)
 {
 	jumpTimer = 0;
+	jumping = true;
 }
 
 if (jumpTimer > 0 and jumpTimer < 0.5)
@@ -293,6 +294,8 @@ if (bounceTimer > 0) {
     currentFloor = currentFloor + 1;
     hasBounced = false; // Reset the flag to prepare for the next bounce
 	bouncing = false;
+	arrowJumpingTimer = 2; //make sure this is not carrying over any effects
+	
 }
 
 bouncingTimer2 = bouncingTimer2 - delta_time / 1000000
