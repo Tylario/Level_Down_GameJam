@@ -1,14 +1,14 @@
 if (objPlayer.currentFloor != lastFloor) {
-	
-	if (objPlayer.currentFloor < 0)
-	{
-		room_restart()
-	}
-		
+    
+    if (objPlayer.currentFloor < 0)
+    {
+        room_restart();
+    }
+    
     lastFloor = objPlayer.currentFloor;
 
-    var layers = 11;
-    var floors = 30; 
+    var ringCount = 11;
+    var maxFloors = 30; 
     var xDiff = 49; 
     var yDiff = 10; 
     var floorHeight = 100; // Height difference between floors
@@ -17,27 +17,32 @@ if (objPlayer.currentFloor != lastFloor) {
     var startX = room_width / 2;
     var startY = room_height - 400;
     
-    // Destroy all hexagons before creating new ones
+    // Destroy hexagons that are no longer needed
     with (objParentHexagon) 
-	{ 
-		if (floorNumber >= objPlayer.currentFloor)
-		{
-			instance_destroy();
-		}
-	}
+    { 
+        if (floorNumber < objPlayer.currentFloor - 2 || floorNumber >= objPlayer.currentFloor)
+        {
+            instance_destroy();
+        }
+    }
 
-	if (objPlayer.currentFloor == 0)
-	{
-		layers = 12;
-	}
-	else
-	{
-		layers = 11;
-	}
+    // Adjust ringCount based on the current floor
+    if (objPlayer.currentFloor == 0)
+    {
+        ringCount = 12;
+    }
+    else
+    {
+        ringCount = 11;
+    }
 
-    // Loop to create each floor
-    for (var i = 0; i <= layers; i++) {
-        create_hexagon_ring(startX, startY, i, xDiff, yDiff, objPlayer.currentFloor, floorHeight);
+    // Loop to create each required floor (current and previous two floors)
+    for (var f = max(0, objPlayer.currentFloor - 2); f <= objPlayer.currentFloor; f++) 
+    {
+        for (var i = 0; i <= ringCount; i++) 
+        {
+            create_hexagon_ring(startX, startY, i, xDiff, yDiff, f, floorHeight);
+        }
     }
     
     if (objPlayer.currentFloor != -1) {

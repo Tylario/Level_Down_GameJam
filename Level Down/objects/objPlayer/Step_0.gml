@@ -76,7 +76,10 @@ if ((movingUp || movingDown) && (movingLeft || movingRight)) {
 }
 
 // Reset timer if not falling
-timeSinceTouchingGround = timeSinceTouchingGround - (delta_time / 1000000);
+if (not jumping)
+{
+	timeSinceTouchingGround = timeSinceTouchingGround - (delta_time / 1000000);
+}
 
 // ice tile
 iceTime = iceTime - (delta_time / 1000000);
