@@ -279,14 +279,23 @@ if (jumpingPressed and jumpTimer > 0.75 and not bouncing and not falling and arr
 
 if (jumpTimer > 0 and jumpTimer < 0.5)
 {
-	jumping = true;
-	y = y + ((jumpTimer - 0.25) * 25);
-	//set sprite equal to one of 6 directions, starting at the direction relative to current facing should appear to rotate
+    jumping = true;
+    y = y + ((jumpTimer - 0.25) * 25);
+    
+    // Keep the shadow stationary relative to the ground while the player jumps
+    shadow.x = x - 7; 
+    shadow.y = y - 8;
+	yJumpOffset += ((jumpTimer - 0.25) * 25);
+	shadow.y = shadow.y - yJumpOffset;
 }
 else
 {
-	jumping = false
+    jumping = false;
+    shadow.x = x - 7; 
+    shadow.y = y - 8;
+	yJumpOffset = 0;
 }
+
 
 bounceTimer = bounceTimer - (delta_time / 1000000);
 
@@ -329,3 +338,4 @@ if (bouncingTimer2 < 0 and bouncingTimer2 > -1)
 if falling {
 	alarm[0] = fallEffect;
 }
+

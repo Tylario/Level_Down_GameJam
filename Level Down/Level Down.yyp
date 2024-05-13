@@ -31,8 +31,9 @@
   "name":"Level Down",
   "resources":[
     {"id":{"name":"Object13","path":"objects/Object13/Object13.yy",},},
-    {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
+    {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
     {"id":{"name":"objHexagonArrow","path":"objects/objHexagonArrow/objHexagonArrow.yy",},},
+    {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
     {"id":{"name":"objHexagonIce","path":"objects/objHexagonIce/objHexagonIce.yy",},},
     {"id":{"name":"objHexagonTall","path":"objects/objHexagonTall/objHexagonTall.yy",},},
     {"id":{"name":"objHexagonTrampoline","path":"objects/objHexagonTrampoline/objHexagonTrampoline.yy",},},
@@ -111,6 +112,7 @@
     {"id":{"name":"sprPlayerSpin","path":"sprites/sprPlayerSpin/sprPlayerSpin.yy",},},
     {"id":{"name":"sprPlayerSpriteMask","path":"sprites/sprPlayerSpriteMask/sprPlayerSpriteMask.yy",},},
     {"id":{"name":"sprRightIdle","path":"sprites/sprRightIdle/sprRightIdle.yy",},},
+    {"id":{"name":"sprShadow","path":"sprites/sprShadow/sprShadow.yy",},},
     {"id":{"name":"sprStar1","path":"sprites/sprStar1/sprStar1.yy",},},
     {"id":{"name":"sprStar2","path":"sprites/sprStar2/sprStar2.yy",},},
     {"id":{"name":"sprStar3","path":"sprites/sprStar3/sprStar3.yy",},},

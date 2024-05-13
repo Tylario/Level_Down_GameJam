@@ -13,8 +13,9 @@
   ],
   "ResourceOrderSettings":[
     {"name":"Object13","order":13,"path":"objects/Object13/Object13.yy",},
-    {"name":"objHexagonFloorNumber","order":14,"path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},
+    {"name":"objShadow","order":15,"path":"objects/objShadow/objShadow.yy",},
     {"name":"objHexagonArrow","order":8,"path":"objects/objHexagonArrow/objHexagonArrow.yy",},
+    {"name":"objHexagonFloorNumber","order":14,"path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},
     {"name":"objHexagonIce","order":6,"path":"objects/objHexagonIce/objHexagonIce.yy",},
     {"name":"objHexagonTall","order":11,"path":"objects/objHexagonTall/objHexagonTall.yy",},
     {"name":"objHexagonTrampoline","order":9,"path":"objects/objHexagonTrampoline/objHexagonTrampoline.yy",},
@@ -88,6 +89,7 @@
     {"name":"sprPlayerSpin","order":1,"path":"sprites/sprPlayerSpin/sprPlayerSpin.yy",},
     {"name":"sprPlayerSpriteMask","order":4,"path":"sprites/sprPlayerSpriteMask/sprPlayerSpriteMask.yy",},
     {"name":"sprRightIdle","order":7,"path":"sprites/sprRightIdle/sprRightIdle.yy",},
+    {"name":"sprShadow","order":34,"path":"sprites/sprShadow/sprShadow.yy",},
     {"name":"sprStar1","order":5,"path":"sprites/sprStar1/sprStar1.yy",},
     {"name":"sprStar2","order":4,"path":"sprites/sprStar2/sprStar2.yy",},
     {"name":"sprStar3","order":3,"path":"sprites/sprStar3/sprStar3.yy",},
