@@ -31,7 +31,6 @@
   "name":"Level Down",
   "resources":[
     {"id":{"name":"Object13","path":"objects/Object13/Object13.yy",},},
-    {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
     {"id":{"name":"objHexagonArrow","path":"objects/objHexagonArrow/objHexagonArrow.yy",},},
     {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
     {"id":{"name":"objHexagonIce","path":"objects/objHexagonIce/objHexagonIce.yy",},},
@@ -44,8 +43,10 @@
     {"id":{"name":"objLogo","path":"objects/objLogo/objLogo.yy",},},
     {"id":{"name":"objParentHexagon","path":"objects/objParentHexagon/objParentHexagon.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
+    {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
     {"id":{"name":"objTileManager","path":"objects/objTileManager/objTileManager.yy",},},
     {"id":{"name":"rmMain","path":"rooms/rmMain/rmMain.yy",},},
+    {"id":{"name":"scriptPerlinNoise","path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},},
     {"id":{"name":"sndFall","path":"sounds/sndFall/sndFall.yy",},},
     {"id":{"name":"sndHexagon","path":"sounds/sndHexagon/sndHexagon.yy",},},
     {"id":{"name":"sndJump","path":"sounds/sndJump/sndJump.yy",},},

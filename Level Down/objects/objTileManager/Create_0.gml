@@ -109,44 +109,21 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
             return objHexagonUnbreakable; // Force this tile to be an unbreakable hexagon
         }
     }
-	
-	    // Procedural generation check for empty tile
+
 
 
     // Tile type based on level logic
-	var levelType = floorNum % 5; // For cycling through types(randomNumber)
+	var levelType = floorNum % 5;
 
-	if (floorNum == 0) {
+	if (floorNum == 0 || levelType == 0) {
 	    tileType = hexagonUnbreakable;
 	} else {
-	    switch(levelType) {
-	        case 0: // ice with arrows
-	            if (irandom(100) < 4) { // 10% chance for arrows in ice
-	                tileType = hexagonArrow;
-	            } 
-				else 
-				{
-	                tileType = hexagonIce;
-	            }
-	            break;
-	        case 1: // normal
-	            tileType = hexagonBreakable; // All breakable
-	            break;
-	        case 2: // ice
-	            tileType = hexagonIce; // All ice
-	            break;
-	        case 3: // normal with arrows
-	            if (irandom(100) < 8) { // 6% chance for arrows in breakable
-	                tileType = hexagonArrow;
-	            } 
-				else 
-				{
-	                tileType = hexagonBreakable;
-	            }
-	            break;
-	        case 4: // normal
-	            tileType = hexagonBreakable; // All breakable
-	            break;
+	    var noiseValue = perlin_noise(posX * 0.015, posY * 0.015, floorNum * 0.015); // Adjust the scaling factors as needed
+		//var noiseValue = irandom_range(-1, 1);
+		if (noiseValue > -0.2 + (floorNum * 0.02)) {
+	        tileType = hexagonBreakable;
+	    } else {
+	        tileType = noone;
 	    }
 	}
 
@@ -155,13 +132,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
     if (posX == trampolineX && posY == trampolineY) {
         tileType = hexagonTrampoline;
     }
-	else
-	{
-		if (!isCheckingBelow && irandom(100) < chanceForEmpty * 100)
-		{
-			return noone; // Tile is empty
-		}
-	}
 
     return tileType;
 }

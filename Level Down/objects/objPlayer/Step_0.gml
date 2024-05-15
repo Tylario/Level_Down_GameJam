@@ -75,31 +75,26 @@ if ((movingUp || movingDown) && (movingLeft || movingRight)) {
     }
 }
 
-// Reset timer if not falling
-if (not jumping)
-{
-	timeSinceTouchingGround = timeSinceTouchingGround - (delta_time / 1000000);
+// Reset timer if not jumping or falling
+if (!jumping && !falling) {
+    timeSinceTouchingGround = timeSinceTouchingGround - (delta_time / 1000000);
 }
 
 // ice tile
 iceTime = iceTime - (delta_time / 1000000);
 
-if (iceTime > 0)
-{
-	acceleration = 0.15;
-}
-else
-{
-	acceleration = 16;
+if (iceTime > 0) {
+    acceleration = 0.15;
+} else {
+    acceleration = 16;
 }
 
 // Arrow tiles
 arrowJumpingTimer += delta_time / 1000000;
-if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
-{
+if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime) {
     var someValue = 3; // Define the scale of the jump effect
     var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	var moveAmount = 0.7 / arrowJumpTime;
+    var moveAmount = 0.7 / arrowJumpTime;
     
     switch(arrowDirection) {
         case "Up": // Directly up
@@ -115,7 +110,7 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
             break;
         case "Down": // Straight down
             y += moveAmount;
-            break;	 
+            break;     
         case "Down Left": // Approx 180 + 28 degrees
             y += moveAmount * 0.46947; // Adjusted for demonstration
             x -= moveAmount * 0.88295; // Adjusted for demonstration
@@ -129,29 +124,23 @@ if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime)
     // Implementing the jump effect
     y -= jumpEffect;
 
-	arrowMultiplier = 0.3;
-}
-else
-{
-	arrowMultiplier = 1;
+    arrowMultiplier = 0.3;
+} else {
+    arrowMultiplier = 1;
 }
 
-if (bouncing)
-{
-	bouncingMultiplier = 0.3;
+if (bouncing) {
+    bouncingMultiplier = 0.3;
+} else {
+    bouncingMultiplier = 1;
 }
-else
-{
-	bouncingMultiplier = 1;
-}
-
 
 // Calculate potential new positions
 var newX = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
 var newY = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
 
 // Check for collisions at the new positions
-if (currentFloor!= 0 or (!place_meeting(newX, y, objHexagonTall) && !place_meeting(x, newY, objHexagonTall))) {
+if (currentFloor != 0 || (!place_meeting(newX, y, objHexagonTall) && !place_meeting(x, newY, objHexagonTall))) {
     // No collision with objHexagonTall at new positions, so it's safe to move
     x = newX;
     y = newY;
@@ -263,79 +252,85 @@ if (isMoving) {
     }
 }
 
-
 // Adjust image_speed for animations
 image_speed = isMoving ? 0.5 : 0; // Set this according to your game's needs
 
-
-//jumping
+// jumping
 jumpTimer = jumpTimer + delta_time / 1000000;
 
-if (jumpingPressed and jumpTimer > 0.75 and not bouncing and not falling and arrowJumpingTimer >= arrowJumpTime)
-{
-	jumpTimer = 0;
-	jumping = true;
+if (jumpingPressed && jumpTimer > 0.75 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime) {
+    jumpTimer = 0;
+    jumping = true;
 }
 
-if (jumpTimer > 0 and jumpTimer < 0.5)
-{
+if (jumpTimer > 0 && jumpTimer < 0.5) {
     jumping = true;
     y = y + ((jumpTimer - 0.25) * 25);
     
     // Keep the shadow stationary relative to the ground while the player jumps
     shadow.x = x - 7; 
     shadow.y = y - 8;
-	yJumpOffset += ((jumpTimer - 0.25) * 25);
-	shadow.y = shadow.y - yJumpOffset;
-}
-else
-{
+    yJumpOffset += ((jumpTimer - 0.25) * 25);
+    shadow.y = shadow.y - yJumpOffset;
+} else {
     jumping = false;
     shadow.x = x - 7; 
     shadow.y = y - 8;
-	yJumpOffset = 0;
+    yJumpOffset = 0;
 }
 
+// Initialize midBounceFloorUpdated and midFallFloorUpdated flags in Create Event or Initialize Event
+if (!variable_instance_exists(id, "midBounceFloorUpdated")) {
+    midBounceFloorUpdated = false;
+}
+if (!variable_instance_exists(id, "midFallFloorUpdated")) {
+    midFallFloorUpdated = false;
+}
 
 bounceTimer = bounceTimer - (delta_time / 1000000);
 
 if (bounceTimer > 0) {
     y = y - bounceTimer * 13; // Move the player up based on the bounceTimer
     hasBounced = true; // Set the flag to true since bouncing is occurring
+    
+    // Update floor halfway through the bounce
+    if (bounceTimer < 0.25 && !midBounceFloorUpdated) { // Adjust the threshold as needed
+        currentFloor = currentFloor + 1;
+        midBounceFloorUpdated = true; // Set flag to true to prevent multiple increments
+    }
 } else if (hasBounced) { // Check if the bounce just finished
-    currentFloor = currentFloor + 1;
     hasBounced = false; // Reset the flag to prepare for the next bounce
-	bouncing = false;
-	arrowJumpingTimer = 2; //make sure this is not carrying over any effects
-	
+    bouncing = false;
+    arrowJumpingTimer = 2; // Make sure this is not carrying over any effects
+    midBounceFloorUpdated = false; // Reset flag for the next bounce
 }
 
-bouncingTimer2 = bouncingTimer2 - delta_time / 1000000
+bouncingTimer2 = bouncingTimer2 - (delta_time / 1000000);
 
-if (timeSinceTouchingGround < 0 && bouncing == false)
-{
-	falling = true;
-	if (bouncingTimer2 < -1)
-	{
-		bouncingTimer2 = 0.5;
-	}
+if (timeSinceTouchingGround < 0 && !bouncing) {
+    falling = true;
+    if (bouncingTimer2 < -1) {
+        bouncingTimer2 = 0.5;
+    }
 }
 
-if (bouncingTimer2 > 0)
-{
-	y = y + -1 * (bouncingTimer2 - 0.5) * 14;
+if (bouncingTimer2 > 0) {
+    y = y + -1 * (bouncingTimer2 - 0.5) * 14;
+
+    // Update floor halfway through the fall
+    if (bouncingTimer2 < 0.25 && !midFallFloorUpdated) { // Adjust the threshold as needed
+        currentFloor = currentFloor - 1;
+        midFallFloorUpdated = true; // Set flag to true to prevent multiple decrements
+    }
 }
 
-if (bouncingTimer2 < 0 and bouncingTimer2 > -1)
-{	
-	falling = false;
-	timeSinceTouchingGround = 0.5;
-	currentFloor = currentFloor - 1;
-	bouncingTimer2 = -5;
-	
+if (bouncingTimer2 < 0 && bouncingTimer2 > -1) {
+    falling = false;
+    timeSinceTouchingGround = 0.5;
+    bouncingTimer2 = -5;
+    midFallFloorUpdated = false; // Reset flag for the next fall
 }
 
-if falling {
-	alarm[0] = fallEffect;
+if (falling) {
+    alarm[0] = fallEffect;
 }
-

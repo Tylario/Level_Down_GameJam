@@ -13,7 +13,6 @@
   ],
   "ResourceOrderSettings":[
     {"name":"Object13","order":13,"path":"objects/Object13/Object13.yy",},
-    {"name":"objShadow","order":15,"path":"objects/objShadow/objShadow.yy",},
     {"name":"objHexagonArrow","order":8,"path":"objects/objHexagonArrow/objHexagonArrow.yy",},
     {"name":"objHexagonFloorNumber","order":14,"path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},
     {"name":"objHexagonIce","order":6,"path":"objects/objHexagonIce/objHexagonIce.yy",},
@@ -25,7 +24,9 @@
     {"name":"objLevelManager","order":3,"path":"objects/objLevelManager/objLevelManager.yy",},
     {"name":"objLogo","order":12,"path":"objects/objLogo/objLogo.yy",},
     {"name":"objParentHexagon","order":1,"path":"objects/objParentHexagon/objParentHexagon.yy",},
+    {"name":"objShadow","order":15,"path":"objects/objShadow/objShadow.yy",},
     {"name":"objTileManager","order":4,"path":"objects/objTileManager/objTileManager.yy",},
+    {"name":"scriptPerlinNoise","order":8,"path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},
     {"name":"sndFall","order":1,"path":"sounds/sndFall/sndFall.yy",},
     {"name":"sndHexagon","order":3,"path":"sounds/sndHexagon/sndHexagon.yy",},
     {"name":"sndJump","order":2,"path":"sounds/sndJump/sndJump.yy",},
