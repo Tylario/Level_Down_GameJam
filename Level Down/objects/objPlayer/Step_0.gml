@@ -279,14 +279,6 @@ if (jumpTimer > 0 && jumpTimer < 0.5) {
     yJumpOffset = 0;
 }
 
-// Initialize midBounceFloorUpdated and midFallFloorUpdated flags in Create Event or Initialize Event
-if (!variable_instance_exists(id, "midBounceFloorUpdated")) {
-    midBounceFloorUpdated = false;
-}
-if (!variable_instance_exists(id, "midFallFloorUpdated")) {
-    midFallFloorUpdated = false;
-}
-
 bounceTimer = bounceTimer - (delta_time / 1000000);
 
 if (bounceTimer > 0) {
@@ -305,32 +297,28 @@ if (bounceTimer > 0) {
     midBounceFloorUpdated = false; // Reset flag for the next bounce
 }
 
-bouncingTimer2 = bouncingTimer2 - (delta_time / 1000000);
+fallingTimer = fallingTimer - (delta_time / 1000000);
 
 if (timeSinceTouchingGround < 0 && !bouncing) {
     falling = true;
-    if (bouncingTimer2 < -1) {
-        bouncingTimer2 = 0.5;
+    if (fallingTimer < -1) {
+        fallingTimer = 0.5;
     }
 }
 
-if (bouncingTimer2 > 0) {
-    y = y + -1 * (bouncingTimer2 - 0.5) * 14;
+if (fallingTimer > 0) {
+    y = y + -1 * (fallingTimer - 0.5) * 14;
 
     // Update floor halfway through the fall
-    if (bouncingTimer2 < 0.25 && !midFallFloorUpdated) { // Adjust the threshold as needed
+    if (fallingTimer < 0.25 && !midFallFloorUpdated) { // Adjust the threshold as needed
         currentFloor = currentFloor - 1;
         midFallFloorUpdated = true; // Set flag to true to prevent multiple decrements
     }
 }
 
-if (bouncingTimer2 < 0 && bouncingTimer2 > -1) {
+if (fallingTimer < 0 && fallingTimer > -1) {
     falling = false;
     timeSinceTouchingGround = 0.5;
-    bouncingTimer2 = -5;
+    fallingTimer = -5;
     midFallFloorUpdated = false; // Reset flag for the next fall
-}
-
-if (falling) {
-    alarm[0] = fallEffect;
 }

@@ -8,9 +8,13 @@ bounceTimer = 0;
 hasBounced = false;
 bouncing = false;
 bouncingMultiplier = 1;
-bouncingTimer2 = -5;
+fallingTimer = -5;
 
 //create shadow object
 shadow = instance_create_layer(x, y, "Instances", objShadow);
 shadow.depth = -9999;
 yJumpOffset = 0;
+// Initialize midBounceFloorUpdated and midFallFloorUpdated flags in Create Event or Initialize Event
+
+midBounceFloorUpdated = false;
+midFallFloorUpdated = false;
