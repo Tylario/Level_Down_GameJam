@@ -104,7 +104,7 @@ function updatePhysics() {
 	}
 
 	// Reset timer if not jumping or falling
-	if (!jumping && !falling) {
+	if (!jumping && !falling && !bouncing) {
 	    timeSinceTouchingGround = timeSinceTouchingGround - (fixed_time_step);
 	}
 
@@ -114,9 +114,17 @@ function updatePhysics() {
 	if (iceTime > 0) {
 	    acceleration = 4;
 		maxSpeed = 2.6;
+		if (jumping)
+		{
+			acceleration = 2;
+		}
 	} else {
 	    acceleration = 32;
 		maxSpeed = 2.2;
+		if (jumping)
+		{
+			acceleration = 4
+		}
 	}
 
 	// Arrow tiles
@@ -334,7 +342,8 @@ function updatePhysics() {
 	        fallingTimer = 0.5;
 	    }
 	}
-
+	
+	show_debug_message(timeSinceTouchingGround)
 
 	if (fallingTimer > 0) {
 	    y = y + -1 * (fallingTimer - 0.5) * 14;
