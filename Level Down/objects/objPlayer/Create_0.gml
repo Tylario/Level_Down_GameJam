@@ -323,9 +323,9 @@ function updatePhysics() {
 	}
 
 	fallingTimer = fallingTimer - (fixed_time_step);
-
+	show_debug_message(falling)
 	if (timeSinceTouchingGround < 0 && !bouncing) {
-	    falling = true;
+	   // falling = true;
 	    if (fallingTimer < -1) {
 	        fallingTimer = 0.5;
 	    }

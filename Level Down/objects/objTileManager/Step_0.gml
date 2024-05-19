@@ -33,7 +33,7 @@ if (objPlayer.currentFloor != lastFloor) {
     }
     else
     {
-        ringCount = 25;
+        ringCount = 11;
     }
 
     // Loop to create each required floor (current and previous two floors)
