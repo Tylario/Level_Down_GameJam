@@ -11,6 +11,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
             var centerTile = instance_create_layer(centerX, centerY, "Instances", centerTileType);
             centerTile.depth = (-centerTile.y * 2) + 4000 - (floorNum * 50);
             centerTile.floorNumber = floorNum;
+			show_debug_message(floorNum)
         }
         return;
     }
@@ -47,7 +48,8 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
             if (tileType != noone) { 
                 var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
                 tileInstance.depth = (-tileInstance.y * 2) + 4000 - (floorNum * 50);
-                tileInstance.floorNumber = floorNum;				
+                tileInstance.floorNumber = floorNum;		
+				show_debug_message(floorNum)
             }
         }
        
@@ -146,39 +148,3 @@ function destroyTileLayer(floorNum) {
     }
 }
 
-
-var layers = 11;
-var floors = 7; 
-var xDiff = 49; 
-var yDiff = 10; 
-var floorHeight = 100; // Height difference between floors
-
-// Adjust this to set the center position
-var startX = room_width / 2;
-var startY = room_height - 400;
-    
-// Destroy all hexagons before creating new ones
-with (objParentHexagon) 
-{
-	if (floorNumber > objPlayer.curreloor)
-	{
-		instance_destroy();
-	}
-}
-
-// Loop to create each floor
-for (var floorNum = 0; floorNum < floors; floorNum++) 
-{
-	if (floorNum == 0)
-	{
-		layers = 14;
-	}
-	else
-	{
-		layers = 11;
-	}
-    for (var i = 0; i <= layers; i++) 
-	{
-        create_hexagon_ring(startX, startY, i, xDiff, yDiff, floorNum, floorHeight);
-    }
-}
