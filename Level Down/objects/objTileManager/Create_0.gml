@@ -11,7 +11,6 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
             var centerTile = instance_create_layer(centerX, centerY, "Instances", centerTileType);
             centerTile.depth = (-centerTile.y * 2) + 4000 - (floorNum * 50);
             centerTile.floorNumber = floorNum;
-			show_debug_message(floorNum)
         }
         return;
     }
@@ -49,7 +48,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
                 var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
                 tileInstance.depth = (-tileInstance.y * 2) + 4000 - (floorNum * 50);
                 tileInstance.floorNumber = floorNum;		
-				show_debug_message(floorNum)
+
             }
         }
        

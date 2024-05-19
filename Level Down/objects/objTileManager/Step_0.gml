@@ -33,7 +33,7 @@ if (objPlayer.currentFloor != lastFloor) {
     }
     else
     {
-        ringCount = 11;
+        ringCount = 25;
     }
 
     // Loop to create each required floor (current and previous two floors)
@@ -52,7 +52,7 @@ if (objPlayer.currentFloor != lastFloor) {
     // Set opacity of non-current floor hexagons to 50%
     with (objParentHexagon) {
         if (floorNumber != objPlayer.currentFloor) {
-            image_alpha = 0.3;
+            image_alpha = 0.2;
         } else {
             image_alpha = 1; // Ensure hexagons on the current floor are fully opaque
         }
