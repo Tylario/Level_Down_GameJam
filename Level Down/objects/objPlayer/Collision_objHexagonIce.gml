@@ -1,6 +1,6 @@
 //having a child collision event will overwrite the parent, so we'll need to include this v for any hexagon tiles that we have collision code for
 if (other.floorNumber == currentFloor) 
 {
-	iceTime = 0.3;
+	iceTime = 0.25;
     timeSinceTouchingGround = 0.25;
 }

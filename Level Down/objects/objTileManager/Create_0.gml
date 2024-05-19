@@ -122,7 +122,14 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
 	    var noiseValue = perlin_noise(posX * 0.015, posY * 0.015, floorNum * 0.015); // Adjust the scaling factors as needed
 		//var noiseValue = irandom_range(-1, 1);
 		if (noiseValue > -0.2 + (floorNum * 0.02)) {
-	        tileType = hexagonBreakable;
+	        if (floorNum % 2 == 1)
+			{
+				tileType = objHexBreakable
+			}
+			else
+			{
+				tileType = objHexBreakable
+			}
 	    } else {
 	        tileType = noone;
 	    }

@@ -20,7 +20,7 @@ if (objPlayer.currentFloor != lastFloor) {
     // Destroy hexagons that are no longer needed
     with (objParentHexagon) 
     { 
-        if (floorNumber < objPlayer.currentFloor - 2 || floorNumber >= objPlayer.currentFloor)
+        if (floorNumber < objPlayer.currentFloor - 1 || floorNumber >= objPlayer.currentFloor)
         {
             instance_destroy();
         }
@@ -37,7 +37,7 @@ if (objPlayer.currentFloor != lastFloor) {
     }
 
     // Loop to create each required floor (current and previous two floors)
-    for (var f = max(0, objPlayer.currentFloor - 2); f <= objPlayer.currentFloor; f++) 
+    for (var f = max(0, objPlayer.currentFloor - 1); f <= objPlayer.currentFloor; f++) 
     {
         for (var i = 0; i <= ringCount; i++) 
         {
@@ -50,11 +50,19 @@ if (objPlayer.currentFloor != lastFloor) {
     }
 
     // Set opacity of non-current floor hexagons to 50%
-    with (objParentHexagon) {
-        if (floorNumber != objPlayer.currentFloor) {
-            image_alpha = 0.2;
-        } else {
-            image_alpha = 1; // Ensure hexagons on the current floor are fully opaque
-        }
+    with (objParentHexagon) 
+	{
+	    if (floorNumber != objPlayer.currentFloor) 
+		{
+	        image_blend = make_color_rgb(100, 100, 100); // Set to a dark gray color
+	        image_alpha = 0.5; // Set transparency
+	    } 
+		else 
+		{
+	        image_blend = c_white; // Reset to the original color (no blending)
+	        image_alpha = 1; // Fully opaque
     }
+}
+
+
 }

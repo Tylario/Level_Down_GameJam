@@ -75,17 +75,20 @@ function updatePhysics() {
 	} else {
 	    // decelerate when neither or both up and down keys are pressed
 	    if (yMomentum > 0) {
-	        yMomentum = yMomentum - acceleration;
+	        yMomentum = yMomentum - acceleration * fixed_time_step;
 	        if (yMomentum < 0) {
 	            yMomentum = 0;
 	        }
 	    } else if (yMomentum < 0) {
-	        yMomentum = yMomentum + acceleration;
+	        yMomentum = yMomentum + acceleration * fixed_time_step;
 	        if (yMomentum > 0) {
 	            yMomentum = 0;
 	        }
 	    }
 	}
+
+
+
 
 
 	if ((movingUp || movingDown) && (movingLeft || movingRight)) {
@@ -109,9 +112,11 @@ function updatePhysics() {
 	iceTime = iceTime - (fixed_time_step);
 
 	if (iceTime > 0) {
-	    acceleration = 0.15;
+	    acceleration = 4;
+		maxSpeed = 2.6;
 	} else {
-	    acceleration = 16;
+	    acceleration = 32;
+		maxSpeed = 2.2;
 	}
 
 	// Arrow tiles
@@ -323,13 +328,13 @@ function updatePhysics() {
 	}
 
 	fallingTimer = fallingTimer - (fixed_time_step);
-	show_debug_message(falling)
 	if (timeSinceTouchingGround < 0 && !bouncing) {
-	   // falling = true;
+	   falling = true;
 	    if (fallingTimer < -1) {
 	        fallingTimer = 0.5;
 	    }
 	}
+
 
 	if (fallingTimer > 0) {
 	    y = y + -1 * (fallingTimer - 0.5) * 14;
