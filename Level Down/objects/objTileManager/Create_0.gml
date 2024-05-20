@@ -112,16 +112,42 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
     }
 
 
-
-    // Tile type based on level logic
-	var levelType = floorNum % 5;
-
-	if (floorNum == 0 || levelType == 0) {
+	if (floorNum % 5 == 0) 
+	{
 	    tileType = hexagonUnbreakable;
-	} else {
+	} 
+	else if (floorNum == 1)
+	{
+		var noiseValue = perlin_noise(posX * 0.06, posY * 0.06, floorNum * 0.015); // Adjust the scaling factors as needed
+		if (noiseValue > -0.4)
+		{
+			tileType = hexagonUnbreakable;
+		}
+		else
+		{
+			var noiseValue2 = irandom_range(0, 100);
+			if (noiseValue2 < 25)
+			{
+				tileType = hexagonWall
+			}
+			else if (noiseValue2 < 50)
+			{
+				tileType = hexagonDeadly
+			}
+			else if (noiseValue2 < 75)
+			{
+				tileType = hexagonJump
+			}
+			else
+			{
+				tileType = hexagonArrow
+			}	
+		}
+	}
+	else {
 	    var noiseValue = perlin_noise(posX * 0.015, posY * 0.015, floorNum * 0.015); // Adjust the scaling factors as needed
 		//var noiseValue = irandom_range(-1, 1);
-		if (noiseValue > -0.2 + (floorNum * 0.02)) {
+		if (noiseValue > -0.3 + (floorNum * 0.02)) {
 	        if (floorNum % 5 == 4)
 			{
 				tileType = objHexagonIce

@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"objHexagonTall",
+  "%Name":"objHexagonDeadly",
   "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objHexagonTall",
+  "name":"objHexagonDeadly",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -32,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"sprHexagonDeath",
+    "path":"sprites/sprHexagonDeath/sprHexagonDeath.yy",
+  },
   "spriteMaskId":{
     "name":"sprHexagonParent",
     "path":"sprites/sprHexagonParent/sprHexagonParent.yy",

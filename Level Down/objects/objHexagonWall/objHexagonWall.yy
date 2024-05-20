@@ -1,15 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"Object13",
+  "%Name":"objHexagonWall",
   "eventList":[],
   "managed":true,
-  "name":"Object13",
+  "name":"objHexagonWall",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
     "path":"folders/Objects.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"objParentHexagon",
+    "path":"objects/objParentHexagon/objParentHexagon.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,9 +31,12 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"subtitle",
-    "path":"sprites/subtitle/subtitle.yy",
+    "name":"sprHexagonWall",
+    "path":"sprites/sprHexagonWall/sprHexagonWall.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"sprHexagonParent",
+    "path":"sprites/sprHexagonParent/sprHexagonParent.yy",
+  },
   "visible":true,
 }

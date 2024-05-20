@@ -16,6 +16,8 @@ lastDirection = "none"; // Initialize last direction
 shadow = instance_create_layer(x, y, "Instances", objShadow); // Create shadow object
 shadow.depth = -9999;
 yJumpOffset = 0;
+timeSinceTouchingJump = 0;
+jumpWhileTouchingJump = false;
 
 // Fixed timestep for physics calculations
 fixed_time_step = 1 / 60; // 60 updates per second
@@ -130,9 +132,9 @@ function updatePhysics() {
 	// Arrow tiles
 	arrowJumpingTimer += fixed_time_step;
 	if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime) {
-	    var someValue = 3; // Define the scale of the jump effect
+	    var someValue = 6; // Define the scale of the jump effect
 	    var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	    var moveAmount = 0.7 / arrowJumpTime;
+	    var moveAmount = 1.5 / arrowJumpTime;
     
 	    switch(arrowDirection) {
 	        case "Up": // Directly up
@@ -178,12 +180,24 @@ function updatePhysics() {
 	var newY = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
 
 	// Check for collisions at the new positions
-	if (currentFloor != 0 || (!place_meeting(newX, y, objHexagonTall) && !place_meeting(x, newY, objHexagonTall))) {
+	
+	if (not (!place_meeting(x, y, objHexagonWall) && !place_meeting(x, y, objHexagonWall))) {
 	    // No collision with objHexagonTall at new positions, so it's safe to move
+
 	    x = newX;
-	    y = newY;
-	} else {
-	    // Optional: handle the collision, e.g., stop movement, bounce back, etc.
+		y = newY
+	}
+	else
+	{
+		if ((!place_meeting(x, y, objHexagonWall) && !place_meeting(x, newY, objHexagonWall))) {
+		    // No collision with objHexagonTall at new positions, so it's safe to move
+
+		    y = newY;
+		}
+		if ((!place_meeting(newX, y, objHexagonWall) && !place_meeting(x, y, objHexagonWall))) {
+		    // No collision with objHexagonTall at new positions, so it's safe to move
+		    x = newX;
+		}
 	}
 
 	// Initialize a variable for the last direction in the Create Event
@@ -294,15 +308,27 @@ function updatePhysics() {
 	image_speed = isMoving ? 0.5 : 0; // Set this according to your game's needs
 
 	// jumping
-	jumpTimer = jumpTimer + fixed_time_step;
+	if (not jumpWhileTouchingJump)
+	{
+		jumpTimer = jumpTimer + fixed_time_step;
+	}
+	else
+	{
+		jumpTimer = jumpTimer + fixed_time_step * 0.5;
+	}
 
 	if (jumpingPressed && jumpTimer > 0.75 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime) {
 	    jumpTimer = 0;
 	    jumping = true;
+		
 	}
 
 	if (jumpTimer > 0 && jumpTimer < 0.5) {
 	    jumping = true;
+		if (timeSinceTouchingJump > 0)
+		{
+			jumpWhileTouchingJump = true;
+		}
 	    y = y + ((jumpTimer - 0.25) * 25);
     
 	    // Keep the shadow stationary relative to the ground while the player jumps
@@ -312,6 +338,7 @@ function updatePhysics() {
 	    shadow.y = shadow.y - yJumpOffset;
 	} else {
 	    jumping = false;
+		jumpWhileTouchingJump = false;
 	    shadow.x = x - 7; 
 	    shadow.y = y - 8;
 	    yJumpOffset = 0;
@@ -343,8 +370,6 @@ function updatePhysics() {
 	    }
 	}
 	
-	show_debug_message(timeSinceTouchingGround)
-
 	if (fallingTimer > 0) {
 	    y = y + -1 * (fallingTimer - 0.5) * 14;
 
@@ -361,5 +386,8 @@ function updatePhysics() {
 	    fallingTimer = -5;
 	    midFallFloorUpdated = false; // Reset flag for the next fall
 	}
+	
+	//jump tile logic
+	timeSinceTouchingJump = timeSinceTouchingJump - (fixed_time_step);
 }
 
