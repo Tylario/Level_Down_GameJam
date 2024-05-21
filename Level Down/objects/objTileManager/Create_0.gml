@@ -116,6 +116,18 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
 	{
 	    tileType = hexagonUnbreakable;
 	} 
+	else if (floorNum % 7 == 0)
+	{
+		var noiseValue = perlin_noise(posX * 0.06, posY * 0.06, floorNum * 0.015); // Adjust the scaling factors as needed
+		if (noiseValue > -0.4)
+		{
+			tileType = hexagonUnbreakable;
+		}
+		else
+		{
+			tileType = hexagonWall
+		}
+	}
 	else if (floorNum == 1)
 	{
 		var noiseValue = perlin_noise(posX * 0.06, posY * 0.06, floorNum * 0.015); // Adjust the scaling factors as needed
@@ -160,6 +172,17 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
 	        tileType = noone;
 	    }
 	}
+	
+	/*
+			if (currentFloor % 7 == 0)
+		{
+			objPlayer.levelWithWalls = true;
+		}
+		else
+		{
+			objPlayer.levelWithWalls = false;
+		}
+	*/
 
 
     // Ensuring trampoline spawns on each floor based on adjusted trampolineX and trampolineY positions

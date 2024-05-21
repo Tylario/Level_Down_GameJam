@@ -18,6 +18,7 @@ shadow.depth = -9999;
 yJumpOffset = 0;
 timeSinceTouchingJump = 0;
 jumpWhileTouchingJump = false;
+levelWithWalls = false;
 
 // Fixed timestep for physics calculations
 fixed_time_step = 1 / 60; // 60 updates per second
@@ -175,31 +176,49 @@ function updatePhysics() {
 	    bouncingMultiplier = 1;
 	}
 
-	// Calculate potential new positions
-	var newX = x + clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
-	var newY = y + clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
+	if (levelWithWalls)
+	{
 
-	// Check for collisions at the new positions
-	
-	if (not (!place_meeting(x, y, objHexagonWall) && !place_meeting(x, y, objHexagonWall))) {
-	    // No collision with objHexagonTall at new positions, so it's safe to move
+		// Calculate potential new positions
+		var newXOffset = clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
+		var newYOffset = clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
+		var newX = x + newXOffset;
+		var newY = y + newYOffset;
+		var shadow_instance = instance_find(objShadow, 0);
+		var shadowX = shadow_instance.x + (shadow_instance.sprite_width / 2);
+		var shadowY = shadow_instance.y + (shadow_instance.sprite_height / 2);
+		var newShadowX = shadowX + newXOffset;
+		var newShadowY = shadowY +newYOffset;
 
-	    x = newX;
-		y = newY
+		show_debug_message(currentFloor)
+
+		// Check for collisions at the new positions
+		if (!place_meeting(newShadowX, newShadowY, objHexagonWall)) {
+		    // No collision at the new position, so move to newX and newY
+		    x = newX;
+		    y = newY;
+		} else {
+		    // Check for collision in the y direction only
+		    if (!place_meeting(shadowX, newShadowY, objHexagonWall)) {
+		        // No collision at the new y position, so move to newY
+		        y = newY;
+		    }
+		    // Check for collision in the x direction only
+		    if (!place_meeting(newShadowX, shadowY, objHexagonWall)) {
+		        // No collision at the new x position, so move to newX
+		        x = newX;
+		    }
+		}
 	}
 	else
 	{
-		if ((!place_meeting(x, y, objHexagonWall) && !place_meeting(x, newY, objHexagonWall))) {
-		    // No collision with objHexagonTall at new positions, so it's safe to move
-
-		    y = newY;
-		}
-		if ((!place_meeting(newX, y, objHexagonWall) && !place_meeting(x, y, objHexagonWall))) {
-		    // No collision with objHexagonTall at new positions, so it's safe to move
-		    x = newX;
-		}
+		var newXOffset = clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
+		var newYOffset = clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
+		var newX = x + newXOffset;
+		var newY = y + newYOffset;
+		x = newX;
+		y = newY;
 	}
-
 	// Initialize a variable for the last direction in the Create Event
 	// Possible values: "left", "right", "up", "down", "upLeft", "upRight", "downLeft", "downRight"
 	lastDirection = "none";
