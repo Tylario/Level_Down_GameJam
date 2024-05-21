@@ -59,9 +59,6 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 
 
 function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
-    var difficulty = 1 - (0.02 * floorNum);
-    var chanceForEmpty = 1 - difficulty;
-    //var randomNumber = irandom(100); // Random number for each tile
 
     // Adjust trampoline positioning logic for floor height
     var floorHeight = 100; // Height difference between floors
@@ -103,6 +100,20 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
         } else if (determineTileType(floorNum - 1, posX + xDiff / 2, belowPosY - yDiff, true) == hexagonTrampoline) {
             isTrampolineBelow = true;
         }
+		
+		if (determineTileType(floorNum, posX - xDiff / 2, posY + yDiff, true) == hexagonTrampoline) {
+            isTrampolineBelow = true;
+        } else if (determineTileType(floorNum, posX + xDiff / 2, posY + yDiff, true) == hexagonTrampoline) {
+            isTrampolineBelow = true;
+        } else if (determineTileType(floorNum, posX, posY + yDiff * 2, true) == hexagonTrampoline) {
+            isTrampolineBelow = true;
+        } else if (determineTileType(floorNum, posX, posY - yDiff * 2, true) == hexagonTrampoline) {
+            isTrampolineBelow = true;
+        } else if (determineTileType(floorNum, posX - xDiff / 2, posY - yDiff, true) == hexagonTrampoline) {
+            isTrampolineBelow = true;
+        } else if (determineTileType(floorNum, posX + xDiff / 2, posY - yDiff, true) == hexagonTrampoline) {
+            isTrampolineBelow = true;
+        }
 
         if (isTrampolineBelow) {
             // Ensure unbreakable tiles are spawned above trampolines
@@ -110,12 +121,39 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
             return objHexagonUnbreakable; // Force this tile to be an unbreakable hexagon
         }
     }
-
-
+	
+	// Ensuring trampoline spawns on each floor based on adjusted trampolineX and trampolineY positions
+    if (posX == trampolineX && posY == trampolineY) {
+        return hexagonTrampoline;
+    }
+	
 	if (floorNum % 5 == 0) 
 	{
-	    tileType = hexagonUnbreakable;
-	} 
+	    return hexagonUnbreakable;
+	}
+
+
+	//Level design / Tile Generation Starts here
+	/* 
+		i want a difficulty variable. increases overtime, and repeats between checkpoints. something like difficulty = floorNum + (5 % floorNum)	
+		every 7 levels floorNum % 7 it needs to include hexagonWall
+		needs to be the same each time. so uses seeded random values with floorNum or the perlin Noise function like below is great
+		things we can do:
+		ranges within perlin noise. middle values for rings/paths, low/high values for holes. 
+		i like the idea of layering different perlin_noises over eachother at different scales
+		also using a different scale value for perlin noise
+		floor tile types (hexagonUnbreakable, hexagonBreakable,hexagonIce )
+		 - first 5 level should be mostly hexagonUnbreakable
+		 -  hexagonUnbreakable will completely cover every 5th level. nothing shoudl appear on these levels other than unbrekable
+		 - ice is rareish, maybe appear in 1/4 levels i have it to appear on the last of each set of levels
+		 - 
+		some levels should include these. levels can have multiple of these at once. maybe each one of these occurs every n levels
+		 - these should be randomly scattered, probably, only being places where the main ground is, so they arent floating by themselves
+		 (flooat uniqieu tile types: hexagonArrow, hexagonJump, hexagonDeadly)
+		 
+	*/
+	
+	
 	else if (floorNum % 7 == 0)
 	{
 		var noiseValue = perlin_noise(posX * 0.06, posY * 0.06, floorNum * 0.015); // Adjust the scaling factors as needed
@@ -137,6 +175,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
 		}
 		else
 		{
+			random_set_seed(floorNum + posX + posY);
 			var noiseValue2 = irandom_range(0, 100);
 			if (noiseValue2 < 25)
 			{
@@ -158,7 +197,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
 	}
 	else {
 	    var noiseValue = perlin_noise(posX * 0.015, posY * 0.015, floorNum * 0.015); // Adjust the scaling factors as needed
-		//var noiseValue = irandom_range(-1, 1);
 		if (noiseValue > -0.3 + (floorNum * 0.02)) {
 	        if (floorNum % 5 == 4)
 			{
@@ -172,23 +210,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false) {
 	        tileType = noone;
 	    }
 	}
-	
-	/*
-			if (currentFloor % 7 == 0)
-		{
-			objPlayer.levelWithWalls = true;
-		}
-		else
-		{
-			objPlayer.levelWithWalls = false;
-		}
-	*/
-
-
-    // Ensuring trampoline spawns on each floor based on adjusted trampolineX and trampolineY positions
-    if (posX == trampolineX && posY == trampolineY) {
-        tileType = hexagonTrampoline;
-    }
 
     return tileType;
 }

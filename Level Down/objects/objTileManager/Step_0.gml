@@ -29,10 +29,7 @@ if (objPlayer.currentFloor != lastFloor) {
     // Destroy hexagons that are no longer needed
     with (objParentHexagon) 
     { 
-        if (floorNumber < objPlayer.currentFloor - 1 || floorNumber >= objPlayer.currentFloor)
-        {
-            instance_destroy();
-        }
+        instance_destroy();
     }
 
     // Adjust ringCount based on the current floor

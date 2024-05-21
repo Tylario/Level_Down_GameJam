@@ -133,9 +133,9 @@ function updatePhysics() {
 	// Arrow tiles
 	arrowJumpingTimer += fixed_time_step;
 	if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime) {
-	    var someValue = 6; // Define the scale of the jump effect
+	    var someValue = 4; // Define the scale of the jump effect
 	    var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	    var moveAmount = 1.5 / arrowJumpTime;
+	    var moveAmount = 1.2 / arrowJumpTime;
     
 	    switch(arrowDirection) {
 	        case "Up": // Directly up
@@ -191,23 +191,31 @@ function updatePhysics() {
 		var newShadowY = shadowY +newYOffset;
 
 		show_debug_message(currentFloor)
-
-		// Check for collisions at the new positions
-		if (!place_meeting(newShadowX, newShadowY, objHexagonWall)) {
+		
+		if (place_meeting(shadowX, shadowY, objHexagonWall)) {
 		    // No collision at the new position, so move to newX and newY
 		    x = newX;
 		    y = newY;
-		} else {
-		    // Check for collision in the y direction only
-		    if (!place_meeting(shadowX, newShadowY, objHexagonWall)) {
-		        // No collision at the new y position, so move to newY
-		        y = newY;
-		    }
-		    // Check for collision in the x direction only
-		    if (!place_meeting(newShadowX, shadowY, objHexagonWall)) {
-		        // No collision at the new x position, so move to newX
-		        x = newX;
-		    }
+		}
+		else
+		{
+			// Check for collisions at the new positions
+			if (!place_meeting(newShadowX, newShadowY, objHexagonWall)) {
+			    // No collision at the new position, so move to newX and newY
+			    x = newX;
+			    y = newY;
+			} else {
+			    // Check for collision in the y direction only
+			    if (!place_meeting(shadowX, newShadowY, objHexagonWall)) {
+			        // No collision at the new y position, so move to newY
+			        y = newY;
+			    }
+			    // Check for collision in the x direction only
+			    if (!place_meeting(newShadowX, shadowY, objHexagonWall)) {
+			        // No collision at the new x position, so move to newX
+			        x = newX;
+			    }
+			}
 		}
 	}
 	else
