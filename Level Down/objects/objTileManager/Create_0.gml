@@ -175,20 +175,20 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	var unbreakableFloor = true; // first 5 floors. every 12 and 17 floors
 	var breakableFloor = true; // true if ice is false. 25% of the time true is ice is true
 	var iceFloor = false; // true if floorNum % 5 == 4, and every 6 floors
-	var difficultyNumber = 35 + floorNum + ((floorNum % 5) * 5);// difficulty starting at 0 
+	var difficultyNumber = 30 + floorNum + ((floorNum % 5) * 5);// difficulty starting at 0 
 	var difficultyScale = 0.015;
 	
 	//variable implementation
 	// Set the seed for deterministic randomness based on floor number and tile position
-	random_set_seed(floorNum);
+	random_set_seed(floorNum * 1.1);
 
 	// Determine the properties for special tiles on certain floors
 	wallFloor = floorNum % 7 == 0;
-	arrowFloor = floorNum > 5 && ((floorNum % 9 == 0) || (floorNum % 12 == 0) || (floorNum % 9 == 4));
+	arrowFloor = floorNum > 5 && ((floorNum % 9 == 2) || (floorNum % 12 == 0) || (floorNum % 9 == 6));
 	deadlyFloor = (floorNum > 10) && ((floorNum % 8 == 0) || (floorNum % 8 == 5));
-	jumpFloor = floorNum > 5 &&  ((floorNum % 11 == 0 || floorNum % 13 == 0 || floorNum % 11 == 7)|| floorNum % 11 == 3);
+	jumpFloor = floorNum > 15 &&  ((floorNum % 11 == 0 || floorNum % 13 == 0 || floorNum % 11 == 7)|| floorNum % 11 == 3);
 	
-	iceFloor = (floorNum % 5 == 4 and floorNum > 5) || (floorNum % 6 == 0);
+	iceFloor = floorNum > 8 && ((floorNum % 5 == 4 and floorNum > 5) || (floorNum % 6 == 0));
 	unbreakableFloor = (floorNum <= 4) || (floorNum % 12 == 0) || (floorNum % 17 == 0);
 
 	// Calculate the percentages for each tile type transformation
@@ -199,7 +199,8 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	
 	// Noise settings using floor-only seed for consistency across a single floor
 
-	NoiseScale = random_range(0.012, 0.019);
+	NoiseScale = random_range(0.012, 0.016);
+	difficultyNumber = ((1/0.014) * NoiseScale) * difficultyNumber
 	//NoiseScale = 0.02;
 
 	// Tile-specific settings
@@ -210,10 +211,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 	// Apply normal logic for tile type determination
 	if (unbreakableFloor) {
-			if (arrowFloor)
-			{
-				difficultyNumber = difficultyNumber * 0.6
-			}
 	        if (noiseValue > -1 + difficultyScale * difficultyNumber) {
 	            tileType = hexagonUnbreakable;
 	        }
