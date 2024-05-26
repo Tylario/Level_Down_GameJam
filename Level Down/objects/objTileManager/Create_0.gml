@@ -9,7 +9,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
         var centerTileType = determineTileType(floorNum, centerX, centerY); // Assuming centerX and centerY passed correctly
         if (centerTileType != noone) {
             var centerTile = instance_create_layer(centerX, centerY, "Instances", centerTileType);
-            centerTile.depth = (-centerTile.y * 2) + 4000 - (floorNum * 50);
+            centerTile.depth = (-centerTile.y * 2) + 34000 - (floorNum * 50);
             centerTile.floorNumber = floorNum;
         }
         return;
@@ -46,7 +46,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 
             if (tileType != noone) { 
                 var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
-                tileInstance.depth = (-tileInstance.y * 2) + 4000 - (floorNum * 50);
+                tileInstance.depth = (-tileInstance.y * 2) + 34000 - (floorNum * 50);
                 tileInstance.floorNumber = floorNum;		
 
             }
@@ -67,10 +67,10 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
     var trampolineX, trampolineY;
     if (floorNum % 2 == 0) { // Alternating trampoline positions based on even or odd floorNum
         trampolineX = 777.50 - (49 * 2.5); // Adjusted for X position
-        trampolineY = (2470 - (2 * 40 - 10)) - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
+        trampolineY = 14600 - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
     } else {
         trampolineX = 777.50 + (49 * 7.5); // Adjusted for X position
-        trampolineY = (2470 - (2 * 40 - 10)) - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
+        trampolineY = 14600 - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
     }
 
     var tileType = noone;
@@ -133,24 +133,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 
 	//Level design / Tile Generation Starts here
-	/* 
-		i want a difficulty variable. increases overtime, and repeats between checkpoints. something like difficulty = floorNum + (5 % floorNum)	
-		every 7 levels floorNum % 7 it needs to include hexagonWall
-		needs to be the same each time. so uses seeded random values with floorNum or the perlin Noise function like below is great
-		things we can do:
-		ranges within perlin noise. middle values for rings/paths, low/high values for holes. 
-		i like the idea of layering different perlin_noises over eachother at different scales
-		also using a different scale value for perlin noise
-		floor tile types (hexagonUnbreakable, hexagonBreakable,hexagonIce )
-		 - first 5 level should be mostly hexagonUnbreakable
-		 -  hexagonUnbreakable will completely cover every 5th level. nothing shoudl appear on these levels other than unbrekable
-		 - ice is rareish, maybe appear in 1/4 levels i have it to appear on the last of each set of levels
-		 - 
-		some levels should include these. levels can have multiple of these at once. maybe each one of these occurs every n levels
-		 - these should be randomly scattered, probably, only being places where the main ground is, so they arent floating by themselves
-		 (flooat uniqieu tile types: hexagonArrow, hexagonJump, hexagonDeadly)
-		 
-	*/
 	//variable definitinos for tile generation
 	var wallFloor = false; // every 7 floors
 	var wallTilePercentage; // percentage change for a tile that would have been floor to be wall
@@ -159,7 +141,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	var arrowFloor = false; // every 9 and 13 floors
 	var arrowPercentage; //percentage change for tile that would have been floor to be arrow
 	var arrowPercentageMin = 0.02;
-	var arrowPercentageMax = 0.12;
+	var arrowPercentageMax = 0.42;
 	var deadlyFloor = false; // every 8 floors
 	var deadlyPercentage; //percentage change for tile that would have been floor to be deadly
 	var deadlyPercentageMin = 0.01;
@@ -184,7 +166,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 	// Determine the properties for special tiles on certain floors
 	wallFloor = floorNum % 7 == 0;
-	arrowFloor = floorNum > 5 && ((floorNum % 9 == 2) || (floorNum % 12 == 0) || (floorNum % 9 == 6));
+	arrowFloor = floorNum > 3 && ((floorNum % 9 == 4) || (floorNum % 12 == 0) || (floorNum % 9 == 8));
 	deadlyFloor = (floorNum > 10) && ((floorNum % 8 == 0) || (floorNum % 8 == 5));
 	jumpFloor = floorNum > 15 &&  ((floorNum % 11 == 0 || floorNum % 13 == 0 || floorNum % 11 == 7)|| floorNum % 11 == 3);
 	
@@ -207,7 +189,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 	// Generate the base noise value for this tile
 	var noiseValue = perlin_noise(posX * NoiseScale, posY * NoiseScale, floorNum * NoiseScale);
-
 
 	// Apply normal logic for tile type determination
 	if (unbreakableFloor) {
