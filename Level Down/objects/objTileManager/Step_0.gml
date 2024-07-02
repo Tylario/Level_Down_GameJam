@@ -4,15 +4,6 @@ if (objPlayer.currentFloor != lastFloor) {
     {
         room_restart();
     }
-
-	if (objPlayer.currentFloor % 7 == 0)
-	{
-		objPlayer.levelWithWalls = true;
-	}
-	else
-	{
-		objPlayer.levelWithWalls = false;
-	}
     
     lastFloor = objPlayer.currentFloor;
 

@@ -18,7 +18,6 @@ shadow.depth = -9999;
 yJumpOffset = 0;
 timeSinceTouchingJump = 0;
 jumpWhileTouchingJump = false;
-levelWithWalls = false;
 
 // Fixed timestep for physics calculations
 fixed_time_step = 1 / 60; // 60 updates per second
@@ -133,9 +132,9 @@ function updatePhysics() {
 	// Arrow tiles
 	arrowJumpingTimer += fixed_time_step;
 	if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime) {
-	    var someValue = 4; // Define the scale of the jump effect
+	    var someValue = 3; // Define the scale of the jump effect
 	    var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	    var moveAmount = 1.2 / arrowJumpTime;
+	    var moveAmount = 0.75 / arrowJumpTime;
     
 	    switch(arrowDirection) {
 	        case "Up": // Directly up
@@ -176,57 +175,98 @@ function updatePhysics() {
 	    bouncingMultiplier = 1;
 	}
 
-	if (levelWithWalls)
-	{
+// Calculate potential new positions
+var newXOffset = clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
+var newYOffset = clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
+var newX = x + newXOffset;
+var newY = y + newYOffset;
+var shadow_instance = instance_find(objShadow, 0);
+var shadowX = shadow_instance.x + (shadow_instance.sprite_width / 2) - 5;
+var shadowY = shadow_instance.y + (shadow_instance.sprite_height / 2) - 2;
+var newShadowX = shadowX + newXOffset;
+var newShadowY = shadowY + newYOffset;
 
-		// Calculate potential new positions
-		var newXOffset = clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
-		var newYOffset = clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
-		var newX = x + newXOffset;
-		var newY = y + newYOffset;
-		var shadow_instance = instance_find(objShadow, 0);
-		var shadowX = shadow_instance.x + (shadow_instance.sprite_width / 2);
-		var shadowY = shadow_instance.y + (shadow_instance.sprite_height / 2);
-		var newShadowX = shadowX + newXOffset;
-		var newShadowY = shadowY +newYOffset;
+// Offset and radius for collision checks
 
-		show_debug_message(currentFloor)
-		
-		if (place_meeting(shadowX, shadowY, objHexagonWall)) {
-		    // No collision at the new position, so move to newX and newY
-		    x = newX;
-		    y = newY;
-		}
-		else
-		{
-			// Check for collisions at the new positions
-			if (!place_meeting(newShadowX, newShadowY, objHexagonWall)) {
-			    // No collision at the new position, so move to newX and newY
-			    x = newX;
-			    y = newY;
-			} else {
-			    // Check for collision in the y direction only
-			    if (!place_meeting(shadowX, newShadowY, objHexagonWall)) {
-			        // No collision at the new y position, so move to newY
-			        y = newY;
-			    }
-			    // Check for collision in the x direction only
-			    if (!place_meeting(newShadowX, shadowY, objHexagonWall)) {
-			        // No collision at the new x position, so move to newX
-			        x = newX;
-			    }
-			}
-		}
+
+	// Function to check collision with all objHexagonWall instances at four positions around a center, including corners
+	function check_collision(xPos, yPos) {
+		// Function to check collision with all objHexagonWall instances at four positions around a center
+	var shadowXOffset = 0;
+	var shadowYOffset = 0;
+	var collisionRadius = 3;
+	    // Check top, bottom, left, and right positions
+	    var inst;
+	    inst = instance_place(xPos + shadowXOffset, yPos + shadowYOffset - collisionRadius, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    inst = instance_place(xPos + shadowXOffset, yPos + shadowYOffset + collisionRadius, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    inst = instance_place(xPos + shadowXOffset - collisionRadius, yPos + shadowYOffset, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    inst = instance_place(xPos + shadowXOffset + collisionRadius, yPos + shadowYOffset, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    // Check corner positions
+	    inst = instance_place(xPos + shadowXOffset - collisionRadius, yPos + shadowYOffset - collisionRadius, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    inst = instance_place(xPos + shadowXOffset + collisionRadius, yPos + shadowYOffset - collisionRadius, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    inst = instance_place(xPos + shadowXOffset - collisionRadius, yPos + shadowYOffset + collisionRadius, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    inst = instance_place(xPos + shadowXOffset + collisionRadius, yPos + shadowYOffset + collisionRadius, objHexagonWall);
+	    if (inst != noone && inst.floorNumber == currentFloor) {
+	        return inst;
+	    }
+	    return noone;
 	}
-	else
-	{
-		var newXOffset = clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
-		var newYOffset = clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier
-		var newX = x + newXOffset;
-		var newY = y + newYOffset;
-		x = newX;
-		y = newY;
-	}
+
+// Check all combinations of previous and new positions for shadow
+var initialCollision = check_collision(shadowX, shadowY);
+show_debug_message("Checking position: (" + string(shadowX) + ", " + string(shadowY) + ")");
+if (initialCollision != noone) {
+    show_debug_message("Collision detected at initial position.");
+ 
+        x = newX;
+        y = newY;
+} else {
+    // No initial collision, check the new positions directly
+    var newCollision = check_collision(newShadowX, newShadowY);
+    if (newCollision == noone) {
+        x = newX;
+        y = newY;
+        show_debug_message("No collision at new position - moving freely.");
+    } else {
+        // Check for collision with new Y only
+        var yCollision = check_collision(shadowX, newShadowY);
+        if (yCollision == noone) {
+            y = newY;
+            show_debug_message("Moving to new Y position: (" + string(y) + ")");
+        }
+
+        // Check for collision with new X only
+        var xCollision = check_collision(newShadowX, shadowY);
+        if (xCollision == noone) {
+            x = newX;
+            show_debug_message("Moving to new X position: (" + string(x) + ")");
+        }
+    }
+}
+
+
+	
 	// Initialize a variable for the last direction in the Create Event
 	// Possible values: "left", "right", "up", "down", "upLeft", "upRight", "downLeft", "downRight"
 	lastDirection = "none";
@@ -237,6 +277,7 @@ function updatePhysics() {
 	} else if (xMomentum > 0) {
 	    lastDirection = "right";
 	}
+
 
 	if (yMomentum < 0) {
 	    if (lastDirection == "left") {
@@ -359,15 +400,15 @@ function updatePhysics() {
 	    y = y + ((jumpTimer - 0.25) * 25);
     
 	    // Keep the shadow stationary relative to the ground while the player jumps
-	    shadow.x = x - 7; 
-	    shadow.y = y - 8;
+	    shadow.x = x - 1; 
+	    shadow.y = y - 2;
 	    yJumpOffset += ((jumpTimer - 0.25) * 25);
 	    shadow.y = shadow.y - yJumpOffset;
 	} else {
 	    jumping = false;
 		jumpWhileTouchingJump = false;
-	    shadow.x = x - 7; 
-	    shadow.y = y - 8;
+	    shadow.x = x - 1; 
+	    shadow.y = y - 2;
 	    yJumpOffset = 0;
 	}
 

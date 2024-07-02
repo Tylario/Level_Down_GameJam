@@ -134,14 +134,14 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 	//Level design / Tile Generation Starts here
 	//variable definitinos for tile generation
-	var wallFloor = false; // every 7 floors
+	var wallFloor = false; 
 	var wallTilePercentage; // percentage change for a tile that would have been floor to be wall
-	var wallTilePercentageMin = 0.01;
-	var wallTilePercentageMax = 0.02;
+	var wallTilePercentageMin = 0.1;
+	var wallTilePercentageMax = 0.2;
 	var arrowFloor = false; // every 9 and 13 floors
 	var arrowPercentage; //percentage change for tile that would have been floor to be arrow
 	var arrowPercentageMin = 0.02;
-	var arrowPercentageMax = 0.42;
+	var arrowPercentageMax = 0.18;
 	var deadlyFloor = false; // every 8 floors
 	var deadlyPercentage; //percentage change for tile that would have been floor to be deadly
 	var deadlyPercentageMin = 0.01;
@@ -162,11 +162,11 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	
 	//variable implementation
 	// Set the seed for deterministic randomness based on floor number and tile position
-	random_set_seed(floorNum * 1.1);
+	random_set_seed(floorNum * 1.15);
 
 	// Determine the properties for special tiles on certain floors
-	wallFloor = floorNum % 7 == 0;
-	arrowFloor = floorNum > 3 && ((floorNum % 9 == 4) || (floorNum % 12 == 0) || (floorNum % 9 == 8));
+	wallFloor = floorNum > 5 && floorNum % 4 == 2
+	arrowFloor = floorNum > 5 && ((floorNum % 9 == 4) || (floorNum % 12 == 0) || (floorNum % 9 == 8));
 	deadlyFloor = (floorNum > 10) && ((floorNum % 8 == 0) || (floorNum % 8 == 5));
 	jumpFloor = floorNum > 15 &&  ((floorNum % 11 == 0 || floorNum % 13 == 0 || floorNum % 11 == 7)|| floorNum % 11 == 3);
 	
@@ -183,12 +183,11 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 	NoiseScale = random_range(0.012, 0.016);
 	difficultyNumber = ((1/0.014) * NoiseScale) * difficultyNumber
-	//NoiseScale = 0.02;
 
-	// Tile-specific settings
 
 	// Generate the base noise value for this tile
-	var noiseValue = perlin_noise(posX * NoiseScale, posY * NoiseScale, floorNum * NoiseScale);
+	var noiseValue = perlin_noise(posX * NoiseScale, posY * NoiseScale, floorNum * NoiseScale * 306);
+
 
 	// Apply normal logic for tile type determination
 	if (unbreakableFloor) {
@@ -213,7 +212,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 	// Check for special tile types if the basic tile type has been set to a breakable or unbreakable type
 	if (tileType != noone) {
-	    if (wallFloor && irandom_range(0, 100) < wallTilePercentageMax * 100) {
+	    if (wallFloor && irandom_range(0, 100) < wallTilePercentage * 100) {
 	        tileType = hexagonWall;
 	    }
 	    if (arrowFloor && irandom_range(0, 100) < arrowPercentage * 100) {
@@ -229,8 +228,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 	// Return the final determined tile type
 	return tileType;
-
-
 }
 
 
