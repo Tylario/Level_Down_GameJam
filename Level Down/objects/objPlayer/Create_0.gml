@@ -16,7 +16,7 @@ lastDirection = "none"; // Initialize last direction
 shadow = instance_create_layer(x, y, "Instances", objShadow); // Create shadow object
 shadow.depth = -9999;
 yJumpOffset = 0;
-timeSinceTouchingJump = 0;
+needToBounce = 0;
 jumpWhileTouchingJump = false;
 
 // Fixed timestep for physics calculations
@@ -388,15 +388,11 @@ if (initialCollision != noone) {
 	if (jumpingPressed && jumpTimer > 0.75 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime) {
 	    jumpTimer = 0;
 	    jumping = true;
-		
 	}
 
 	if (jumpTimer > 0 && jumpTimer < 0.5) {
 	    jumping = true;
-		if (timeSinceTouchingJump > 0)
-		{
-			jumpWhileTouchingJump = true;
-		}
+		
 	    y = y + ((jumpTimer - 0.25) * 25);
     
 	    // Keep the shadow stationary relative to the ground while the player jumps
@@ -454,8 +450,5 @@ if (initialCollision != noone) {
 	    fallingTimer = -5;
 	    midFallFloorUpdated = false; // Reset flag for the next fall
 	}
-	
-	//jump tile logic
-	timeSinceTouchingJump = timeSinceTouchingJump - (fixed_time_step);
 }
 
