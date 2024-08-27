@@ -37,6 +37,7 @@
     {"$GMObjectProperty":"","%Name":"hexagonDeadly","filters":[],"listItems":[],"multiselect":false,"name":"hexagonDeadly","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonCracked","varType":5,},
     {"$GMObjectProperty":"","%Name":"hexagonJump","filters":[],"listItems":[],"multiselect":false,"name":"hexagonJump","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonJump","varType":5,},
     {"$GMObjectProperty":"","%Name":"hexagonWall","filters":[],"listItems":[],"multiselect":false,"name":"hexagonWall","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonWall","varType":5,},
+    {"$GMObjectProperty":"","%Name":"hexagonRandomFall","filters":[],"listItems":[],"multiselect":false,"name":"hexagonRandomFall","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonRandomFall","varType":5,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

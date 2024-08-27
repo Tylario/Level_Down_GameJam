@@ -157,6 +157,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	var unbreakableFloor = true; // first 5 floors. every 12 and 17 floors
 	var breakableFloor = true; // true if ice is false. 25% of the time true is ice is true
 	var iceFloor = false; // true if floorNum % 5 == 4, and every 6 floors
+	var randomFallFloor = false;
 	var difficultyNumber = 30 + floorNum + ((floorNum % 5) * 5);// difficulty starting at 0 
 	var difficultyScale = 0.015;
 	
@@ -170,7 +171,8 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	deadlyFloor = (floorNum > 10) && ((floorNum % 8 == 0) || (floorNum % 8 == 5));
 	jumpFloor = floorNum > 15 &&  ((floorNum % 11 == 0 || floorNum % 13 == 0 || floorNum % 11 == 7)|| floorNum % 11 == 3);
 	
-	iceFloor = floorNum > 8 && ((floorNum % 5 == 4 and floorNum > 5) || (floorNum % 6 == 0));
+	randomFallFloor = floorNum > 14 && ((floorNum % 7 == 2) || (floorNum % 8 == 1))
+	iceFloor = floorNum > 8 && ((floorNum % 5 == 4) || (floorNum % 6 == 0));
 	unbreakableFloor = (floorNum <= 4) || (floorNum % 12 == 0) || (floorNum % 17 == 0);
 
 	// Calculate the percentages for each tile type transformation
@@ -195,12 +197,18 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	            tileType = hexagonUnbreakable;
 	        }
 			arrowPercentageMax = arrowPercentageMax * 3;
-	} else  if (iceFloor) {
+	} else if (iceFloor) {
 	   
 	        if (noiseValue > -1 + difficultyScale * difficultyNumber) {
 	            tileType = objHexagonIce;
 	        }
-	} else {
+	} else if (randomFallFloor) {
+		if (noiseValue > -1 + difficultyScale * difficultyNumber) {
+	        tileType = objHexagonRandomFall;
+	    }
+	}
+	else
+	{
 	   
 	        if (noiseValue > -1 + difficultyScale * difficultyNumber) {
 	            tileType = objHexBreakable;
