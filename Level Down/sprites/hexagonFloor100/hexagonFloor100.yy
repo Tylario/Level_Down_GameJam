@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"hexagon",
-    "path":"folders/Sprites/hexagon.yy",
+    "name":"floorNumbers",
+    "path":"folders/Sprites/hexagon/floorNumbers.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

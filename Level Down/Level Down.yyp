@@ -17,6 +17,7 @@
     {"$GMFolder":"","%Name":"backgrounds","folderPath":"folders/Sprites/backgrounds.yy","name":"backgrounds","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"stars","folderPath":"folders/Sprites/backgrounds/stars.yy","name":"stars","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"hexagon","folderPath":"folders/Sprites/hexagon.yy","name":"hexagon","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"floorNumbers","folderPath":"folders/Sprites/hexagon/floorNumbers.yy","name":"floorNumbers","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"player","folderPath":"folders/Sprites/player.yy","name":"player","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"idle","folderPath":"folders/Sprites/player/idle.yy","name":"idle","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"walk","folderPath":"folders/Sprites/player/walk.yy","name":"walk","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -31,7 +32,7 @@
   "name":"Level Down",
   "resources":[
     {"id":{"name":"objHexagonArrow","path":"objects/objHexagonArrow/objHexagonArrow.yy",},},
-    {"id":{"name":"objHexagonDeadly","path":"objects/objHexagonDeadly/objHexagonDeadly.yy",},},
+    {"id":{"name":"objHexagonCracked","path":"objects/objHexagonCracked/objHexagonCracked.yy",},},
     {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
     {"id":{"name":"objHexagonIce","path":"objects/objHexagonIce/objHexagonIce.yy",},},
     {"id":{"name":"objHexagonJump","path":"objects/objHexagonJump/objHexagonJump.yy",},},

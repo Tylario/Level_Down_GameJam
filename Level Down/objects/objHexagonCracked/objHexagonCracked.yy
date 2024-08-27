@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"objHexagonDeadly",
+  "%Name":"objHexagonCracked",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objHexagonDeadly",
+  "name":"objHexagonCracked",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
