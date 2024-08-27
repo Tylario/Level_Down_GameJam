@@ -132,7 +132,7 @@ function updatePhysics() {
 	// Arrow tiles
 	arrowJumpingTimer += fixed_time_step;
 	if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime) {
-	    var someValue = 3; // Define the scale of the jump effect
+	    var someValue = 1; // Define the scale of the jump effect
 	    var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
 	    var moveAmount = 0.75 / arrowJumpTime;
     

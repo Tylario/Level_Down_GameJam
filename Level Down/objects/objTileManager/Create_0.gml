@@ -163,7 +163,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	
 	//variable implementation
 	// Set the seed for deterministic randomness based on floor number and tile position
-	random_set_seed(floorNum * 1.15);
+	random_set_seed(1 + floorNum * 1.15);
 
 	// Determine the properties for special tiles on certain floors
 	wallFloor = floorNum > 5 && floorNum % 4 == 2

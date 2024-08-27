@@ -1,2 +1,2 @@
-randomTime = random_range(1, 60)
+randomTime = random_range(1, 30)
 timeSinceSpawn = 0;
