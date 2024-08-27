@@ -143,6 +143,7 @@
     {"name":"sprHexagonBreakable","order":6,"path":"sprites/sprHexagonBreakable/sprHexagonBreakable.yy",},
     {"name":"sprHexagonDeath","order":44,"path":"sprites/sprHexagonDeath/sprHexagonDeath.yy",},
     {"name":"sprHexagonIce","order":7,"path":"sprites/sprHexagonIce/sprHexagonIce.yy",},
+    {"name":"sprHexagonInstaFall","order":117,"path":"sprites/sprHexagonInstaFall/sprHexagonInstaFall.yy",},
     {"name":"sprHexagonJump","order":43,"path":"sprites/sprHexagonJump/sprHexagonJump.yy",},
     {"name":"sprHexagonParent","order":8,"path":"sprites/sprHexagonParent/sprHexagonParent.yy",},
     {"name":"sprHexagonTall","order":13,"path":"sprites/sprHexagonTall/sprHexagonTall.yy",},

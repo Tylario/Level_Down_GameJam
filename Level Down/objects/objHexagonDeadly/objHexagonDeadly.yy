@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprHexagonDeath",
-    "path":"sprites/sprHexagonDeath/sprHexagonDeath.yy",
+    "name":"sprHexagonInstaFall",
+    "path":"sprites/sprHexagonInstaFall/sprHexagonInstaFall.yy",
   },
   "spriteMaskId":{
     "name":"sprHexagonParent",

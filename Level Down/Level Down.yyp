@@ -165,6 +165,7 @@
     {"id":{"name":"sprHexagonBreakable","path":"sprites/sprHexagonBreakable/sprHexagonBreakable.yy",},},
     {"id":{"name":"sprHexagonDeath","path":"sprites/sprHexagonDeath/sprHexagonDeath.yy",},},
     {"id":{"name":"sprHexagonIce","path":"sprites/sprHexagonIce/sprHexagonIce.yy",},},
+    {"id":{"name":"sprHexagonInstaFall","path":"sprites/sprHexagonInstaFall/sprHexagonInstaFall.yy",},},
     {"id":{"name":"sprHexagonJump","path":"sprites/sprHexagonJump/sprHexagonJump.yy",},},
     {"id":{"name":"sprHexagonParent","path":"sprites/sprHexagonParent/sprHexagonParent.yy",},},
     {"id":{"name":"sprHexagonTall","path":"sprites/sprHexagonTall/sprHexagonTall.yy",},},
