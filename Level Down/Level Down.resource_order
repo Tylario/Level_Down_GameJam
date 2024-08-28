@@ -145,6 +145,7 @@
     {"name":"sprHexagonArrowUpRight","order":5,"path":"sprites/sprHexagonArrowUpRight/sprHexagonArrowUpRight.yy",},
     {"name":"sprHexagonBreakable","order":6,"path":"sprites/sprHexagonBreakable/sprHexagonBreakable.yy",},
     {"name":"sprHexagonDeath","order":44,"path":"sprites/sprHexagonDeath/sprHexagonDeath.yy",},
+    {"name":"sprHexagonGlassWall","order":120,"path":"sprites/sprHexagonGlassWall/sprHexagonGlassWall.yy",},
     {"name":"sprHexagonIce","order":7,"path":"sprites/sprHexagonIce/sprHexagonIce.yy",},
     {"name":"sprHexagonInstaFall","order":117,"path":"sprites/sprHexagonInstaFall/sprHexagonInstaFall.yy",},
     {"name":"sprHexagonJump","order":43,"path":"sprites/sprHexagonJump/sprHexagonJump.yy",},

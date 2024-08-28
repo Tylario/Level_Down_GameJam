@@ -235,10 +235,7 @@ var newShadowY = shadowY + newYOffset;
 
 // Check all combinations of previous and new positions for shadow
 var initialCollision = check_collision(shadowX, shadowY);
-show_debug_message("Checking position: (" + string(shadowX) + ", " + string(shadowY) + ")");
-if (initialCollision != noone) {
-    show_debug_message("Collision detected at initial position.");
- 
+if (initialCollision != noone) { 
         x = newX;
         y = newY;
 } else {
@@ -247,20 +244,17 @@ if (initialCollision != noone) {
     if (newCollision == noone) {
         x = newX;
         y = newY;
-        show_debug_message("No collision at new position - moving freely.");
     } else {
         // Check for collision with new Y only
         var yCollision = check_collision(shadowX, newShadowY);
         if (yCollision == noone) {
             y = newY;
-            show_debug_message("Moving to new Y position: (" + string(y) + ")");
         }
 
         // Check for collision with new X only
         var xCollision = check_collision(newShadowX, shadowY);
         if (xCollision == noone) {
             x = newX;
-            show_debug_message("Moving to new X position: (" + string(x) + ")");
         }
     }
 }

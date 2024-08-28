@@ -48,7 +48,6 @@ if interactKey {
 }
 
 //draw the textbox
-textboxSprWidth = sprite_get_width(sprTextbox);
-textbotSprHeight = sprite_get_height(sprTextbox
+textboxSprWidth = sprite_get_width(sprTextbox)
+textbotSprHeight = sprite_get_height(sprTextbox)
 
-//

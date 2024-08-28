@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprHexagonWall",
-    "path":"sprites/sprHexagonWall/sprHexagonWall.yy",
+    "name":"sprHexagonGlassWall",
+    "path":"sprites/sprHexagonGlassWall/sprHexagonGlassWall.yy",
   },
   "spriteMaskId":{
     "name":"sprHexagonParent",

@@ -169,6 +169,7 @@
     {"id":{"name":"sprHexagonArrowUpRight","path":"sprites/sprHexagonArrowUpRight/sprHexagonArrowUpRight.yy",},},
     {"id":{"name":"sprHexagonBreakable","path":"sprites/sprHexagonBreakable/sprHexagonBreakable.yy",},},
     {"id":{"name":"sprHexagonDeath","path":"sprites/sprHexagonDeath/sprHexagonDeath.yy",},},
+    {"id":{"name":"sprHexagonGlassWall","path":"sprites/sprHexagonGlassWall/sprHexagonGlassWall.yy",},},
     {"id":{"name":"sprHexagonIce","path":"sprites/sprHexagonIce/sprHexagonIce.yy",},},
     {"id":{"name":"sprHexagonInstaFall","path":"sprites/sprHexagonInstaFall/sprHexagonInstaFall.yy",},},
     {"id":{"name":"sprHexagonJump","path":"sprites/sprHexagonJump/sprHexagonJump.yy",},},
