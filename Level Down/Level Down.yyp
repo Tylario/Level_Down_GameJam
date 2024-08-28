@@ -10,6 +10,7 @@
   },
   "defaultScriptType":1,
   "Folders":[
+    {"$GMFolder":"","%Name":"Dialogue","folderPath":"folders/Dialogue.yy","name":"Dialogue","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Rooms","folderPath":"folders/Rooms.yy","name":"Rooms","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sounds","folderPath":"folders/Sounds.yy","name":"Sounds","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -27,10 +28,11 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.2.0.132",
+    "IDEVersion":"2024.4.1.152",
   },
   "name":"Level Down",
   "resources":[
+    {"id":{"name":"fntHabbo","path":"fonts/fntHabbo/fntHabbo.yy",},},
     {"id":{"name":"objHexagonArrow","path":"objects/objHexagonArrow/objHexagonArrow.yy",},},
     {"id":{"name":"objHexagonCracked","path":"objects/objHexagonCracked/objHexagonCracked.yy",},},
     {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
@@ -47,6 +49,7 @@
     {"id":{"name":"objParentHexagon","path":"objects/objParentHexagon/objParentHexagon.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
     {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
+    {"id":{"name":"objTextbox","path":"objects/objTextbox/objTextbox.yy",},},
     {"id":{"name":"objTileManager","path":"objects/objTileManager/objTileManager.yy",},},
     {"id":{"name":"rmMain","path":"rooms/rmMain/rmMain.yy",},},
     {"id":{"name":"scriptPerlinNoise","path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},},
@@ -201,6 +204,7 @@
     {"id":{"name":"sprStar6","path":"sprites/sprStar6/sprStar6.yy",},},
     {"id":{"name":"sprTempBackground","path":"sprites/sprTempBackground/sprTempBackground.yy",},},
     {"id":{"name":"sprTempPlayer","path":"sprites/sprTempPlayer/sprTempPlayer.yy",},},
+    {"id":{"name":"sprTextbox","path":"sprites/sprTextbox/sprTextbox.yy",},},
     {"id":{"name":"sprUpIdle","path":"sprites/sprUpIdle/sprUpIdle.yy",},},
     {"id":{"name":"sprUpLeftIdle","path":"sprites/sprUpLeftIdle/sprUpLeftIdle.yy",},},
     {"id":{"name":"sprUpRightIdle","path":"sprites/sprUpRightIdle/sprUpRightIdle.yy",},},
