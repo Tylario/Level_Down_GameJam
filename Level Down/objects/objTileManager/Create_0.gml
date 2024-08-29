@@ -173,7 +173,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	random_set_seed(1 + floorNum * 1.15);
 
 	// Determine the properties for special tiles on certain floors
-	wallFloor = floorNum > 5 && floorNum % 4 == 2
+	wallFloor = floorNum > 6 && floorNum % 4 == 3
 	arrowFloor = floorNum > 5 && ((floorNum % 9 == 4) || (floorNum % 12 == 0) || (floorNum % 9 == 8));
 	deadlyFloor = (floorNum > 10) && ((floorNum % 8 == 0) || (floorNum % 8 == 5));
 	jumpFloor = floorNum > 15 &&  ((floorNum % 11 == 0 || floorNum % 13 == 0 || floorNum % 11 == 7)|| floorNum % 11 == 3);

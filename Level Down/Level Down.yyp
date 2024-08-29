@@ -33,6 +33,7 @@
   "name":"Level Down",
   "resources":[
     {"id":{"name":"fntHabbo","path":"fonts/fntHabbo/fntHabbo.yy",},},
+    {"id":{"name":"objArrowHitbox","path":"objects/objArrowHitbox/objArrowHitbox.yy",},},
     {"id":{"name":"objHexagonArrow","path":"objects/objHexagonArrow/objHexagonArrow.yy",},},
     {"id":{"name":"objHexagonCracked","path":"objects/objHexagonCracked/objHexagonCracked.yy",},},
     {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
@@ -158,6 +159,7 @@
     {"id":{"name":"hexagonFloor98","path":"sprites/hexagonFloor98/hexagonFloor98.yy",},},
     {"id":{"name":"hexagonFloor99","path":"sprites/hexagonFloor99/hexagonFloor99.yy",},},
     {"id":{"name":"sprAllWalls","path":"sprites/sprAllWalls/sprAllWalls.yy",},},
+    {"id":{"name":"sprArrowHitbox","path":"sprites/sprArrowHitbox/sprArrowHitbox.yy",},},
     {"id":{"name":"sprDownIdle","path":"sprites/sprDownIdle/sprDownIdle.yy",},},
     {"id":{"name":"sprDownLeftIdle","path":"sprites/sprDownLeftIdle/sprDownLeftIdle.yy",},},
     {"id":{"name":"sprDownRightIdle","path":"sprites/sprDownRightIdle/sprDownRightIdle.yy",},},

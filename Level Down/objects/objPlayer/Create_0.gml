@@ -25,7 +25,7 @@ accumulator = 0; // Accumulator for delta time
 
 // Define the updatePhysics function to handle all physics and game logic
 function updatePhysics() {
-	   arrowMultiplier = 1;
+	   arrowMultiplier = 0.5;
 
 	var movingLeft = keyboard_check(vk_left) || keyboard_check(ord("A"));
 	var movingRight = keyboard_check(vk_right) || keyboard_check(ord("D"));

@@ -27,3 +27,14 @@ switch(randomNumber) {
         arrowDirection = "Up Left";
         break;
 }
+
+
+// Create the secondary hitbox object and store the reference in a variable
+hitbox = instance_create_layer(x, y, "Instances", objArrowHitbox);
+
+// Set the arrowDirection of the hitbox to match the parent object's arrowDirection
+hitbox.arrowDirection = arrowDirection;
+hitbox.floorNumber = floorNumber;
+
+// Store a reference back to the parent object
+hitbox.parent_object = id;

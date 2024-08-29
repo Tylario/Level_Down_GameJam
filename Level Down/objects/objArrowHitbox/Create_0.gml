@@ -1,0 +1,2 @@
+arrowDirection = "";
+floorNumber = -1;

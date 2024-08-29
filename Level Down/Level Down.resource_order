@@ -14,6 +14,7 @@
     {"name":"walls","order":6,"path":"folders/Sprites/walls.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"objArrowHitbox","order":20,"path":"objects/objArrowHitbox/objArrowHitbox.yy",},
     {"name":"objHexagonArrow","order":8,"path":"objects/objHexagonArrow/objHexagonArrow.yy",},
     {"name":"objHexagonCracked","order":17,"path":"objects/objHexagonCracked/objHexagonCracked.yy",},
     {"name":"objHexagonFloorNumber","order":14,"path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},
@@ -135,6 +136,7 @@
     {"name":"hexagonFloor98","order":98,"path":"sprites/hexagonFloor98/hexagonFloor98.yy",},
     {"name":"hexagonFloor99","order":99,"path":"sprites/hexagonFloor99/hexagonFloor99.yy",},
     {"name":"sprAllWalls","order":11,"path":"sprites/sprAllWalls/sprAllWalls.yy",},
+    {"name":"sprArrowHitbox","order":121,"path":"sprites/sprArrowHitbox/sprArrowHitbox.yy",},
     {"name":"sprDownIdle","order":11,"path":"sprites/sprDownIdle/sprDownIdle.yy",},
     {"name":"sprDownLeftIdle","order":10,"path":"sprites/sprDownLeftIdle/sprDownLeftIdle.yy",},
     {"name":"sprDownRightIdle","order":9,"path":"sprites/sprDownRightIdle/sprDownRightIdle.yy",},
