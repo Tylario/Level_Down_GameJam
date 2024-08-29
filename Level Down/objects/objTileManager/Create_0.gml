@@ -57,6 +57,7 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
     }
 }
 
+hasprinted = 0;
 
 function determineTileType(floorNum, posX, posY, isCheckingBelow = false) 
 {
@@ -64,12 +65,18 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
     var floorHeight = 100; // Height difference between floors
     var adjustedFloorHeight = floorHeight * floorNum; // Adjust for current floorNum
     
+	if (hasprinted < 5)
+	{
+		hasprinted = hasprinted + 1;
+		show_debug_message(string(posX) + ", " + string(posY));
+	}
+	
     var trampolineX, trampolineY;
     if (floorNum % 2 == 0) { // Alternating trampoline positions based on even or odd floorNum
-        trampolineX = 777.50 - (49 * 2.5); // Adjusted for X position
+        trampolineX = 900 - (48 * 5) // Adjusted for X position
         trampolineY = 14600 - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
     } else {
-        trampolineX = 777.50 + (49 * 7.5); // Adjusted for X position
+        trampolineX = 900 + (48 * 5); // Adjusted for X position
         trampolineY = 14600 - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
     }
 

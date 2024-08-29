@@ -9,8 +9,8 @@ if (objPlayer.currentFloor != lastFloor) {
 
     var ringCount = 11;
     var maxFloors = 30; 
-    var xDiff = 49; 
-    var yDiff = 10; 
+    var xDiff = 48; 
+    var yDiff = 10.5; 
     var floorHeight = 100; // Height difference between floors
 
     // Adjust this to set the center position
