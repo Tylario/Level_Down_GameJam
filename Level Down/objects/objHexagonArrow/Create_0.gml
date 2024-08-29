@@ -34,7 +34,7 @@ hitbox = instance_create_layer(x, y, "Instances", objArrowHitbox);
 
 // Set the arrowDirection of the hitbox to match the parent object's arrowDirection
 hitbox.arrowDirection = arrowDirection;
-hitbox.floorNumber = floorNumber;
+alarm[0] = 1;
 
 // Store a reference back to the parent object
 hitbox.parent_object = id;

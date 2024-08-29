@@ -84,8 +84,8 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 
 // Check for trampolines below if not already checking below (to prevent infinite recursion)
     if (floorNum > 0 && !isCheckingBelow) {
-        var xDiff = 49; 
-        var yDiff = 10;
+        var xDiff = 48; 
+        var yDiff = 10.5;
         
         var belowPosY = posY + floorHeight; // Calculate the Y position of the tile directly below on the previous floor
         var isTrampolineBelow = false;

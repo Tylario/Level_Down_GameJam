@@ -25,7 +25,7 @@ accumulator = 0; // Accumulator for delta time
 
 // Define the updatePhysics function to handle all physics and game logic
 function updatePhysics() {
-	   arrowMultiplier = 0.5;
+	   arrowMultiplier = 0.2;
 
 	var movingLeft = keyboard_check(vk_left) || keyboard_check(ord("A"));
 	var movingRight = keyboard_check(vk_right) || keyboard_check(ord("D"));
@@ -131,10 +131,11 @@ function updatePhysics() {
 
 	// Arrow tiles
 	arrowJumpingTimer += fixed_time_step;
-	if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime) {
-	    var someValue = 1; // Define the scale of the jump effect
+	if (arrowJumpingTimer >= 0 && arrowJumpingTimer <= arrowJumpTime) 
+	{
+	    var someValue = 1.3; // Define the scale of the jump effect
 	    var jumpEffect = someValue * (((-2 * arrowJumpingTimer) / arrowJumpTime) + 1); // Calculate the jump effect
-	    var moveAmount = 0.75 / arrowJumpTime;
+	    var moveAmount = 0.46 / arrowJumpTime;
     
 	    switch(arrowDirection) {
 	        case "Up": // Directly up

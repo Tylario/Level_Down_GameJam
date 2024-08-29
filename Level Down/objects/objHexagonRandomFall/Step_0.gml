@@ -3,7 +3,7 @@ timeSinceSpawn += delta_time / 1000000
 if (timeSinceSpawn > randomTime)
 {
 	sprite_index = sprHexagonWarning;
-	if (timeSinceSpawn  > randomTime + 3)
+	if (timeSinceSpawn  > randomTime + 2)
 	{
 		breaking = true;
 	}
