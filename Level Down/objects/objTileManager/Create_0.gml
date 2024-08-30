@@ -42,7 +42,14 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 		    isOutermostLayerOnFloor0 = false;
 		}
 
-            var tileType = determineTileType(floorNum, posX, posY);
+			if (layer > 13)
+			{
+				var tileType = objHexagonWall
+			}
+			else
+			{
+				var tileType = determineTileType(floorNum, posX, posY);
+			}
 
             if (tileType != noone) { 
                 var tileInstance = instance_create_layer(posX, posY, "Instances", tileType);
@@ -57,32 +64,26 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
     }
 }
 
-hasprinted = 0;
-
 function determineTileType(floorNum, posX, posY, isCheckingBelow = false) 
 {
+	var tileType = noone; // Default to no tile type
+
     // Adjust trampoline positioning logic for floor height
     var floorHeight = 100; // Height difference between floors
     var adjustedFloorHeight = floorHeight * floorNum; // Adjust for current floorNum
-    
-	if (hasprinted < 5)
-	{
-		hasprinted = hasprinted + 1;
-		show_debug_message(string(posX) + ", " + string(posY));
-	}
+
 	
     var trampolineX, trampolineY;
     if (floorNum % 2 == 0) { // Alternating trampoline positions based on even or odd floorNum
-        trampolineX = 900 - (48 * 5) // Adjusted for X position
-        trampolineY = 14600 - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
+        trampolineX = 900 - (48 * 5) 
+        trampolineY = 14600 - adjustedFloorHeight; 
     } else {
-        trampolineX = 900 + (48 * 5); // Adjusted for X position
-        trampolineY = 14600 - adjustedFloorHeight; // Adjusted for Y position, accounting for floor height
+        trampolineX = 900 + (48 * 5);
+        trampolineY = 14600 - adjustedFloorHeight;
     }
 
-    var tileType = noone;
 
-// Check for trampolines below if not already checking below (to prevent infinite recursion)
+	// Check for trampolines below if not already checking below (to prevent infinite recursion)
     if (floorNum > 0 && !isCheckingBelow) {
         var xDiff = 48; 
         var yDiff = 10.5;
@@ -138,114 +139,120 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	    return hexagonUnbreakable;
 	}
 
-
 	//Level design / Tile Generation Starts here
-	//variable definitinos for tile generation
-	var wallFloor = false; 
-	var wallTilePercentage; // percentage change for a tile that would have been floor to be wall
-	var wallTilePercentageMin = 0.1;
-	var wallTilePercentageMax = 0.2;
-	var arrowFloor = false; // every 9 and 13 floors
-	var arrowPercentage; //percentage change for tile that would have been floor to be arrow
-	var arrowPercentageMin = 0.02;
-	var arrowPercentageMax = 0.18;
-	var deadlyFloor = false; // every 8 floors
-	var deadlyPercentage; //percentage change for tile that would have been floor to be deadly
-	var deadlyPercentageMin = 0.01;
-	var deadlyPercentageMax = 0.04;
-	var jumpFloor = false; // every every 11 and 14 floors
-	var jumpPercentage; // percentage change for tile that would have been floor to be jump
-	var jumpPercentageMin = 0.005;
-	var jumpPercentageMax = 0.01;
 	
-	var NoiseType; // middle range, or greater/less than value
-	var NoiseScale = 0.02;//0.005 min, 0.025 max
-	var layered = false; //regular perlin noise, or 3 perlin noise, x2 frequency, /2 amplitude for 2nd, and 3rd
-	var unbreakableFloor = true; // first 5 floors. every 12 and 17 floors
-	var breakableFloor = true; // true if ice is false. 25% of the time true is ice is true
-	var iceFloor = false; // true if floorNum % 5 == 4, and every 6 floors
-	var randomFallFloor = false;
-	var difficultyNumber = 30 + floorNum + ((floorNum % 5) * 5);// difficulty starting at 0 
-	var difficultyScale = 0.015;
-	
-	//variable implementation
-	// Set the seed for deterministic randomness based on floor number and tile position
-	random_set_seed(1 + floorNum * 1.15);
-
-	// Determine the properties for special tiles on certain floors
-	wallFloor = floorNum > 6 && floorNum % 4 == 3
-	arrowFloor = floorNum > 5 && ((floorNum % 9 == 4) || (floorNum % 12 == 0) || (floorNum % 9 == 8));
-	deadlyFloor = (floorNum > 10) && ((floorNum % 8 == 0) || (floorNum % 8 == 5));
-	jumpFloor = floorNum > 15 &&  ((floorNum % 11 == 0 || floorNum % 13 == 0 || floorNum % 11 == 7)|| floorNum % 11 == 3);
-	
-	randomFallFloor = floorNum > 14 && ((floorNum % 7 == 2) || (floorNum % 8 == 1))
-	iceFloor = floorNum > 8 && ((floorNum % 5 == 4) || (floorNum % 6 == 0));
-	unbreakableFloor = (floorNum <= 4) || (floorNum % 12 == 0) || (floorNum % 17 == 0);
-
-	// Calculate the percentages for each tile type transformation
-	wallTilePercentage = random_range(wallTilePercentageMin, wallTilePercentageMax);
-	arrowPercentage = random_range(arrowPercentageMin, arrowPercentageMax);
-	deadlyPercentage = random_range(deadlyPercentageMin, deadlyPercentageMax);
-	jumpPercentage = random_range(jumpPercentageMin, jumpPercentageMax);
-	
-	// Noise settings using floor-only seed for consistency across a single floor
-
-	NoiseScale = random_range(0.012, 0.016);
-	difficultyNumber = ((1/0.014) * NoiseScale) * difficultyNumber
-
-
-	// Generate the base noise value for this tile
-	var noiseValue = perlin_noise(posX * NoiseScale, posY * NoiseScale, floorNum * NoiseScale * 306);
-
-
-	// Apply normal logic for tile type determination
-	if (unbreakableFloor) {
-	        if (noiseValue > -1 + difficultyScale * difficultyNumber) {
-	            tileType = hexagonUnbreakable;
-	        }
-			arrowPercentageMax = arrowPercentageMax * 3;
-	} else if (iceFloor) {
-	   
-	        if (noiseValue > -1 + difficultyScale * difficultyNumber) {
-	            tileType = objHexagonIce;
-	        }
-	} else if (randomFallFloor) {
-		if (noiseValue > -1 + difficultyScale * difficultyNumber) {
-	        tileType = objHexagonRandomFall;
-	    }
-	}
-	else
-	{
-	   
-	        if (noiseValue > -1 + difficultyScale * difficultyNumber) {
-	            tileType = objHexBreakable;
-	        }
-	} 
-
-	random_set_seed(floorNum * 100 + posX * 10 + posY);
-
-
-	// Check for special tile types if the basic tile type has been set to a breakable or unbreakable type
-	if (tileType != noone) {
-	    if (wallFloor && irandom_range(0, 100) < wallTilePercentage * 100) {
-	        tileType = hexagonWall;
-	    }
-	    if (arrowFloor && irandom_range(0, 100) < arrowPercentage * 100) {
-	        tileType = hexagonArrow;
-	    }
-	    if (deadlyFloor && irandom_range(0, 100) < deadlyPercentage * 100) {
-	        tileType = hexagonDeadly;
-	    }
-	    if (jumpFloor && irandom_range(0, 100) < jumpPercentage * 10) {
-	        tileType = hexagonJump;
-	    }
+	switch (floorNum) {
+		case 0: 
+			tileType = objHexagonUnbreakable
+			break;
+		case 1:
+			tileType = randomLevelGeneration(0.5, posX, posY, floorNum, 0);
+			break;
+		case 2:
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.33);	
+			break;
+		case 3:
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.66);
+			break;
+		case 4:
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 1);
+			break;
+		case 5:
+			tileType = objHexagonUnbreakable
+			break;
+		case 6:
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			break;
+		case 7:
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			break;
+		case 8:
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			break;
+		case 9:
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			break;
+		case 10:
+			tileType = objHexagonUnbreakable
+			break;
+		case 11:
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			break;
+		case 12:
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			break;
+		case 13:
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			break;
+		default:
+			tileType = objHexagonArrow
 	}
 
-	// Return the final determined tile type
 	return tileType;
 }
 
+// @desc difficulty is a value between 0 and 1, where 0 is easy and 1 is hard
+// posX and posY are the coordinates of the tile
+// floorNum is the current floor number
+// seed is a random seed value
+// frequency is a value between 0 and 1, where 0 is low frequency and 1 is high frequency
+function perlinLevelGeneration (difficulty, posX, posY, floorNum, seed, frequency)
+{
+	random_set_seed(floorNum + seed);
 
+	var adjustedDifficulty = adjustDifficulty(difficulty);
+	var adjustedFrequency = adjustFrequency(frequency);
+
+	var noiseValue = perlin_noise(posX * adjustedFrequency, posY * adjustedFrequency, floorNum * 321); // between -1 and 1, with normal distribution around 0
+
+	if (noiseValue > -1 + adjustedDifficulty * 2) 
+	{
+		return objHexagonUnbreakable;
+	}
+	else
+	{
+		return noone;
+	}
+}
+
+// @desc difficulty is a value between 0 and 1, where 0 is easy and 1 is hard
+// posX and posY are the coordinates of the tile
+// floorNum is the current floor number
+// seed is a random seed value
+function randomLevelGeneration (difficulty, posX, posY, floorNum, seed)
+{
+	random_set_seed(floorNum + seed + posX + posY);
+
+
+	var noiseValue = random(1)
+
+	if (noiseValue > difficulty) 
+	{
+		return objHexagonUnbreakable;
+	}
+	else
+	{
+		return noone;
+	}
+}
+
+function adjustDifficulty(difficulty) {
+
+	k = 0.5
+
+    // Ensure k is a positive number to avoid division by zero and incorrect results
+    if (k <= 0) {
+        k = 1; // default to 1 if an invalid value is provided
+    }
+
+    // Apply the custom sigmoid-like function with steepness factor k
+    var adjustedDifficulty = power(difficulty, k) / (power(difficulty, k) + power(1 - difficulty, k));
+    return adjustedDifficulty;
+}
+
+function adjustFrequency(frequency) {
+    return lerp(0.008, 0.025, frequency);
+}
 
 function destroyTileLayer(floorNum) {
     with (objParentHexagon) { 

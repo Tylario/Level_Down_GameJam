@@ -7,7 +7,7 @@ if (objPlayer.currentFloor != lastFloor) {
     
     lastFloor = objPlayer.currentFloor;
 
-    var ringCount = 11;
+	var ringCount = 11;
     var maxFloors = 30; 
     var xDiff = 48; 
     var yDiff = 10.5; 
@@ -24,7 +24,7 @@ if (objPlayer.currentFloor != lastFloor) {
     }
 
     // Adjust ringCount based on the current floor
-    if (objPlayer.currentFloor == 0)
+    if (objPlayer.currentFloor % 5 == 0)
     {
         ringCount = 12;
     }
