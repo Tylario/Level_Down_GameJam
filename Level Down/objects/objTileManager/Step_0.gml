@@ -1,5 +1,5 @@
 if (objPlayer.currentFloor != lastFloor) {
-    
+    show_debug_message(objPlayer.currentFloor)
     if (objPlayer.currentFloor < 0)
     {
         room_restart();

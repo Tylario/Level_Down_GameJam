@@ -9,7 +9,7 @@ with (objPlayer)
 
 	        bounceTimer = 0.5;
 	        bouncing = true;
-	        timeSinceTouchingGround = 1;
+	        timeSinceTouchingGround = 1.5;
 	        // Indicate a valid collision has occurred
 	        validCollision = true;
 	}
