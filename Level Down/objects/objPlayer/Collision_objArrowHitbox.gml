@@ -6,5 +6,6 @@ if (other.floorNumber == currentFloor and jumping == false and falling == false 
 	{
 		arrowJumpingTimer = 0;
 		arrowDirection = other.arrowDirection;
+		other.parent_arrow.desaturateSprite()
 	}
 }
