@@ -64,6 +64,15 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
     }
 }
 
+crackedChance = 0
+trampolineChance = 0
+arrowChance = 0
+wallChance = 0
+breakableChance = 0
+unbreakableChance = 0
+iceChance = 0
+fallChance = 0
+
 function determineTileType(floorNum, posX, posY, isCheckingBelow = false) 
 {
 	var tileType = noone; // Default to no tile type
@@ -146,43 +155,43 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			tileType = objHexagonUnbreakable
 			break;
 		case 1:
-			tileType = randomLevelGeneration(0.5, posX, posY, floorNum, 0);
+			tileType = perlinLevelGeneration(0.2, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "half");	
 			break;
 		case 2:
-			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.33);	
+			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "half");	
 			break;
 		case 3:
-			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.66);
+			tileType = perlinLevelGeneration(0.6, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "half");	
 			break;
 		case 4:
-			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 1);
+			tileType = perlinLevelGeneration(0.8, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "half");	
 			break;
 		case 5:
 			tileType = objHexagonUnbreakable
 			break;
 		case 6:
-			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "inner");	
 			break;
 		case 7:
-			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "inner");	
 			break;
 		case 8:
-			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "inner");	
 			break;
 		case 9:
-			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "inner");	
 			break;
 		case 10:
 			tileType = objHexagonUnbreakable
 			break;
 		case 11:
-			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "inner");	
 			break;
 		case 12:
-			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "inner");	
 			break;
 		case 13:
-			tileType = perlinLevelGeneration(0.4, posX, posY, floorNum, 0, 0.25);	
+			tileType = perlinLevelGeneration(0.5, posX, posY, floorNum, 0, 0.5, objHexagonUnbreakable, "inner");	
 			break;
 		default:
 			tileType = objHexagonArrow
@@ -196,44 +205,113 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 // floorNum is the current floor number
 // seed is a random seed value
 // frequency is a value between 0 and 1, where 0 is low frequency and 1 is high frequency
-function perlinLevelGeneration (difficulty, posX, posY, floorNum, seed, frequency)
-{
-	random_set_seed(floorNum + seed);
+function perlinLevelGeneration(difficulty, posX, posY, floorNum, seed, frequency, baseLevelTile, generationType) {
+	random_set_seed(floorNum + seed + posX + posY);
 
-	var adjustedDifficulty = adjustDifficulty(difficulty);
-	var adjustedFrequency = adjustFrequency(frequency);
+    var adjustedDifficulty = adjustDifficulty(difficulty);
+    var adjustedFrequency = adjustFrequency(frequency);
 
-	var noiseValue = perlin_noise(posX * adjustedFrequency, posY * adjustedFrequency, floorNum * 321); // between -1 and 1, with normal distribution around 0
+    var noiseValue = perlin_noise(posX * adjustedFrequency, posY * adjustedFrequency, floorNum * 321); // between -1 and 1, with normal distribution around 0
 
-	if (noiseValue > -1 + adjustedDifficulty * 2) 
-	{
-		return objHexagonUnbreakable;
+	generated = false
+	if (generationType == "inner") {
+		var adjustedFrequency = adjustFrequency(frequency);
+		generated = noiseValue > 0 + ((adjustedDifficulty * 2) - 1)
+	} else if (generationType == "outer") {
+		generated = noiseValue <  0 - difficulty  * difficulty * difficulty || noiseValue > difficulty * difficulty * difficulty
+	} else if (generationType == "half") {
+		generated = noiseValue > -1 + adjustedDifficulty * 2
 	}
-	else
-	{
-		return noone;
-	}
+
+    if (generated) {
+        // Calculate total chance for enabled tile types
+        var totalChance = crackedChance + trampolineChance + arrowChance + wallChance + breakableChance + unbreakableChance + iceChance + fallChance;
+
+        // Generate a random number between 0 and the total chance
+		var randomChoice = random(totalChance);
+        var cumulativeChance = 0;
+
+        // Select the tile type based on cumulative chances
+        cumulativeChance += crackedChance;
+        if (randomChoice < cumulativeChance) return hexagonDeadly;
+
+        cumulativeChance += trampolineChance;
+        if (randomChoice < cumulativeChance) return hexagonJump
+
+        cumulativeChance += arrowChance;
+        if (randomChoice < cumulativeChance) return hexagonArrow;
+
+        cumulativeChance += wallChance;
+        if (randomChoice < cumulativeChance) return hexagonWall;
+
+        cumulativeChance += breakableChance;
+        if (randomChoice < cumulativeChance) return hexagonBreakable;
+
+        cumulativeChance += unbreakableChance;
+        if (randomChoice < cumulativeChance) return hexagonUnbreakable;
+
+        cumulativeChance += iceChance;
+        if (randomChoice < cumulativeChance) return hexagonIce;
+
+        cumulativeChance += fallChance;
+        if (randomChoice < cumulativeChance) return hexagonRandomFall;
+
+        // Default tile if none selected
+        return baseLevelTile;
+    } else {
+        return noone;
+    }
 }
+
 
 // @desc difficulty is a value between 0 and 1, where 0 is easy and 1 is hard
 // posX and posY are the coordinates of the tile
 // floorNum is the current floor number
 // seed is a random seed value
-function randomLevelGeneration (difficulty, posX, posY, floorNum, seed)
-{
-	random_set_seed(floorNum + seed + posX + posY);
+function randomLevelGeneration(difficulty, posX, posY, floorNum, seed, baseLevelTile) {
+    random_set_seed(floorNum + seed + posX + posY);
 
+    // Generate a random number between 0 and 1
+    var noiseValue = random(1);
 
-	var noiseValue = random(1)
+    if (noiseValue > difficulty) {
+        // Calculate total chance for enabled tile types
+        var totalChance = crackedChance + trampolineChance + arrowChance + wallChance + breakableChance + unbreakableChance + iceChance + fallChance;
 
-	if (noiseValue > difficulty) 
-	{
-		return objHexagonUnbreakable;
-	}
-	else
-	{
-		return noone;
-	}
+        // Generate a random number between 0 and the total chance
+        var randomChoice = random(totalChance);
+        var cumulativeChance = 0;
+
+        // Select the tile type based on cumulative chances
+        cumulativeChance += crackedChance;
+        if (randomChoice < cumulativeChance) return hexagonDeadly;
+
+        cumulativeChance += trampolineChance;
+        if (randomChoice < cumulativeChance) return hexagonJump;
+
+        cumulativeChance += arrowChance;
+        if (randomChoice < cumulativeChance) return hexagonArrow;
+
+        cumulativeChance += wallChance;
+        if (randomChoice < cumulativeChance) return hexagonWall;
+
+        cumulativeChance += breakableChance;
+        if (randomChoice < cumulativeChance) return hexagonBreakable;
+
+        cumulativeChance += unbreakableChance;
+        if (randomChoice < cumulativeChance) return hexagonUnbreakable;
+
+        cumulativeChance += iceChance;
+        if (randomChoice < cumulativeChance) return hexagonIce;
+
+        cumulativeChance += fallChance;
+        if (randomChoice < cumulativeChance) return hexagonRandomFall;
+
+        // Default tile if none selected
+        return baseLevelTile;
+    } else {
+        return noone;
+    }
 }
 
 function adjustDifficulty(difficulty) {
