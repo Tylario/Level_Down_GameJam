@@ -380,7 +380,7 @@ if (initialCollision != noone) {
 		jumpTimer = jumpTimer + fixed_time_step * 0.5;
 	}
 
-	if (jumpingPressed && jumpTimer > 0.75 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime) {
+	if (jumpingPressed && jumpTimer > 0.57 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime) {
 	    jumpTimer = 0;
 	    jumping = true;
 	}
