@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"objTextbox",
+  "%Name":"objTextboxTest",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objTextbox",
+  "name":"objTextboxTest",
   "overriddenProperties":[],
   "parent":{
     "name":"Dialogue",
@@ -27,13 +27,11 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v1","%Name":"textboxWidth","filters":[],"listItems":[],"multiselect":false,"name":"textboxWidth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"430","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"textboxHeight","filters":[],"listItems":[],"multiselect":false,"name":"textboxHeight","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"90","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"textBorderX","filters":[],"listItems":[],"multiselect":false,"name":"textBorderX","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"14","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"textBorderY","filters":[],"listItems":[],"multiselect":false,"name":"textBorderY","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"7","varType":0,},
+    {"$GMObjectProperty":"v1","%Name":"textboxWidth","filters":[],"listItems":[],"multiselect":false,"name":"textboxWidth","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"228","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"textboxHeight","filters":[],"listItems":[],"multiselect":false,"name":"textboxHeight","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"80","varType":1,},
+    {"$GMObjectProperty":"v1","%Name":"textBorder","filters":[],"listItems":[],"multiselect":false,"name":"textBorder","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"16","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"lineSpaceVertical","filters":[],"listItems":[],"multiselect":false,"name":"lineSpaceVertical","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"8","varType":1,},
     {"$GMObjectProperty":"v1","%Name":"textSpeed","filters":[],"listItems":[],"multiselect":false,"name":"textSpeed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
-    {"$GMObjectProperty":"v1","%Name":"textScale","filters":[],"listItems":[],"multiselect":false,"name":"textScale","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1.2","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
