@@ -41,14 +41,35 @@ function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, fl
 		} else {
 		    isOutermostLayerOnFloor0 = false;
 		}
-
-			if (layer > 13)
+			
+			if (floorNum % 5 == 0)
 			{
-				var tileType = objHexagonWall
+				// checkpoint level
+				if (layer == 16 or layer == 15)
+				{
+					var tileType = hexagonWall;
+				}
+				else
+				{
+					var tileType = determineTileType(floorNum, posX, posY);
+				}
 			}
 			else
 			{
-				var tileType = determineTileType(floorNum, posX, posY);
+				//non checkpoint level
+				if (layer == 12 or layer == 13)
+				{
+					var tileType = noone;
+				}
+				else if (layer == 14 or layer == 15)
+				{
+					//var tileType = hexagonInvisibleWall
+					var tileType = hexagonWall
+				}
+				else
+				{
+					var tileType = determineTileType(floorNum, posX, posY);
+				}
 			}
 
             if (tileType != noone) { 
@@ -145,7 +166,14 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 	
 	if (floorNum % 5 == 0) 
 	{
-	    return hexagonUnbreakable;
+		if (layer > 5)
+		{
+			return noone
+		}
+		else
+		{
+			return hexagonUnbreakable;
+		}
 	}
 
 	//Level design / Tile Generation Starts here

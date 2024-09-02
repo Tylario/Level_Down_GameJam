@@ -26,11 +26,11 @@ if (objPlayer.currentFloor != lastFloor) {
     // Adjust ringCount based on the current floor
     if (objPlayer.currentFloor % 5 == 0)
     {
-        ringCount = 12;
+        ringCount = 16;
     }
     else
     {
-        ringCount = 11;
+        ringCount = 15;
     }
 
     // Loop to create each required floor (current and previous two floors)
