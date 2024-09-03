@@ -1,9 +1,8 @@
 //variables
-interactKey = keyboard_check(ord("Z")); //input that initiates dialogue
 page = 0; //should be set to 0 when not testing
 drawChar = 0; //how many characters have been drawn
 lineWidth = textboxWidth - textBorder*2;
-textLength= []; //????? for text length in the for loop. unsure of why i need to reference it in both places
+textLength= []; //holds the text length of each page for a given instance
 setup = false;
 
 //floor 0
@@ -21,8 +20,3 @@ textFloor5[1] = "floor 5 test";
 textFloor10 = [];
 textFloor10[0] = "";
 textFloor10[1] = "floor 10 test";
-
-//debugging
-show_debug_message(textFloor(page));
-show_debug_message(totalPages());
-show_debug_message(pageTextLength(page));

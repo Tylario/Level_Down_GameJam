@@ -1,15 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"objNPC",
+  "%Name":"objTextboxCollisionCheck",
   "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objNPC",
+  "name":"objTextboxCollisionCheck",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Dialogue",
+    "path":"folders/Dialogue.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprTempPlayer",
-    "path":"sprites/sprTempPlayer/sprTempPlayer.yy",
+    "name":"sprTextboxCollisionCheck",
+    "path":"sprites/sprTextboxCollisionCheck/sprTextboxCollisionCheck.yy",
   },
   "spriteMaskId":null,
   "visible":true,

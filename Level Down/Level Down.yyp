@@ -28,7 +28,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.4.1.152",
+    "IDEVersion":"2024.6.0.157",
   },
   "name":"Level Down",
   "resources":[
@@ -53,6 +53,7 @@
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
     {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
     {"id":{"name":"objTextbox","path":"objects/objTextbox/objTextbox.yy",},},
+    {"id":{"name":"objTextboxCollisionCheck","path":"objects/objTextboxCollisionCheck/objTextboxCollisionCheck.yy",},},
     {"id":{"name":"objTextboxTest","path":"objects/objTextboxTest/objTextboxTest.yy",},},
     {"id":{"name":"objTileManager","path":"objects/objTileManager/objTileManager.yy",},},
     {"id":{"name":"rmMain","path":"rooms/rmMain/rmMain.yy",},},
@@ -219,6 +220,7 @@
     {"id":{"name":"sprTempBackground","path":"sprites/sprTempBackground/sprTempBackground.yy",},},
     {"id":{"name":"sprTempPlayer","path":"sprites/sprTempPlayer/sprTempPlayer.yy",},},
     {"id":{"name":"sprTextbox","path":"sprites/sprTextbox/sprTextbox.yy",},},
+    {"id":{"name":"sprTextboxCollisionCheck","path":"sprites/sprTextboxCollisionCheck/sprTextboxCollisionCheck.yy",},},
     {"id":{"name":"sprUpIdle","path":"sprites/sprUpIdle/sprUpIdle.yy",},},
     {"id":{"name":"sprUpLeftIdle","path":"sprites/sprUpLeftIdle/sprUpLeftIdle.yy",},},
     {"id":{"name":"sprUpRightIdle","path":"sprites/sprUpRightIdle/sprUpRightIdle.yy",},},

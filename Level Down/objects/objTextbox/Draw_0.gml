@@ -9,7 +9,7 @@ if setup == false {
 	draw_set_halign(fa_left);
 	draw_set_color(c_white);
 	
-	//loop through pages --- i forsee a problem where the array will not empty itself when new dialogue is initiated...
+	//loop through pages
 	pageNumber = totalPages();
 	for(var p = 0; p < pageNumber; p++) {
 		//find how many characters are on each line and store that number in the "textLength" array
@@ -50,6 +50,5 @@ draw_sprite_stretched(sprTextbox, image_index, textboxX, textboxY, textboxWidth,
 
 //draw text
 var drawText = string_copy(textFloor(page), 1, drawChar);
-//draw_text_transformed(textboxX + textBorder, textboxY + textBorder, drawText, textScale, textScale, 0);
 draw_text_ext(textboxX + textBorderX, textboxY + textBorderY, drawText, lineSpaceVertical, lineWidth);
 
