@@ -453,4 +453,3 @@ if (initialCollision != noone) {
 	    midFallFloorUpdated = false; // Reset flag for the next fall
 	}
 }
-
