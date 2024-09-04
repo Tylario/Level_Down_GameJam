@@ -337,7 +337,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			crackedChance = 0
 			trampolineChance = 0
 			arrowChance = 0
-			wallChance = 0.2
+			wallChance = 0.13
 			breakableChance = 1
 			unbreakableChance = 0
 			iceChance = 0
@@ -405,7 +405,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 		case 24:
 			crackedChance = 0
 			trampolineChance = 0
-			arrowChance = 0.3
+			arrowChance = 0.1
 			wallChance = 0.1
 			breakableChance = 0
 			unbreakableChance = 0
@@ -458,7 +458,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			unbreakableChance = 0
 			iceChance = 0.5
 			fallChance = 1
-			tileType = perlinLevelGeneration(0.46, posX, posY, floorNum, 0, 0.16, hexagonRandomFall, "half");
+			tileType = perlinLevelGeneration(0.46, posX, posY, floorNum, 1, 0.16, hexagonRandomFall, "half");
 			break;
 		case 30:
 			tileType = hexagonUnbreakable;

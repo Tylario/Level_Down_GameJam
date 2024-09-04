@@ -2,7 +2,10 @@
 accumulator += delta_time / 1000000;
 
 // Handle game logic updates at a fixed time step
-while (accumulator >= fixed_time_step) {
+if (accumulator >= fixed_time_step) {
     updatePhysics();
-    accumulator -= fixed_time_step;
+    while (accumulator >= fixed_time_step)
+	{
+		accumulator -= fixed_time_step;
+	}
 }
