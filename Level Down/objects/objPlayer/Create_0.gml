@@ -19,6 +19,24 @@ yJumpOffset = 0;
 needToBounce = 0;
 jumpWhileTouchingJump = false;
 
+var ini_file;
+ini_file = ini_open("save.ini");
+currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
+ini_close();
+
+if (currentFloor > 0)
+{
+	y = y - 100 * currentFloor
+	if (currentFloor % 2 == 1)
+	{
+		x = 900 - (48 * 5) 
+	}
+	else
+	{
+		x = 900 + (48 * 5) 
+	}
+}
+
 // Fixed timestep for physics calculations
 fixed_time_step = 1 / 60; // 60 updates per second
 accumulator = 0; // Accumulator for delta time

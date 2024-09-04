@@ -6,6 +6,14 @@ if (objPlayer.currentFloor != lastFloor) {
     }
     
     lastFloor = objPlayer.currentFloor;
+	
+	if (objPlayer.currentFloor >= 0)
+	{
+		var ini_file;
+		ini_file = ini_open("save.ini");
+		ini_write_real("SaveData", "LevelNumber", objPlayer.currentFloor);
+		ini_close();
+	}
 
 	var ringCount = 11;
     var maxFloors = 30; 
