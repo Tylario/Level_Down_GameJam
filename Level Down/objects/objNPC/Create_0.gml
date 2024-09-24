@@ -1,2 +1,5 @@
-//create textbox collision checker for player
-instance_create_layer(990, 14623, "Instances", objTextboxCollisionCheck);
+//controls whether interact button can be pressed or not
+advance = true;
+
+//determines whether a dialogue box has already been created
+textboxCreated = false;
