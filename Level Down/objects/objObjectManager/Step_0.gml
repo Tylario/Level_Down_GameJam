@@ -20,6 +20,20 @@ if (objPlayer.currentFloor != lastFloor) {
     var xDiff = 48; 
     var yDiff = 10.5; 
     var floorHeight = 100; // Height difference between floors
+	
+	//NPC
+	var objNPC_instance = instance_find(objNPC, 0);
+
+    if (lastFloor % 5 == 0)
+    {
+        objNPC_instance.x = 990;
+        objNPC_instance.y = 14623 - floorHeight * lastFloor;
+    }
+    else
+    {
+        objNPC_instance.x = 192;
+        objNPC_instance.y = 0;
+    }
 
     // Adjust this to set the center position
     var startX = room_width / 2;
