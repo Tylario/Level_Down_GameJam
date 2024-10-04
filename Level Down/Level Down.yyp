@@ -28,7 +28,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.0.157",
+    "IDEVersion":"2024.2.0.132",
   },
   "name":"Level Down",
   "resources":[
@@ -38,6 +38,7 @@
     {"id":{"name":"objHexagonCracked","path":"objects/objHexagonCracked/objHexagonCracked.yy",},},
     {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
     {"id":{"name":"objHexagonIce","path":"objects/objHexagonIce/objHexagonIce.yy",},},
+    {"id":{"name":"objHexagonSolidIce","path":"objects/objHexagonSolidIce/objHexagonSolidIce.yy",},},
     {"id":{"name":"objHexagonInvisibleWall","path":"objects/objHexagonInvisibleWall/objHexagonInvisibleWall.yy",},},
     {"id":{"name":"objHexagonJump","path":"objects/objHexagonJump/objHexagonJump.yy",},},
     {"id":{"name":"objHexagonRandomFall","path":"objects/objHexagonRandomFall/objHexagonRandomFall.yy",},},
@@ -186,6 +187,7 @@
     {"id":{"name":"sprHexagonInvisibleWall","path":"sprites/sprHexagonInvisibleWall/sprHexagonInvisibleWall.yy",},},
     {"id":{"name":"sprHexagonJump","path":"sprites/sprHexagonJump/sprHexagonJump.yy",},},
     {"id":{"name":"sprHexagonParent","path":"sprites/sprHexagonParent/sprHexagonParent.yy",},},
+    {"id":{"name":"sprHexagonSolidIce","path":"sprites/sprHexagonSolidIce/sprHexagonSolidIce.yy",},},
     {"id":{"name":"sprHexagonTall","path":"sprites/sprHexagonTall/sprHexagonTall.yy",},},
     {"id":{"name":"sprHexagonTrampoline","path":"sprites/sprHexagonTrampoline/sprHexagonTrampoline.yy",},},
     {"id":{"name":"sprHexagonUnbreakable","path":"sprites/sprHexagonUnbreakable/sprHexagonUnbreakable.yy",},},
