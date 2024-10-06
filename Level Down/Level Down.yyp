@@ -28,7 +28,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.2.0.132",
+    "IDEVersion":"2024.4.1.152",
   },
   "name":"Level Down",
   "resources":[
@@ -38,10 +38,10 @@
     {"id":{"name":"objHexagonCracked","path":"objects/objHexagonCracked/objHexagonCracked.yy",},},
     {"id":{"name":"objHexagonFloorNumber","path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},},
     {"id":{"name":"objHexagonIce","path":"objects/objHexagonIce/objHexagonIce.yy",},},
-    {"id":{"name":"objHexagonSolidIce","path":"objects/objHexagonSolidIce/objHexagonSolidIce.yy",},},
     {"id":{"name":"objHexagonInvisibleWall","path":"objects/objHexagonInvisibleWall/objHexagonInvisibleWall.yy",},},
     {"id":{"name":"objHexagonJump","path":"objects/objHexagonJump/objHexagonJump.yy",},},
     {"id":{"name":"objHexagonRandomFall","path":"objects/objHexagonRandomFall/objHexagonRandomFall.yy",},},
+    {"id":{"name":"objHexagonSolidIce","path":"objects/objHexagonSolidIce/objHexagonSolidIce.yy",},},
     {"id":{"name":"objHexagonTrampoline","path":"objects/objHexagonTrampoline/objHexagonTrampoline.yy",},},
     {"id":{"name":"objHexagonUnbreakable","path":"objects/objHexagonUnbreakable/objHexagonUnbreakable.yy",},},
     {"id":{"name":"objHexagonWall","path":"objects/objHexagonWall/objHexagonWall.yy",},},
@@ -62,6 +62,7 @@
     {"id":{"name":"sndHexagon","path":"sounds/sndHexagon/sndHexagon.yy",},},
     {"id":{"name":"sndJump","path":"sounds/sndJump/sndJump.yy",},},
     {"id":{"name":"sndMusic","path":"sounds/sndMusic/sndMusic.yy",},},
+    {"id":{"name":"sndMusic2","path":"sounds/sndMusic2/sndMusic2.yy",},},
     {"id":{"name":"hexagonFloor1","path":"sprites/hexagonFloor1/hexagonFloor1.yy",},},
     {"id":{"name":"hexagonFloor10","path":"sprites/hexagonFloor10/hexagonFloor10.yy",},},
     {"id":{"name":"hexagonFloor100","path":"sprites/hexagonFloor100/hexagonFloor100.yy",},},

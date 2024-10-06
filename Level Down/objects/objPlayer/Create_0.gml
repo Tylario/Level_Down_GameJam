@@ -22,6 +22,7 @@ jumpWhileTouchingJump = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
+//currentFloor = 0 // Default to 0 if not found
 ini_close();
 
 if (currentFloor > 0)
