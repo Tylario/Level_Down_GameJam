@@ -898,15 +898,15 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			break;
 		case 71:
 			crackedChance = 0
-			trampolineChance = 0
-			arrowChance = 1.5
+			trampolineChance = 0.01
+			arrowChance = 0
 			wallChance = 0
 			breakableChance = 0
 			unbreakableChance = 1
 			solidIceChance = 0; 
 			iceChance = 0
 			fallChance = 0
-			tileType = perlinLevelGeneration(0.78, posX, posY, floorNum, 0, 0.14, hexagonUnbreakable, "half");
+			tileType = perlinLevelGeneration(0.70, posX, posY, floorNum, 3, 0.17, hexagonUnbreakable, "half");
 			break;
 		case 72:
 			crackedChance = 0
@@ -918,31 +918,31 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			solidIceChance = 0; 
 			iceChance = 0
 			fallChance = 0
-			tileType = perlinLevelGeneration(0.41, posX, posY, floorNum, 0, 0.46, hexagonBreakable, "outer");
+			tileType = perlinLevelGeneration(0.60, posX, posY, floorNum, 0, 0.15, hexagonBreakable, "outer");
 			break;
 		case 73:
 			crackedChance = 0
-			trampolineChance = 0.005
-			arrowChance = 0.1
-			wallChance = 0
-			breakableChance = 0
-			unbreakableChance = 1
-			solidIceChance = 0; 
-			iceChance = 1
-			fallChance = 1
-			tileType = perlinLevelGeneration(0.74, posX, posY, floorNum, 0, 0.22, hexagonIce, "inner");
-			break;
-		case 74:
-			crackedChance = 0
-			trampolineChance = 0
+			trampolineChance = 0.0
 			arrowChance = 0
 			wallChance = 0
 			breakableChance = 0
 			unbreakableChance = 0
 			solidIceChance = 0; 
+			iceChance = 1
+			fallChance = 0
+			tileType = perlinLevelGeneration(0.6, posX, posY, floorNum, 0, 0.22, hexagonIce, "half");
+			break;
+		case 74:
+			crackedChance = 0
+			trampolineChance = 0.01
+			arrowChance = 0
+			wallChance = 0
+			breakableChance = 0
+			unbreakableChance = 1
+			solidIceChance = 0; 
 			iceChance = 0
-			fallChance = 1
-			tileType = perlinLevelGeneration(0.83, posX, posY, floorNum, 0, 0.56, hexagonRandomFall, "half");
+			fallChance = 0
+			tileType = perlinLevelGeneration(0.71, posX, posY, floorNum, 540, 0.17, hexagonUnbreakable, "half");
 			break;
 		case 75:
 			tileType = hexagonUnbreakable;
