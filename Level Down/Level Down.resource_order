@@ -35,6 +35,7 @@
     {"name":"objParentHexagon","order":1,"path":"objects/objParentHexagon/objParentHexagon.yy",},
     {"name":"objShadow","order":15,"path":"objects/objShadow/objShadow.yy",},
     {"name":"objTextbox","order":3,"path":"objects/objTextbox/objTextbox.yy",},
+    {"name":"scriptBackground","order":11,"path":"scripts/scriptBackground/scriptBackground.yy",},
     {"name":"scriptDialogue","order":10,"path":"scripts/scriptDialogue/scriptDialogue.yy",},
     {"name":"scriptPerlinNoise","order":8,"path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},
     {"name":"sndBlakeMusic","order":4,"path":"sounds/sndBlakeMusic/sndBlakeMusic.yy",},

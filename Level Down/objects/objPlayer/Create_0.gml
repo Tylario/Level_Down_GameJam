@@ -1,3 +1,6 @@
+//call background generating function
+background();
+
 // Set initial values for player properties
 depth = -10000;
 timeSinceTouchingGround = 0.25;

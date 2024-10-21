@@ -28,7 +28,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.4.1.152",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"Level Down",
   "resources":[
@@ -56,6 +56,7 @@
     {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
     {"id":{"name":"objTextbox","path":"objects/objTextbox/objTextbox.yy",},},
     {"id":{"name":"rmMain","path":"rooms/rmMain/rmMain.yy",},},
+    {"id":{"name":"scriptBackground","path":"scripts/scriptBackground/scriptBackground.yy",},},
     {"id":{"name":"scriptDialogue","path":"scripts/scriptDialogue/scriptDialogue.yy",},},
     {"id":{"name":"scriptPerlinNoise","path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},},
     {"id":{"name":"sndBlakeMusic","path":"sounds/sndBlakeMusic/sndBlakeMusic.yy",},},

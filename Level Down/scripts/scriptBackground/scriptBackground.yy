@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scriptPerlinNoise",
+  "%Name":"scriptBackground",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scriptPerlinNoise",
+  "name":"scriptBackground",
   "parent":{
     "name":"Level Down",
     "path":"Level Down.yyp",

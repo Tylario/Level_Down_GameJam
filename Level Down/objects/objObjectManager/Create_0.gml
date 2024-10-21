@@ -1,6 +1,7 @@
 lastFloor = -1;
 
 
+
 function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) 
 {
     centerY -= floorNum * floorHeight;
