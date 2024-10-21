@@ -1,5 +1,5 @@
-global.starLocationsArray = [];
-global.planetsLocationsArray = [];
+//global.starLocationsArray = [];
+//global.planetsLocationsArray = [];
 global.locationsArray = [];
 
 //calling this function uses the placeSprite() function to place planets and stars in the background of the room
@@ -17,8 +17,6 @@ function background() {
 	
 	placeSprite(planetNumber, planetArray, "Planets", planetOffset, global.locationsArray);
 	placeSprite(starNumber, starArray, "Stars", starOffset, global.locationsArray);
-	
-	
 	
 }
 
@@ -38,7 +36,7 @@ function placeSprite(spriteAmount, spriteArray, layerName, offset, locationsArra
 	}
 }
 
-
+//function checks if a given location (x and y) is too close to the location of other sprites that have already been placed (whose x and y are stored within the array argument)
 function checkOverlap(xVal, yVal, offset, locationsArray) {
 	for (j = 0; j < array_length(locationsArray); j++) {
 		if (abs(locationsArray[j][0] - xVal) < offset && abs(locationsArray[j][1] - yVal) < offset) {
