@@ -1,8 +1,11 @@
-if (objPlayer.currentFloor != lastFloor) {
+if (objPlayer.currentFloor != lastFloor) 
+{
     show_debug_message(objPlayer.currentFloor)
     if (objPlayer.currentFloor < 0)
     {
-        room_restart();
+        objPlayer.currentFloor = 0;
+		objPlayer.x = 1152
+		objPlayer.y = 14624
     }
     
     lastFloor = objPlayer.currentFloor;
@@ -15,7 +18,7 @@ if (objPlayer.currentFloor != lastFloor) {
 		ini_close();
 	}
 
-	var ringCount = 11;
+	var ringCount = 11; // Default ring count
     var maxFloors = 30; 
     var xDiff = 48; 
     var yDiff = 10.5; 
@@ -55,6 +58,12 @@ if (objPlayer.currentFloor != lastFloor) {
         ringCount = 11;
     }
 
+    // If the floor is 0, subtract 3 from the ring count
+    if (objPlayer.currentFloor == 0)
+    {
+        ringCount -= 4;
+    }
+
     // Loop to create each required floor (current and previous two floors)
     for (var f = max(0, objPlayer.currentFloor - 1); f <= objPlayer.currentFloor; f++) 
     {
@@ -80,8 +89,6 @@ if (objPlayer.currentFloor != lastFloor) {
 		{
 	        image_blend = c_white; // Reset to the original color (no blending)
 	        image_alpha = 1; // Fully opaque
+	    }
     }
-}
-
-
 }
