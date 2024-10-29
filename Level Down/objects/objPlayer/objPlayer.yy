@@ -8,6 +8,8 @@
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objArrowHitbox","path":"objects/objArrowHitbox/objArrowHitbox.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objHexagonSolidIce","path":"objects/objHexagonSolidIce/objHexagonSolidIce.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objParentHexagon","path":"objects/objParentHexagon/objParentHexagon.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objHexBreakable","path":"objects/objHexBreakable/objHexBreakable.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objHexagonCracked","path":"objects/objHexagonCracked/objHexagonCracked.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"objPlayer",
