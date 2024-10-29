@@ -1,31 +1,32 @@
 if (objPlayer.currentFloor != lastFloor) 
 {
-    show_debug_message(objPlayer.currentFloor)
+    show_debug_message(objPlayer.currentFloor);
+    
     if (objPlayer.currentFloor < 0)
     {
         objPlayer.currentFloor = 0;
-		objPlayer.x = 1152
-		objPlayer.y = 14624
+        objPlayer.x = 1152;
+        objPlayer.y = 14624;
     }
     
     lastFloor = objPlayer.currentFloor;
 	
-	if (objPlayer.currentFloor >= 0)
-	{
-		var ini_file;
-		ini_file = ini_open("save.ini");
-		ini_write_real("SaveData", "LevelNumber", objPlayer.currentFloor);
-		ini_close();
-	}
+    if (objPlayer.currentFloor >= 0)
+    {
+        var ini_file;
+        ini_file = ini_open("save.ini");
+        ini_write_real("SaveData", "LevelNumber", objPlayer.currentFloor);
+        ini_close();
+    }
 
-	var ringCount = 11; // Default ring count
+    var ringCount = 11; // Default ring count
     var maxFloors = 30; 
     var xDiff = 48; 
     var yDiff = 10.5; 
     var floorHeight = 100; // Height difference between floors
 	
-	//NPC
-	var objNPC_instance = instance_find(objNPC, 0);
+    // NPC position adjustments
+    var objNPC_instance = instance_find(objNPC, 0);
 
     if (lastFloor % 5 == 0)
     {
@@ -58,37 +59,52 @@ if (objPlayer.currentFloor != lastFloor)
         ringCount = 11;
     }
 
-    // If the floor is 0, subtract 3 from the ring count
+    // If the floor is 0, subtract 4 from the ring count
     if (objPlayer.currentFloor == 0)
     {
         ringCount -= 4;
     }
 
-    // Loop to create each required floor (current and previous two floors)
-    for (var f = max(0, objPlayer.currentFloor - 1); f <= objPlayer.currentFloor; f++) 
+    // Loop to create each required floor based on renderTwoLayers
+    if (renderTwoLayers)
     {
-        for (var i = 0; i <= ringCount; i++) 
+        // If true, generate the current and previous floor
+        for (var f = max(0, objPlayer.currentFloor - 1); f <= objPlayer.currentFloor; f++) 
         {
-            create_hexagon_ring(startX, startY, i, xDiff, yDiff, f, floorHeight);
+            for (var i = 0; i <= ringCount; i++) 
+            {
+                create_hexagon_ring(startX, startY, i, xDiff, yDiff, f, floorHeight);
+            }
         }
     }
-    
+    else
+    {
+        // If false, generate only the current floor
+        for (var i = 0; i <= ringCount; i++) 
+        {
+            create_hexagon_ring(startX, startY, i, xDiff, yDiff, objPlayer.currentFloor, floorHeight);
+        }
+    }
+
     if (objPlayer.currentFloor != -1) {
         destroyTileLayer(objPlayer.currentFloor);
     }
 
-    // Set opacity of non-current floor hexagons to 50%
-    with (objParentHexagon) 
-	{
-	    if (floorNumber != objPlayer.currentFloor) 
-		{
-	        image_blend = make_color_rgb(100, 100, 100); // Set to a dark gray color
-	        image_alpha = 0.5; // Set transparency
-	    } 
-		else 
-		{
-	        image_blend = c_white; // Reset to the original color (no blending)
-	        image_alpha = 1; // Fully opaque
-	    }
+    // Set opacity of non-current floor hexagons to 50% only if renderTwoLayers is true
+    if (renderTwoLayers) 
+    {
+        with (objParentHexagon) 
+        {
+            if (floorNumber != objPlayer.currentFloor) 
+            {
+                image_blend = make_color_rgb(100, 100, 100); // Set to a dark gray color
+                image_alpha = 0.5; // Set transparency
+            } 
+            else 
+            {
+                image_blend = c_white; // Reset to the original color (no blending)
+                image_alpha = 1; // Fully opaque
+            }
+        }
     }
 }

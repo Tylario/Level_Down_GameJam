@@ -40,6 +40,7 @@
     {"$GMObjectProperty":"","%Name":"hexagonRandomFall","filters":[],"listItems":[],"multiselect":false,"name":"hexagonRandomFall","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonRandomFall","varType":5,},
     {"$GMObjectProperty":"","%Name":"hexagonInvisibleWall","filters":[],"listItems":[],"multiselect":false,"name":"hexagonInvisibleWall","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonInvisibleWall","varType":5,},
     {"$GMObjectProperty":"","%Name":"hexagonSolidIce","filters":[],"listItems":[],"multiselect":false,"name":"hexagonSolidIce","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"objHexagonSolidIce","varType":5,},
+    {"$GMObjectProperty":"","%Name":"renderTwoLayers","filters":[],"listItems":[],"multiselect":false,"name":"renderTwoLayers","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

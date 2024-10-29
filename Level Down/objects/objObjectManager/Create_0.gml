@@ -1,5 +1,9 @@
-lastFloor = -1;
+// OPTIMIZATION VARIABLE. 
+	// if false, it will render just the level you are on
+	// if true, it will render also render the level below, but mostly transparent
+renderTwoLayers = false;
 
+lastFloor = -1;
 
 
 function create_hexagon_ring(centerX, centerY, layer, xDiff, yDiff, floorNum, floorHeight) 
