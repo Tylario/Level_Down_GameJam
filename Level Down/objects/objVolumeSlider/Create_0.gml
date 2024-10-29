@@ -1,6 +1,6 @@
 // Slider settings
 x = 50; // Adjust based on your UI layout
-y = 50;
+y = 30;
 width = 200; // Width of the slider
 height = 7; // Height of the slider bar
 

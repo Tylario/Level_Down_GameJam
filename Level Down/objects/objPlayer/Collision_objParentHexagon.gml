@@ -2,5 +2,4 @@ if (currentFloor == other.floorNumber && jumping == false && falling == false &&
 {
 	other.timeTouchingPlayer += delta_time / 1000000;
 	timeSinceTouchingGround = 0.1;
-	iceTime = 0.1;
 }
