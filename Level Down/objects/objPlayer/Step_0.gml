@@ -9,3 +9,8 @@ if (accumulator >= fixed_time_step) {
 		accumulator -= fixed_time_step;
 	}
 }
+
+//remove movement control for end game cutscene
+if (playerMoving == false) {
+	maxSpeed = 0;
+}

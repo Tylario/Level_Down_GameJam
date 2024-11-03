@@ -1,11 +1,21 @@
-//game restart
+//game restart (when player walks into rocket door)
+
+//this loop will always be running because the player will constantly be colliding with the obj once frozen
 if (place_meeting(x, y, objPlayer)) {
-	alarm[0] = 60
-	//layer_sprite_create("Cutscene",objPlayer.x, objPlayer.y, sprPlayerSpin);
+	gameEnded = true;
 	
-	/*var ini_file;
-	ini_file = ini_open("save.ini");
-	ini_write_real("SaveData", "LevelNumber", 0);
-	game_restart();
-	ini_close();*/
+	//stops player movement and turn all sprites invisible
+	objPlayer.playerMoving = false;
+	objPlayer.sprite_index = -1;
+	objShadow.sprite_index = -1;
+}
+
+if (gameEnded == true && playerCollided == false) {
+	//ensures this loop will not repeat so alarms can trigger
+	playerCollided = true;
+
+	//pause and have rocket door shut
+	alarm[0] = 90
+	
+	gameEnded = false;
 }

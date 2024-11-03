@@ -1,6 +1,9 @@
 //call background generating function
 background();
 
+//track if player is able to move (use for game end sequence)
+playerMoving = true;
+
 // Set initial values for player properties
 depth = -10000;
 timeSinceTouchingGround = 0.25;
@@ -476,4 +479,5 @@ if (initialCollision != noone) {
 	    fallingTimer = -5;
 	    midFallFloorUpdated = false; // Reset flag for the next fall
 	}
+	
 }
