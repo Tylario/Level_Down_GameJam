@@ -14,7 +14,7 @@ if place_meeting(x, y, objPlayer) && keyboard_check_pressed(ord("Z")) && textbox
 }
 
 //destroy dialogue object is player walks away
-if !place_meeting(x, y, objPlayer) && textboxCreated == true {
+if (!place_meeting(x, y, objPlayer) && textboxCreated == true) {
 	instance_destroy(objTextbox);
 	textboxCreated = false;
 }

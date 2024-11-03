@@ -1,9 +1,9 @@
 {
   "FolderOrderSettings":[
     {"name":"Fonts","order":9,"path":"folders/Fonts.yy",},
-    {"name":"Scripts","order":12,"path":"folders/Scripts.yy",},
     {"name":"Objects","order":6,"path":"folders/Objects.yy",},
     {"name":"Rooms","order":7,"path":"folders/Rooms.yy",},
+    {"name":"Scripts","order":12,"path":"folders/Scripts.yy",},
     {"name":"Sounds","order":2,"path":"folders/Sounds.yy",},
     {"name":"backgrounds","order":4,"path":"folders/Sprites/backgrounds.yy",},
     {"name":"stars","order":12,"path":"folders/Sprites/backgrounds/stars.yy",},
@@ -16,6 +16,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"objArrowHitbox","order":17,"path":"objects/objArrowHitbox/objArrowHitbox.yy",},
+    {"name":"objGameReset","order":23,"path":"objects/objGameReset/objGameReset.yy",},
     {"name":"objHexagonArrow","order":8,"path":"objects/objHexagonArrow/objHexagonArrow.yy",},
     {"name":"objHexagonCracked","order":14,"path":"objects/objHexagonCracked/objHexagonCracked.yy",},
     {"name":"objHexagonFloorNumber","order":11,"path":"objects/objHexagonFloorNumber/objHexagonFloorNumber.yy",},
@@ -189,6 +190,7 @@
     {"name":"sprPlayerSpin","order":1,"path":"sprites/sprPlayerSpin/sprPlayerSpin.yy",},
     {"name":"sprPlayerSpriteMask","order":4,"path":"sprites/sprPlayerSpriteMask/sprPlayerSpriteMask.yy",},
     {"name":"sprRightIdle","order":7,"path":"sprites/sprRightIdle/sprRightIdle.yy",},
+    {"name":"sprRocket","order":12,"path":"sprites/sprRocket/sprRocket.yy",},
     {"name":"sprShadow","order":8,"path":"sprites/sprShadow/sprShadow.yy",},
     {"name":"sprStar1","order":5,"path":"sprites/sprStar1/sprStar1.yy",},
     {"name":"sprStar2","order":4,"path":"sprites/sprStar2/sprStar2.yy",},
