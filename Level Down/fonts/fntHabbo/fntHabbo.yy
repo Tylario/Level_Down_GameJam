@@ -118,8 +118,8 @@
   "maintainGms1Font":false,
   "name":"fntHabbo",
   "parent":{
-    "name":"Dialogue",
-    "path":"folders/Dialogue.yy",
+    "name":"Fonts",
+    "path":"folders/Fonts.yy",
   },
   "pointRounding":0,
   "ranges":[

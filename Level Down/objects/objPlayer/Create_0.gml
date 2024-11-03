@@ -19,13 +19,13 @@ lastDirection = "none"; // Initialize last direction
 shadow = instance_create_layer(x, y, "Instances", objShadow); // Create shadow object
 shadow.depth = -9999;
 yJumpOffset = 0;
-needToBounce = 0;
+//needToBounce = 0;
 jumpWhileTouchingJump = false;
 
 var ini_file;
 ini_file = ini_open("save.ini");
-currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 5 // comment out previous line, and uncomment out this line to customize starting floor
+//currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
+currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)

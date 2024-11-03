@@ -1,12 +1,12 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scriptDialogue",
   "isCompatibility":false,
   "isDnD":false,
   "name":"scriptDialogue",
   "parent":{
-    "name":"Level Down",
-    "path":"Level Down.yyp",
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
