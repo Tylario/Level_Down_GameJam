@@ -20,23 +20,30 @@ if (objPlayer.currentFloor != lastFloor)
     }
 
     var ringCount = 11; // Default ring count
-    var maxFloors = 30; 
+    //var maxFloors = 30; 
     var xDiff = 48; 
     var yDiff = 10.5; 
     var floorHeight = 100; // Height difference between floors
 	
     // NPC position adjustments
     var objNPC_instance = instance_find(objNPC, 0);
+	var objDialogueIndicator_instance = instance_find(objDialogueIndicator, 0);
 
     if (lastFloor % 5 == 0)
     {
         objNPC_instance.x = 990;
         objNPC_instance.y = 14623 - floorHeight * lastFloor;
+		
+		objDialogueIndicator_instance.x = 989;
+		objDialogueIndicator_instance.y = 14571 - floorHeight * lastFloor;
     }
     else
     {
         objNPC_instance.x = 192;
         objNPC_instance.y = 0;
+		
+		objDialogueIndicator_instance.x = 192;
+		objDialogueIndicator_instance.y = 0;
     }
 
     // Adjust this to set the center position

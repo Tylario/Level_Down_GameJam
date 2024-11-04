@@ -18,3 +18,12 @@ if (!place_meeting(x, y, objPlayer) && textboxCreated == true) {
 	instance_destroy(objTextbox);
 	textboxCreated = false;
 }
+
+if (textboxCreated == false) {
+	objDialogueIndicator.sprite_index = sprDialogueIndicator;
+}
+
+if (textboxCreated == true) {
+	objDialogueIndicator.sprite_index = -1;
+}
+

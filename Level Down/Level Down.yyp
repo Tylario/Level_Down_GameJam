@@ -35,6 +35,7 @@
   "resources":[
     {"id":{"name":"fntHabbo","path":"fonts/fntHabbo/fntHabbo.yy",},},
     {"id":{"name":"objArrowHitbox","path":"objects/objArrowHitbox/objArrowHitbox.yy",},},
+    {"id":{"name":"objDialogueIndicator","path":"objects/objDialogueIndicator/objDialogueIndicator.yy",},},
     {"id":{"name":"objGameReset","path":"objects/objGameReset/objGameReset.yy",},},
     {"id":{"name":"objHexagonArrow","path":"objects/objHexagonArrow/objHexagonArrow.yy",},},
     {"id":{"name":"objHexagonCracked","path":"objects/objHexagonCracked/objHexagonCracked.yy",},},
@@ -169,6 +170,7 @@
     {"id":{"name":"hexagonFloor99","path":"sprites/hexagonFloor99/hexagonFloor99.yy",},},
     {"id":{"name":"sprAllWalls","path":"sprites/sprAllWalls/sprAllWalls.yy",},},
     {"id":{"name":"sprArrowHitbox","path":"sprites/sprArrowHitbox/sprArrowHitbox.yy",},},
+    {"id":{"name":"sprDialogueIndicator","path":"sprites/sprDialogueIndicator/sprDialogueIndicator.yy",},},
     {"id":{"name":"sprDownIdle","path":"sprites/sprDownIdle/sprDownIdle.yy",},},
     {"id":{"name":"sprDownLeftIdle","path":"sprites/sprDownLeftIdle/sprDownLeftIdle.yy",},},
     {"id":{"name":"sprDownRightIdle","path":"sprites/sprDownRightIdle/sprDownRightIdle.yy",},},
@@ -203,6 +205,7 @@
     {"id":{"name":"sprLeftIdle","path":"sprites/sprLeftIdle/sprLeftIdle.yy",},},
     {"id":{"name":"sprLogo","path":"sprites/sprLogo/sprLogo.yy",},},
     {"id":{"name":"sprMusic","path":"sprites/sprMusic/sprMusic.yy",},},
+    {"id":{"name":"sprNPC","path":"sprites/sprNPC/sprNPC.yy",},},
     {"id":{"name":"sprPlanet1","path":"sprites/sprPlanet1/sprPlanet1.yy",},},
     {"id":{"name":"sprPlanet10","path":"sprites/sprPlanet10/sprPlanet10.yy",},},
     {"id":{"name":"sprPlanet2","path":"sprites/sprPlanet2/sprPlanet2.yy",},},

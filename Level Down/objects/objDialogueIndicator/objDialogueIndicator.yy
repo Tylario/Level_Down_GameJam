@@ -1,12 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"objNPC",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"objDialogueIndicator",
+  "eventList":[],
   "managed":true,
-  "name":"objNPC",
+  "name":"objDialogueIndicator",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -31,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprNPC",
-    "path":"sprites/sprNPC/sprNPC.yy",
+    "name":"sprDialogueIndicator",
+    "path":"sprites/sprDialogueIndicator/sprDialogueIndicator.yy",
   },
   "spriteMaskId":null,
   "visible":true,
