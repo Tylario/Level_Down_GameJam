@@ -19,6 +19,18 @@ if (gameEnded == true && playerCollided == false) {
 	gameEnded = false;
 }
 
+if (flying) {
+	for (var i = 0; i < moveAmountRocket; i++) {
+		alarm[4] = 1;
+	}
+}
+
+if (flying) {
+	for (var j = 0; j < moveAmountRocket; j++) {
+		alarm[5] = 1;
+	}
+}
+
 //can restart
 if (canRestart == true) {
 	if (keyboard_check_pressed(ord("Z"))) {

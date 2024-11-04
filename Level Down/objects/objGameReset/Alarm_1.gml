@@ -1,7 +1,5 @@
 //ship takes off
-for (var i = 0; i < moveAmount; i++) {
-	alarm[4] = 1;
-}
+flying = true;
 
 //show win message
 alarm[2] = 150;
