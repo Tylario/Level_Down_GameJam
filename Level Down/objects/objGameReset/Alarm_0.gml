@@ -1,5 +1,5 @@
 //door shut after player enters
-self.image_index = 1;
+self.sprite_index = sprRocketFlying;
 
 //rocket take off
 alarm[1] = 120;

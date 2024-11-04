@@ -40,8 +40,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprRocket",
-    "path":"sprites/sprRocket/sprRocket.yy",
+    "name":"sprRocketStill",
+    "path":"sprites/sprRocketStill/sprRocketStill.yy",
   },
   "spriteMaskId":null,
   "visible":true,
