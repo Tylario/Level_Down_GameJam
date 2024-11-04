@@ -4,4 +4,4 @@ for (var i = 0; i < moveAmount; i++) {
 }
 
 //show win message
-//[2] = 30;
+alarm[2] = 150;

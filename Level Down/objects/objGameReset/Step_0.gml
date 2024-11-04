@@ -13,9 +13,21 @@ if (place_meeting(x, y, objPlayer)) {
 if (gameEnded == true && playerCollided == false) {
 	//ensures this loop will not repeat so alarms can trigger
 	playerCollided = true;
-
-	//pause and have rocket door shut
-	alarm[0] = 90
 	
+	//pause and have rocket door shut
+	alarm[0] = 120
 	gameEnded = false;
+}
+
+//can restart
+if (canRestart == true) {
+	if (keyboard_check_pressed(ord("Z"))) {
+		var ini_file;
+		ini_file = ini_open("save.ini");
+		ini_write_real("SaveData", "LevelNumber", 0);
+		ini_close();
+		game_restart();
+		canRestart = false;
+	}
+	
 }
