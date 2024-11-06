@@ -1,11 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"objHexagonSolidIce",
+  "%Name":"objHexagonBreakIce",
   "eventList":[
-    {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":1,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objHexagonSolidIce",
+  "name":"objHexagonBreakIce",
   "overriddenProperties":[
     {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"objParentHexagon","path":"objects/objParentHexagon/objParentHexagon.yy",},"propertyId":{"name":"fallingTime","path":"objects/objParentHexagon/objParentHexagon.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"0.75",},
   ],
@@ -37,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprHexagonSolidIce",
-    "path":"sprites/sprHexagonSolidIce/sprHexagonSolidIce.yy",
+    "name":"sprHexagonHardIce",
+    "path":"sprites/sprHexagonHardIce/sprHexagonHardIce.yy",
   },
   "spriteMaskId":{
     "name":"sprHexagonParent",
