@@ -1,29 +1,25 @@
-//check if a textbox already exists
+// Check if a textbox already exists
 if (instance_exists(objTextbox)) {
-	textboxCreated = true;
+    textboxCreated = true;
+} else {
+    textboxCreated = false;
 }
 
-else {
-	textboxCreated = false;
+// Check if player is close enough to start dialogue (within 60 pixels)
+if (distance_to_object(objPlayer) <= 60 && keyboard_check_pressed(ord("Z")) && textboxCreated == false) {
+    io_clear();
+    instance_create_layer(0, 0, "Textbox", objTextbox);
 }
 
-//check if player is close enough to start dialogue
-if place_meeting(x, y, objPlayer) && keyboard_check_pressed(ord("Z")) && textboxCreated == false {
-	io_clear();
-	instance_create_layer(0, 0, "Textbox", objTextbox);
+// Destroy dialogue object if player walks away
+if (distance_to_object(objPlayer) > 60 && textboxCreated == true) {
+    instance_destroy(objTextbox);
+    textboxCreated = false;
 }
 
-//destroy dialogue object is player walks away
-if (!place_meeting(x, y, objPlayer) && textboxCreated == true) {
-	instance_destroy(objTextbox);
-	textboxCreated = false;
-}
-
+// Update dialogue indicator sprite based on textbox existence
 if (textboxCreated == false) {
-	objDialogueIndicator.sprite_index = sprDialogueIndicator;
+    objDialogueIndicator.sprite_index = sprDialogueIndicator;
+} else {
+    objDialogueIndicator.sprite_index = -1;
 }
-
-if (textboxCreated == true) {
-	objDialogueIndicator.sprite_index = -1;
-}
-
