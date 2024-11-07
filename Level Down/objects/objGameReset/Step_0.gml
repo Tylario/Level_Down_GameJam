@@ -26,7 +26,7 @@ if (flying) {
 }
 
 if (flying) {
-	for (var j = 0; j < moveAmountRocket; j++) {
+	for (var j = 0; j < moveAmountPlayer; j++) {
 		alarm[5] = 1;
 	}
 }
