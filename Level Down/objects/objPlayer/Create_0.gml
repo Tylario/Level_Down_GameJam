@@ -420,6 +420,7 @@ if (initialCollision != noone) {
 	    jumpTimer = 0;
 	    jumping = true;
 		timeSinceTouchingGround = 0.01;
+		endJump = true;
 	}
 
 	if (jumpTimer > 0 && jumpTimer < 0.5) {
@@ -448,10 +449,15 @@ if (initialCollision != noone) {
 			shadow.x = x - 1; 
 			shadow.y = y - 2;
 			yJumpOffset = 0;
-			
-			if (!place_meeting(x, y, objParentHexagon)) 
+			if (endJump)
 			{
-				jumpFallTimer = 0
+				endJump = false
+				if (!place_meeting(x, y, objParentHexagon)) 
+				{
+					jumpFallTimer = 0
+					falling = true
+					fallingTimer = 0.202
+				}
 			}
 		}
 	}
