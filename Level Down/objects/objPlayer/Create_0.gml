@@ -420,6 +420,7 @@ if (initialCollision != noone) {
 	    jumping = true;
 		timeSinceTouchingGround = 0.01;
 		endJump = true;
+		endFall = true;
 		var sound = choose(sndJump1, sndJump2, sndJump3);
 		audio_play_sound(sound, 1, false, global.volume);
 	}
@@ -457,6 +458,7 @@ if (initialCollision != noone) {
 				{
 					jumpFallTimer = 0
 					falling = true
+					endJump = true
 					fallingTimer = 0.202
 				}
 			}
@@ -490,6 +492,7 @@ if (initialCollision != noone) {
 	fallingTimer = fallingTimer - (fixed_time_step);
 	if (timeSinceTouchingGround < 0 && !bouncing) {
 	   falling = true;
+	   endFall = true
 	   show_debug_message("Falling")
 	    if (fallingTimer < -1) {
 	        fallingTimer = 0.5;
@@ -511,6 +514,17 @@ if (initialCollision != noone) {
 	    timeSinceTouchingGround = 0.5;
 	    fallingTimer = -5;
 	    midFallFloorUpdated = false; // Reset flag for the next fall
+		if (endFall)
+			{
+				endFall = false
+				if (!place_meeting(x, y, objParentHexagon)) 
+				{
+					jumpFallTimer = 0
+					falling = true
+					fallingTimer = 0.202
+					endFall = true
+				}
+			}
 	}
 	
 }
