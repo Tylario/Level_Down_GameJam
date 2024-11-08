@@ -423,6 +423,8 @@ if (initialCollision != noone) {
 		endFall = true;
 		var sound = choose(sndJump1, sndJump2, sndJump3);
 		audio_play_sound(sound, 1, false, global.volume);
+		audio_sound_pitch(sound, 3);
+
 	}
 
 	if (jumpTimer > 0 && jumpTimer < 0.5) {
