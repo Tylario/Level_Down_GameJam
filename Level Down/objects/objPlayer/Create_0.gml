@@ -117,10 +117,11 @@ function updatePhysics() {
 
 
 
-
+	diagonalSpeedMultiplier = 1.1;
+	
 	if ((movingUp || movingDown) && (movingLeft || movingRight)) {
 	    var combinedSpeed = sqrt(xMomentum * xMomentum + yMomentum * yMomentum);
-	    var diagonalSpeedCap = maxSpeed * 0.71; // Adjust the cap for diagonal movement
+	    var diagonalSpeedCap = maxSpeed * 0.71 * diagonalSpeedMultiplier; // Adjust the cap for diagonal movement
 
 	    if (combinedSpeed > diagonalSpeedCap) {
 	        // Calculate the ratio to scale down the momentum to the diagonal cap
