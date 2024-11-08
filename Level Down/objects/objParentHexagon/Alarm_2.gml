@@ -1,1 +1,0 @@
-global.active_sounds = max(0, global.active_sounds - 1);

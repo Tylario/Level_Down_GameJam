@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":1.515102,
+  "duration":1.123265,
   "name":"sndJump1",
   "parent":{
     "name":"Sounds",
