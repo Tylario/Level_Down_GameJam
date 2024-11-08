@@ -6,7 +6,7 @@ if (objPlayer.currentFloor != lastFloor)
     {
         objPlayer.currentFloor = 0;
         objPlayer.x = 1152;
-        objPlayer.y = 14624;
+        objPlayer.y = 14572;
     }
     
     lastFloor = objPlayer.currentFloor;

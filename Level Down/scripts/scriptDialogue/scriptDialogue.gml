@@ -3,11 +3,11 @@ function textFloor(p){ //p is the current page number
 	f = objPlayer.currentFloor;
 	
 	if f == 0 {
-		return textFloor0[p];
+		return "Try and get to the top!";
 	}
 	
 	else if f == 5 {
-		return textFloor5[p];
+		return "These floors are like checkpoints. Never jump off a checkpoint level.";
 	} 
 	
 	else if f == 10 {
