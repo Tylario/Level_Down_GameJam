@@ -3,7 +3,6 @@ background();
 
 //track if player is able to move (use for game end sequence)
 playerMoving = true;
-
 // Set initial values for player properties
 depth = -10000;
 timeSinceTouchingGround = 0.25;
@@ -28,7 +27,7 @@ jumpWhileTouchingJump = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
+//currentFloor = 21 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)
@@ -421,6 +420,8 @@ if (initialCollision != noone) {
 	    jumping = true;
 		timeSinceTouchingGround = 0.01;
 		endJump = true;
+		var sound = choose(sndJump1, sndJump2, sndJump3);
+		audio_play_sound(sound, 1, false, global.volume);
 	}
 
 	if (jumpTimer > 0 && jumpTimer < 0.5) {

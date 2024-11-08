@@ -1,6 +1,6 @@
 {
   "$GMSound":"",
-  "%Name":"sndMusicOLD",
+  "%Name":"sndUpArrow",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -9,8 +9,8 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":193.67184,
-  "name":"sndMusicOLD",
+  "duration":1.17551,
+  "name":"sndUpArrow",
   "parent":{
     "name":"Sounds",
     "path":"folders/Sounds.yy",
@@ -19,7 +19,7 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"sndMusicOLD.mp3",
+  "soundFile":"sndUpArrow.mp3",
   "type":0,
-  "volume":0.19,
+  "volume":0.5,
 }

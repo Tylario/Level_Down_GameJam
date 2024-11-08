@@ -19,6 +19,14 @@ if (breaking)
     }
     else
 	{
+		
+		if (currentSpeed == 0)
+		{
+		    var sound_choice = choose(sndPop1, sndPop2, sndPop3, sndPop4, sndPop5, sndPop6, sndPop7, sndPop8, sndPop10);
+		    audio_play_sound(sndPop1, 0, false, global.volume * 0.2);
+		    show_debug_message("falling - sound played");
+		}
+		
 		//as it falls, accelerate down
 	    var seconds = delta_time / 1000000;
 	    currentSpeed += fallingAcceleration * seconds;

@@ -18,6 +18,6 @@ with (objPlayer)
 // Check the flag after evaluating the collision conditions
 if (validCollision && !soundPlaying) {
     soundPlaying = true;
-    audio_play_sound(sndJump, 0, false);
+    audio_play_sound(sndUpArrow, 0, false, global.volume);
     alarm[0] = 5;
 }
