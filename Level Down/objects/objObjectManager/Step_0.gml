@@ -1,90 +1,63 @@
+// Check if the floor has changed
 if (objPlayer.currentFloor != lastFloor) 
 {
-    show_debug_message(objPlayer.currentFloor);
-    
+    show_debug_message("Player moved to floor: " + string(objPlayer.currentFloor));
+
     if (objPlayer.currentFloor < 0)
     {
         objPlayer.currentFloor = 0;
-        objPlayer.x = 1152;
-        objPlayer.y = 14572;
+        objPlayer.x = 1152; // Starting X position on the first floor
+        objPlayer.y = 14572; // Starting Y position on the first floor
     }
-    
-    lastFloor = objPlayer.currentFloor;
-	
-    if (objPlayer.currentFloor >= 0)
+
+    // Save current floor in an INI file
+    var ini_file;
+    ini_file = ini_open("save.ini");
+    ini_write_real("SaveData", "LevelNumber", objPlayer.currentFloor);
+    ini_close();
+
+    if (objPlayer.currentFloor == 100)
     {
-        var ini_file;
-        ini_file = ini_open("save.ini");
-        ini_write_real("SaveData", "LevelNumber", objPlayer.currentFloor);
-        ini_close();
+        objGameReset.image_alpha = 1;
     }
-	
-	if (objPlayer.currentFloor == 100)
-	{
-		objGameReset.image_alpha = 1;
-	}
-	else
-	{
-		objGameReset.image_alpha = 0;
-	}
+    else
+    {
+        objGameReset.image_alpha = 0;
+    }
 
-    var ringCount = 11; // Default ring count
-    //var maxFloors = 30; 
-    var xDiff = 48; 
-    var yDiff = 10.5; 
+    var ringCount = 11; // Default ring count for hexagon creation
+    var xDiff = 48;  // X offset for hexagon creation
+    var yDiff = 10.5; // Y offset for hexagon creation
     var floorHeight = 100; // Height difference between floors
-	
-    // NPC position adjustments
-    var objNPC_instance = instance_find(objNPC, 0);
-	var objDialogueIndicator_instance = instance_find(objDialogueIndicator, 0);
 
+    // NPC and Dialogue Indicator positions based on checkpoint floors
+    var objNPC_instance = instance_find(objNPC, 0);
+    var objDialogueIndicator_instance = instance_find(objDialogueIndicator, 0);
     if (lastFloor % 5 == 0)
     {
         objNPC_instance.x = 990;
         objNPC_instance.y = 14623 - floorHeight * lastFloor;
-		
-		objDialogueIndicator_instance.x = 989;
-		objDialogueIndicator_instance.y = 14571 - floorHeight * lastFloor;
+        objDialogueIndicator_instance.x = 989;
+        objDialogueIndicator_instance.y = 14571 - floorHeight * lastFloor;
     }
     else
     {
-        objNPC_instance.x = 192;
+        objNPC_instance.x = 192; // Default position if not a checkpoint floor
         objNPC_instance.y = 0;
-		
-		objDialogueIndicator_instance.x = 192;
-		objDialogueIndicator_instance.y = 0;
+        objDialogueIndicator_instance.x = 192;
+        objDialogueIndicator_instance.y = 0;
     }
 
-    // Adjust this to set the center position
-    var startX = room_width / 2;
-    var startY = room_height - 400;
-    
-    // Destroy hexagons that are no longer needed
+    var startX = room_width / 2; // Center X for hexagon rings
+    var startY = room_height - 400; // Center Y for hexagon rings
+
     with (objParentHexagon) 
     { 
         instance_destroy();
     }
 
-    // Adjust ringCount based on the current floor
-    if (objPlayer.currentFloor % 5 == 0)
-    {
-        ringCount = 12;
-    }
-    else
-    {
-        ringCount = 11;
-    }
-
-    // If the floor is 0, subtract 4 from the ring count
-    if (objPlayer.currentFloor == 0)
-    {
-        ringCount -= 4;
-    }
-
-    // Loop to create each required floor based on renderTwoLayers
     if (renderTwoLayers)
     {
-        // If true, generate the current and previous floor
         for (var f = max(0, objPlayer.currentFloor - 1); f <= objPlayer.currentFloor; f++) 
         {
             for (var i = 0; i <= ringCount; i++) 
@@ -95,32 +68,50 @@ if (objPlayer.currentFloor != lastFloor)
     }
     else
     {
-        // If false, generate only the current floor
         for (var i = 0; i <= ringCount; i++) 
         {
             create_hexagon_ring(startX, startY, i, xDiff, yDiff, objPlayer.currentFloor, floorHeight);
         }
     }
 
+    // Destroy tiles of floors below the current one
     if (objPlayer.currentFloor != -1) {
         destroyTileLayer(objPlayer.currentFloor);
     }
 
-    // Set opacity of non-current floor hexagons to 50% only if renderTwoLayers is true
-    if (renderTwoLayers) 
+    // Log player movement if falling from a checkpoint level to a target level
+    if (lastFloor % 5 == 0 && objPlayer.currentFloor % 5 == 4)
     {
-        with (objParentHexagon) 
+        var oldX = objPlayer.x;
+        var oldY = objPlayer.y;
+
+        // Move player towards the center of the floor
+        objPlayer.x = lerp(oldX, startX, 0.5);
+        objPlayer.y = lerp(oldY, startY - objPlayer.currentFloor * floorHeight, 0.4);
+
+        // Log the player's transition
+        show_debug_message("Player fell off checkpoint level " + string(lastFloor) + 
+                           " and was moved from (" + string(oldX) + ", " + string(oldY) + 
+                           ") to (" + string(objPlayer.x) + ", " + string(objPlayer.y) + ")");
+    }
+}
+
+// Update lastFloor after all other logic
+lastFloor = objPlayer.currentFloor;
+
+if (renderTwoLayers) 
+{
+    with (objParentHexagon) 
+    {
+        if (floorNumber != objPlayer.currentFloor) 
         {
-            if (floorNumber != objPlayer.currentFloor) 
-            {
-                image_blend = make_color_rgb(100, 100, 100); // Set to a dark gray color
-                image_alpha = 0.5; // Set transparency
-            } 
-            else 
-            {
-                image_blend = c_white; // Reset to the original color (no blending)
-                image_alpha = 1; // Fully opaque
-            }
+            image_blend = make_color_rgb(100, 100, 100); // Dark gray for non-current floors
+            image_alpha = 0.5;
+        } 
+        else 
+        {
+            image_blend = c_white; // White for the current floor
+            image_alpha = 1;
         }
     }
 }

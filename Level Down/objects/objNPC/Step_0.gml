@@ -37,7 +37,7 @@ if (textboxCreated == false) {
 }
 
 
-if (y < objPlayer.y) {
+if (y < objShadow.y) {
     depth = objPlayer.depth + 1;  // Place slightly in front of player
 } else {
     depth = objPlayer.depth - 1; // Place slightly behind player

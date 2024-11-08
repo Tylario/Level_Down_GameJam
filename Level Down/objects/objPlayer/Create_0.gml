@@ -495,7 +495,6 @@ if (initialCollision != noone) {
 	if (timeSinceTouchingGround < 0 && !bouncing) {
 	   falling = true;
 	   endFall = true
-	   show_debug_message("Falling")
 	    if (fallingTimer < -1) {
 	        fallingTimer = 0.5;
 	    }
