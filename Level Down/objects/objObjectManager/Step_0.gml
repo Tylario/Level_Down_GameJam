@@ -18,6 +18,15 @@ if (objPlayer.currentFloor != lastFloor)
         ini_write_real("SaveData", "LevelNumber", objPlayer.currentFloor);
         ini_close();
     }
+	
+	if (objPlayer.currentFloor == 100)
+	{
+		objGameReset.image_alpha = 1;
+	}
+	else
+	{
+		objGameReset.image_alpha = 0;
+	}
 
     var ringCount = 11; // Default ring count
     //var maxFloors = 30; 
