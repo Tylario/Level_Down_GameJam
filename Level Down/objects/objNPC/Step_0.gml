@@ -1,3 +1,15 @@
+var distanceTobject = distance_to_object(objPlayer)
+
+if (distanceTobject <= 60)
+{
+	objDialogueIndicator.image_alpha = 1
+}
+else
+{
+	objDialogueIndicator.image_alpha = 0.1
+}
+
+
 // Check if a textbox already exists
 if (instance_exists(objTextbox)) {
     textboxCreated = true;
@@ -6,13 +18,13 @@ if (instance_exists(objTextbox)) {
 }
 
 // Check if player is close enough to start dialogue (within 60 pixels)
-if (distance_to_object(objPlayer) <= 60 && keyboard_check_pressed(ord("Z")) && textboxCreated == false) {
+if (distanceTobject  <= 60 && keyboard_check_pressed(ord("Z")) && textboxCreated == false) {
     io_clear();
     instance_create_layer(0, 0, "Textbox", objTextbox);
 }
 
 // Destroy dialogue object if player walks away
-if (distance_to_object(objPlayer) > 60 && textboxCreated == true) {
+if (distanceTobject > 60 && textboxCreated == true) {
     instance_destroy(objTextbox);
     textboxCreated = false;
 }

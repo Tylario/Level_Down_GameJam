@@ -433,14 +433,36 @@ if (initialCollision != noone) {
 	    yJumpOffset += ((jumpTimer - 0.25) * 25);
 	    shadow.y = shadow.y - yJumpOffset;
 	} else {
-	    jumping = false;
-		jumpWhileTouchingJump = false;
-	    shadow.x = x - 1; 
-	    shadow.y = y - 2;
-	    yJumpOffset = 0;
+		if (jumpTimer == 0)
+		{
+		    jumping = false;
+			jumpWhileTouchingJump = false;
+		    shadow.x = x - 1; 
+		    shadow.y = y - 2;
+		    yJumpOffset = 0;
+		}
+		else
+		{
+			jumping = false;
+			jumpWhileTouchingJump = false;
+			shadow.x = x - 1; 
+			shadow.y = y - 2;
+			yJumpOffset = 0;
+			
+			if (!place_meeting(x, y, objParentHexagon)) 
+			{
+				jumpFallTimer = 0
+			}
+		}
 	}
 
 	bounceTimer = bounceTimer - (fixed_time_step);
+	jumpFallTimer = jumpFallTimer - (fixed_time_step);
+	
+	if (jumpFallTimer > -0.5 and jumpFallTimer <= 0)
+	{
+		y = y + (jumpFallTimer + 0.5) * 5;
+	}
 
 	if (bounceTimer > 0) {
 	    y = y - bounceTimer * 13.7; // Move the player up based on the bounceTimer

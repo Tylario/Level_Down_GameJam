@@ -43,6 +43,8 @@
     {"$GMObjectProperty":"","%Name":"arrowJumpTime","filters":[],"listItems":[],"multiselect":false,"name":"arrowJumpTime","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.3","varType":0,},
     {"$GMObjectProperty":"","%Name":"jumping","filters":[],"listItems":[],"multiselect":false,"name":"jumping","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":3,},
     {"$GMObjectProperty":"","%Name":"fallEffect","filters":[],"listItems":[],"multiselect":false,"name":"fallEffect","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"4","varType":0,},
+    {"$GMObjectProperty":"","%Name":"endJump","filters":[],"listItems":[],"multiselect":false,"name":"endJump","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"False","varType":3,},
+    {"$GMObjectProperty":"","%Name":"jumpFallTimer","filters":[],"listItems":[],"multiselect":false,"name":"jumpFallTimer","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
