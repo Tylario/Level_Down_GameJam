@@ -33,12 +33,12 @@ if (objPlayer.currentFloor != lastFloor)
     // NPC and Dialogue Indicator positions based on checkpoint floors
     var objNPC_instance = instance_find(objNPC, 0);
     var objDialogueIndicator_instance = instance_find(objDialogueIndicator, 0);
-    if (lastFloor % 5 == 0)
+    if (objPlayer.currentFloor % 5 == 0)
     {
         objNPC_instance.x = 990;
-        objNPC_instance.y = 14623 - floorHeight * lastFloor;
+        objNPC_instance.y = 14623 - floorHeight * objPlayer.currentFloor;
         objDialogueIndicator_instance.x = 989;
-        objDialogueIndicator_instance.y = 14571 - floorHeight * lastFloor;
+        objDialogueIndicator_instance.y = 14571 - floorHeight * objPlayer.currentFloor;
     }
     else
     {
@@ -87,12 +87,8 @@ if (objPlayer.currentFloor != lastFloor)
 
         // Move player towards the center of the floor
         objPlayer.x = lerp(oldX, startX, 0.5);
-        objPlayer.y = lerp(oldY, startY - objPlayer.currentFloor * floorHeight, 0.4);
+        objPlayer.y = lerp(oldY, startY - objPlayer.currentFloor * floorHeight, 0.5);
 
-        // Log the player's transition
-        show_debug_message("Player fell off checkpoint level " + string(lastFloor) + 
-                           " and was moved from (" + string(oldX) + ", " + string(oldY) + 
-                           ") to (" + string(objPlayer.x) + ", " + string(objPlayer.y) + ")");
     }
 }
 
