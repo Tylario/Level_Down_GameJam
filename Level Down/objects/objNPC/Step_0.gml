@@ -23,3 +23,10 @@ if (textboxCreated == false) {
 } else {
     objDialogueIndicator.sprite_index = -1;
 }
+
+
+if (y < objPlayer.y) {
+    depth = objPlayer.depth + 1;  // Place slightly in front of player
+} else {
+    depth = objPlayer.depth - 1; // Place slightly behind player
+}

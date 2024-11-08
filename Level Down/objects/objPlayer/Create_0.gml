@@ -229,41 +229,44 @@ else
 
 
 	// Function to check collision with all objHexagonWall instances at four positions around a center, including corners
-	function check_collision(xPos, yPos) {
-	    // Function to check collision with both objHexagonWall and objHexagonInvisibleWall instances
-	    var shadowXOffset = 0;
-	    var shadowYOffset = 0;
-	    var collisionRadius = 3;
-	    var objTypes = [objHexagonWall, objHexagonInvisibleWall];
-	    var inst;
-    
-	    // Loop through each type of object
-	    for (var i = 0; i < array_length_1d(objTypes); i++) {
-	        var objectType = objTypes[i];
-        
-	        // Check four cardinal directions and four diagonals
-	        var positions = [
-	            [xPos + shadowXOffset, yPos + shadowYOffset - collisionRadius],
-	            [xPos + shadowXOffset, yPos + shadowYOffset + collisionRadius],
-	            [xPos + shadowXOffset - collisionRadius, yPos + shadowYOffset],
-	            [xPos + shadowXOffset + collisionRadius, yPos + shadowYOffset],
-	            [xPos + shadowXOffset - collisionRadius, yPos + shadowYOffset - collisionRadius],
-	            [xPos + shadowXOffset + collisionRadius, yPos + shadowYOffset - collisionRadius],
-	            [xPos + shadowXOffset - collisionRadius, yPos + shadowYOffset + collisionRadius],
-	            [xPos + shadowXOffset + collisionRadius, yPos + shadowYOffset + collisionRadius]
-	        ];
+function check_collision(xPos, yPos) {
+    // Function to check collision with objHexagonWall, objHexagonInvisibleWall, and objNPC instances
+    var collisionRadius = 3; // Distance from the center for collision checks
+    var objTypes = [objHexagonWall, objHexagonInvisibleWall, objNPC]; // Includes objNPC
+    var inst;
 
-	        // Check each position for collisions
-	        for (var j = 0; j < array_length_1d(positions); j++) {
-	            inst = instance_place(positions[j][0], positions[j][1], objectType);
-	            if (inst != noone && inst.floorNumber == currentFloor) {
-	                return inst;  // Return the instance of the first collision found
-	            }
-	        }
-	    }
-    
-	    return noone;  // Return noone if no collisions are found
-	}
+    // Loop through each type of object
+    for (var i = 0; i < array_length_1d(objTypes); i++) {
+        var objectType = objTypes[i];
+
+        // Check four cardinal directions only
+        var positions = [
+            [xPos, yPos - collisionRadius], // Up
+            [xPos, yPos + collisionRadius], // Down
+            [xPos - collisionRadius, yPos], // Left
+            [xPos + collisionRadius, yPos]  // Right
+        ];
+
+        // Check each position for collisions
+        for (var j = 0; j < array_length_1d(positions); j++) {
+            inst = instance_place(positions[j][0], positions[j][1], objectType);
+            if (inst != noone) {
+                // Check if the instance has the variable "floorNumber"
+                if (variable_instance_exists(inst, "floorNumber")) {
+                    if (inst.floorNumber == currentFloor) {
+                        return inst;  // Return the instance if floorNumber matches
+                    }
+                } else {
+                    return inst; // Return the instance if no floorNumber check is needed (like objNPC)
+                }
+            }
+        }
+    }
+
+    return noone;  // Return noone if no collisions are found
+}
+
+
 
 
 // Check all combinations of previous and new positions for shadow
