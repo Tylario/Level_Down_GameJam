@@ -27,7 +27,7 @@ jumpWhileTouchingJump = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
+//currentFloor = 44 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)
@@ -415,18 +415,6 @@ if (initialCollision != noone) {
 		jumpTimer = jumpTimer + fixed_time_step * 0.5;
 	}
 
-	if (jumpingPressed && jumpTimer > 0.57 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime && timeSinceTouchingGround > 0.01) {
-	    jumpTimer = 0;
-	    jumping = true;
-		timeSinceTouchingGround = 0.01;
-		endJump = true;
-		endFall = true;
-		var sound = choose(sndJump1, sndJump2, sndJump3);
-		audio_play_sound(sound, 1, false, global.volume);
-		audio_sound_pitch(sound, 3);
-
-	}
-
 	if (jumpTimer > 0 && jumpTimer < 0.5) {
 	    jumping = true;
 		
@@ -526,6 +514,18 @@ if (initialCollision != noone) {
 					endFall = true
 				}
 			}
+	}
+	
+		if (jumpingPressed && jumpTimer > 0.57 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime && timeSinceTouchingGround > 0.01) {
+	    jumpTimer = 0;
+	    jumping = true;
+		timeSinceTouchingGround = 0.01;
+		endJump = true;
+		endFall = true;
+		var sound = choose(sndJump1, sndJump2, sndJump3);
+		audio_play_sound(sound, 1, false, global.volume);
+		audio_sound_pitch(sound, 3);
+
 	}
 	
 }

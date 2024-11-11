@@ -19,7 +19,7 @@ if (objPlayer.currentFloor != lastFloor)
 		{
 			objPlayer.x = room_width / 2 + (48 * 5) + 15
 		}
-		objPlayer.y = (room_height - 453) - (objPlayer.currentFloor * 100)
+		objPlayer.y = (room_height - 455) - (objPlayer.currentFloor * 100)
     }
 	
 
