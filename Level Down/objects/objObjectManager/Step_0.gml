@@ -8,7 +8,20 @@ if (objPlayer.currentFloor != lastFloor)
         objPlayer.currentFloor = 0;
         objPlayer.x = 1152; // Starting X position on the first floor
         objPlayer.y = 14572; // Starting Y position on the first floor
+    } 
+	else if (lastFloor % 5 == 0 && objPlayer.currentFloor % 5 == 4)
+    {
+		if (objPlayer.currentFloor % 2 == 0)
+		{
+			objPlayer.x = room_width / 2 - (48 * 5) + 15
+		}
+		else
+		{
+			objPlayer.x = room_width / 2 + (48 * 5) + 15
+		}
+		objPlayer.y = (room_height - 453) - (objPlayer.currentFloor * 100)
     }
+	
 
     // Save current floor in an INI file
     var ini_file;
@@ -79,17 +92,6 @@ if (objPlayer.currentFloor != lastFloor)
         destroyTileLayer(objPlayer.currentFloor);
     }
 
-    // Log player movement if falling from a checkpoint level to a target level
-    if (lastFloor % 5 == 0 && objPlayer.currentFloor % 5 == 4)
-    {
-        var oldX = objPlayer.x;
-        var oldY = objPlayer.y;
-
-        // Move player towards the center of the floor
-        objPlayer.x = lerp(oldX, startX, 0.5);
-        objPlayer.y = lerp(oldY, startY - objPlayer.currentFloor * floorHeight, 0.5);
-
-    }
 }
 
 // Update lastFloor after all other logic
