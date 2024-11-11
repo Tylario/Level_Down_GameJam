@@ -43,7 +43,7 @@
     {"name":"scriptDialogue","order":1,"path":"scripts/scriptDialogue/scriptDialogue.yy",},
     {"name":"scriptPerlinNoise","order":2,"path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},
     {"name":"sndArrowBounce","order":21,"path":"sounds/sndArrowBounce/sndArrowBounce.yy",},
-    {"name":"sndBlakeMusic","order":4,"path":"sounds/sndBlakeMusic/sndBlakeMusic.yy",},
+    {"name":"sndBlakeSoundtrack","order":22,"path":"sounds/sndBlakeSoundtrack/sndBlakeSoundtrack.yy",},
     {"name":"sndFall","order":1,"path":"sounds/sndFall/sndFall.yy",},
     {"name":"sndHexagon","order":3,"path":"sounds/sndHexagon/sndHexagon.yy",},
     {"name":"sndJump","order":2,"path":"sounds/sndJump/sndJump.yy",},
