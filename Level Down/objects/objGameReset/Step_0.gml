@@ -6,6 +6,7 @@ if (place_meeting(x, y, objPlayer)) {
 	
 	//stops player movement and turn all sprites invisible
 	objPlayer.playerMoving = false;
+	objPlayer.endFall = false;
 	objPlayer.sprite_index = -1;
 	objShadow.sprite_index = -1;
 }
@@ -20,15 +21,7 @@ if (gameEnded == true && playerCollided == false) {
 }
 
 if (flying) {
-	for (var i = 0; i < moveAmountRocket; i++) {
-		alarm[4] = 1;
-	}
-}
-
-if (flying) {
-	for (var j = 0; j < moveAmountPlayer; j++) {
-		alarm[5] = 1;
-	}
+	alarm[4] = 1;
 }
 
 //can restart
