@@ -65,6 +65,7 @@
     {"id":{"name":"scriptDialogue","path":"scripts/scriptDialogue/scriptDialogue.yy",},},
     {"id":{"name":"scriptPerlinNoise","path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},},
     {"id":{"name":"sndArrowBounce","path":"sounds/sndArrowBounce/sndArrowBounce.yy",},},
+    {"id":{"name":"sndBlakeOST","path":"sounds/sndBlakeOST/sndBlakeOST.yy",},},
     {"id":{"name":"sndBlakeSoundtrack","path":"sounds/sndBlakeSoundtrack/sndBlakeSoundtrack.yy",},},
     {"id":{"name":"sndFall","path":"sounds/sndFall/sndFall.yy",},},
     {"id":{"name":"sndHexagon","path":"sounds/sndHexagon/sndHexagon.yy",},},

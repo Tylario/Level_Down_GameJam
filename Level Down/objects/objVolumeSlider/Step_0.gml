@@ -22,7 +22,7 @@ if (dragging) {
         // Update handle_x within the slider boundaries and considering the handle's radius
         handle_x = clamp(mouse_x_gui - offset_x, x, x + width - handle_width);
         global.volume = (handle_x - x) / width;
-		audio_sound_gain(sndBlakeSoundtrack, global.volume, 0);
+		audio_sound_gain(sndBlakeOST, global.volume, 0);
 		// Write new volume to file
         ini_open("settings.ini");
         ini_write_real("Audio", "Volume", global.volume);

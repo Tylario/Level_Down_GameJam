@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sndBlakeOST",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":648.9861,
+  "name":"sndBlakeOST",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndBlakeOST.MP3",
+  "type":0,
+  "volume":1.0,
+}

@@ -18,8 +18,8 @@ dragging = false;
 offset_x = 0;
 
 // Apply the loaded volume
-audio_play_sound(sndBlakeSoundtrack, 0, true);
-audio_sound_gain(sndBlakeSoundtrack, global.volume, 0);
+audio_play_sound(sndBlakeOST, 0, true);
+audio_sound_gain(sndBlakeOST, global.volume, 0);
 
 // Adjust handle position to match loaded volume
 handle_x = x + (width - handle_width) * global.volume;
