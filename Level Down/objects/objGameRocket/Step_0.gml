@@ -1,0 +1,25 @@
+//game restart (when player walks into rocket door)
+
+if (gameEnded == true and hasTriggered == false) {
+	//pause and have rocket door shut
+	alarm[0] = 120
+	gameEnded = false;
+	hasTriggered = true;
+}
+
+if (flying) {
+	alarm[4] = 1;
+}
+
+//can restart
+if (canRestart == true) {
+	if (keyboard_check_pressed(ord("Z"))) {
+		var ini_file;
+		ini_file = ini_open("save.ini");
+		ini_write_real("SaveData", "LevelNumber", 0);
+		ini_close();
+		game_restart();
+		canRestart = false;
+	}
+	
+}

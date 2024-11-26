@@ -31,11 +31,11 @@ if (objPlayer.currentFloor != lastFloor)
 
     if (objPlayer.currentFloor == 100)
     {
-        objGameReset.image_alpha = 1;
+        objGameRocket.image_alpha = 1;
     }
     else
     {
-        objGameReset.image_alpha = 0;
+        objGameRocket.image_alpha = 0;
     }
 
     var ringCount = 11; // Default ring count for hexagon creation

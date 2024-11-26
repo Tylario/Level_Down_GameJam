@@ -3,7 +3,6 @@ background();
 
 //track if player is able to move (use for game end sequence)
 playerMoving = true;
-// Set initial values for player properties
 depth = -10000;
 timeSinceTouchingGround = 0.25;
 iceTime = 0;
@@ -26,8 +25,8 @@ jumpWhileTouchingJump = false;
 
 var ini_file;
 ini_file = ini_open("save.ini");
-//currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
+currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
+//currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)

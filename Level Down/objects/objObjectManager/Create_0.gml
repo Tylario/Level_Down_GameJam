@@ -179,7 +179,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 		}
 		else
 		{
-			return hexagonUnbreakable;
+			return objHexagonUnbreakableDesign;
 		}
 	}
 
