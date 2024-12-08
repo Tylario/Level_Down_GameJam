@@ -1,6 +1,7 @@
 //keep rocket invivible unless player is on floor 100
 if (objPlayer.currentFloor == 100) {
 	visible = true;
+	objRocketShadow.visible = true;
 }
 
 //game restart (when player walks into rocket door)
@@ -13,6 +14,7 @@ if (gameEnded == true and hasTriggered == false) {
 
 if (flying) {
 	alarm[4] = 1;
+	objRocketShadow.image_speed = 1;
 }
 
 //can restart
