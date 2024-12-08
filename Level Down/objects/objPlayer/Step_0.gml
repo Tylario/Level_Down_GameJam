@@ -2,7 +2,7 @@
 accumulator += delta_time / 1000000;
 
 // Handle game logic updates at a fixed time step
-if (accumulator >= fixed_time_step) {
+if ((gameEnd == false) && accumulator >= fixed_time_step) {
     updatePhysics();
     while (accumulator >= fixed_time_step)
 	{
@@ -11,8 +11,7 @@ if (accumulator >= fixed_time_step) {
 }
 
 //remove movement control for end game cutscene
-if (playerMoving == false) {
-	maxSpeed = 0
-	fallingTimer = 0;
-	midFallFloorUpdated = true;
+if (gameEnd == true) {
+	sprite_index = -1;
+	objShadow.sprite_index = -1;
 }

@@ -1,5 +1,9 @@
-//game restart (when player walks into rocket door)
+//keep rocket invivible unless player is on floor 100
+if (objPlayer.currentFloor == 100) {
+	visible = true;
+}
 
+//game restart (when player walks into rocket door)
 if (gameEnded == true and hasTriggered == false) {
 	//pause and have rocket door shut
 	alarm[0] = 120

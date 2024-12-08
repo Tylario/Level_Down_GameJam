@@ -1,4 +1,4 @@
 //move rocket
 y -= moveSpeed;
-objPlayer.y -= moveSpeed;
+objShadow.y -= moveSpeed;
 alarm[4] = 1;

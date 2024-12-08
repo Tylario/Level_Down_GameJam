@@ -1,7 +1,6 @@
 //call background generating function
 background();
 
-//track if player is able to move (use for game end sequence)
 playerMoving = true;
 depth = -10000;
 timeSinceTouchingGround = 0.25;
@@ -22,11 +21,12 @@ shadow.depth = -9999;
 yJumpOffset = 0;
 //needToBounce = 0;
 jumpWhileTouchingJump = false;
+gameEnd = false;
 
 var ini_file;
 ini_file = ini_open("save.ini");
-currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
+//currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
+currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)
