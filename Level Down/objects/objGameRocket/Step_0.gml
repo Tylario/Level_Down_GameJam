@@ -26,6 +26,14 @@ if (canRestart == true) {
 		ini_close();
 		game_restart();
 		canRestart = false;
-	}
-	
+	}	
 }
+
+if (y + 65 < objShadow.y) {
+    depth = objPlayer.depth + 1;  // Place slightly in front of player
+} else {
+    depth = objPlayer.depth - 1; // Place slightly behind player
+}
+
+show_debug_message(y + 65)
+show_debug_message(objShadow.y)

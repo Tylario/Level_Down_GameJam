@@ -29,7 +29,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.0.157",
+    "IDEVersion":"2024.4.1.152",
   },
   "name":"Level Down",
   "resources":[
@@ -59,6 +59,7 @@
     {"id":{"name":"objParentHexagon","path":"objects/objParentHexagon/objParentHexagon.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
     {"id":{"name":"objRocketShadow","path":"objects/objRocketShadow/objRocketShadow.yy",},},
+    {"id":{"name":"objRocketShipInvisibleBorder","path":"objects/objRocketShipInvisibleBorder/objRocketShipInvisibleBorder.yy",},},
     {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
     {"id":{"name":"objTextbox","path":"objects/objTextbox/objTextbox.yy",},},
     {"id":{"name":"objVolumeSlider","path":"objects/objVolumeSlider/objVolumeSlider.yy",},},
@@ -267,6 +268,7 @@
     {"id":{"name":"sprRocketFlying","path":"sprites/sprRocketFlying/sprRocketFlying.yy",},},
     {"id":{"name":"sprRocketShadow","path":"sprites/sprRocketShadow/sprRocketShadow.yy",},},
     {"id":{"name":"sprRocketStill","path":"sprites/sprRocketStill/sprRocketStill.yy",},},
+    {"id":{"name":"sprRocketStillCollider","path":"sprites/sprRocketStillCollider/sprRocketStillCollider.yy",},},
     {"id":{"name":"sprShadow","path":"sprites/sprShadow/sprShadow.yy",},},
     {"id":{"name":"sprShip","path":"sprites/sprShip/sprShip.yy",},},
     {"id":{"name":"sprStar1","path":"sprites/sprStar1/sprStar1.yy",},},
