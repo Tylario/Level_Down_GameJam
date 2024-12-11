@@ -26,7 +26,7 @@ gameEnd = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
+//currentFloor = 0 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)
@@ -199,60 +199,30 @@ function updatePhysics() {
 	} else {
 	    bouncingMultiplier = 1;
 	}
+
 // Calculate potential new positions
 var newXOffset = clamp(xMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
 var newYOffset = clamp(yMomentum, -maxSpeed, maxSpeed) * arrowMultiplier * bouncingMultiplier;
-
-if (not falling) {
-    var newX = x + newXOffset;
-    var newY = y + newYOffset;
-    var shadow_instance = instance_find(objShadow, 0);
-    var shadowX = shadow_instance.x + (shadow_instance.sprite_width / 2) - 5;
-    var shadowY = shadow_instance.y + (shadow_instance.sprite_height / 2) - 2;
-    var newShadowX = shadowX + newXOffset;
-    var newShadowY = shadowY + newYOffset;
-
-    // Collision check for horizontal movement
-    if (place_meeting(newX, y, objRocketShipInvisibleBorder)) {
-        newX = x; // Block horizontal movement
-    }
-    
-    // Collision check for vertical movement
-    if (place_meeting(x, newY, objRocketShipInvisibleBorder)) {
-        newY = y; // Block vertical movement
-    }
-
-    // Update shadow's position if no collision
-    if (!place_meeting(newShadowX, shadowY, objRocketShipInvisibleBorder)) {
-        shadowX = newShadowX;
-    }
-    if (!place_meeting(shadowX, newShadowY, objRocketShipInvisibleBorder)) {
-        shadowY = newShadowY;
-    }
-} else {
-    var newX = x;
-    var newY = y;
-    var shadow_instance = instance_find(objShadow, 0);
-    var shadowX = shadow_instance.x;
-    var shadowY = shadow_instance.y;
-    var newShadowX = shadowX;
-    var newShadowY = shadowY;
-
-    // Ensure falling does not allow movement into the border
-    if (place_meeting(newX, newY, objRocketShipInvisibleBorder)) {
-        newX = x;
-        newY = y;
-    }
+if (not falling)
+{
+	var newX = x + newXOffset;
+	var newY = y + newYOffset;
+	var shadow_instance = instance_find(objShadow, 0);
+	var shadowX = shadow_instance.x + (shadow_instance.sprite_width / 2) - 5;
+	var shadowY = shadow_instance.y + (shadow_instance.sprite_height / 2) - 2;
+	var newShadowX = shadowX + newXOffset;
+	var newShadowY = shadowY + newYOffset;
 }
-
-// Apply the updated position to the player and shadow
-x = newX;
-y = newY;
-if (shadow_instance != noone) {
-    shadow_instance.x = shadowX;
-    shadow_instance.y = shadowY;
+else
+{
+	var newX = x
+	var newY = y
+	var shadow_instance = instance_find(objShadow, 0);
+	var shadowX = shadow_instance.x
+	var shadowY = shadow_instance.y
+	var newShadowX = shadowX
+	var newShadowY = shadowY
 }
-
 
 // Offset and radius for collision checks
 
@@ -261,7 +231,7 @@ if (shadow_instance != noone) {
 function check_collision(xPos, yPos) {
     // Function to check collision with objHexagonWall, objHexagonInvisibleWall, and objNPC instances
     var collisionRadius = 3; // Distance from the center for collision checks
-    var objTypes = [objHexagonWall, objHexagonInvisibleWall, objNPC]; // Includes objNPC
+    var objTypes = [objHexagonWall, objHexagonInvisibleWall, objNPC, objRocketShipInvisibleBorder]; // Includes objNPC
     var inst;
 
     // Loop through each type of object
