@@ -26,7 +26,7 @@ gameEnd = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-currentFloor = 15 // comment out previous line, and uncomment out this line to customize starting floor
+//currentFloor = 15 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)
@@ -527,4 +527,20 @@ if (initialCollision != noone) {
 
 	}
 	
+	// Retrieve layer IDs
+	var layerPlanets = layer_get_id("Planets");
+	var layerStars = layer_get_id("Stars");
+	var layerBackground = layer_get_id("Background");
+
+	// Parallax scrolling factors for each layer
+	var speedFactor1 = -0.2; // Farther background (moves slower)
+	var speedFactor2 = -0.3; // Middle background
+	var speedFactor3 = -0.4; // Closest background (moves faster)
+
+	// Adjust the background positions based on player movement
+	layer_x(layerPlanets, layer_get_x(layerPlanets) - (x - xprevious) * speedFactor1);
+	layer_x(layerStars, layer_get_x(layerStars) - (x - xprevious) * speedFactor2);
+	layer_x(layerBackground, layer_get_x(layerBackground) - (x - xprevious) * speedFactor3);
+
+
 }
