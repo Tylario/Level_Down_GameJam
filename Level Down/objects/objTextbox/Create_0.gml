@@ -8,7 +8,6 @@ setup = false;
 //floor 0
 textFloor0 = [];
 textFloor0[0] = "Welcome, astronaut! Get to the top! That green arrow will take you up!";
-textFloor0[1] = "Remember, every step counts. The galaxy is watching!";
 
 
 //floor 5
@@ -21,11 +20,10 @@ textFloor5[2] = "Look at the stars-they're cheering you on!";
 textFloor10 = [];
 textFloor10[0] = "Caution ahead! These floors are unstable and will break under your feet.";
 textFloor10[1] = "You'll need to be quick to stay ahead!";
-textFloor10[2] = "Think fast, move faster. You've got this!";
+
 //floor 15
-textFloor15 = [];
 textFloor15[0] = "Impressive work! You're moving up quickly.";
-textFloor15[1] = "Did you hear that? It's not just the wind... stay alert.";
+textFloor15[1] = "I think these spaces used to be rooms. The glass walls are all that remain.";
 
 //floor 20
 textFloor20 = [];
@@ -35,14 +33,14 @@ textFloor20[2] = "Press on, but remember-you're not alone out here.";
 
 //floor 25
 textFloor25 = [];
-textFloor25[0] = "Twenty-five floors. This was a maintenance hub for the old colony.";
-textFloor25[1] = "The air feels... different. Do you notice it too?";
+textFloor25[0] = "Another checkpoint. You're okay?! That last floor was collapsing beneath you!";
+textFloor25[1] = "Unbreakable, yet unstable. Who designed this place?";
+textFloor25[2] = "Keep moving. There's no telling what comes next.";
 
 //floor 30
 textFloor30 = [];
-textFloor30[0] = "Another checkpoint. You're doing great.";
-textFloor30[1] = "There are signs of damage here. Something big happened... but what?";
-textFloor30[2] = "Keep going. Answers might lie ahead.";
+textFloor30[0] = "Were those trampolines?";
+textFloor30[1] = "They must have been experimenting with the unusual gravity.";
 
 //floor 35
 textFloor35 = [];
@@ -51,9 +49,9 @@ textFloor35[1] = "The orange suit-it symbolizes hope. Let's make it count.";
 
 //floor 40
 textFloor40 = [];
-textFloor40[0] = "Checkpoint reached. This place feels ancient.";
-textFloor40[1] = "Why did everyone leave? Or... were they forced to?";
-textFloor40[2] = "Only 60 more to go. You're closer to the truth.";
+textFloor40[0] = "Nice jump at the end there!";
+textFloor40[1] = "You're getting pretty good at this.";
+textFloor40[2] = "I've been told there's 60 more levels... does that scare you?";
 
 //floor 45
 textFloor45 = [];
@@ -61,42 +59,40 @@ textFloor45[0] = "Forty-five floors. This station used to hum with energy.";
 textFloor45[1] = "What drained it? Or... who?";
 
 //floor 50
-textFloor50 = [];
 textFloor50[0] = "Halfway point. This is no longer just a climb.";
-textFloor50[1] = "Something or someone is watching. Can you feel it?";
-textFloor50[2] = "The edge of the universe might hold all the answers.";
+textFloor50[1] = "Whatever lies ahead has been waiting for a long time.";
+
 
 //floor 55
 textFloor55 = [];
-textFloor55[0] = "Fifty-five floors. There's debris everywhere.";
+textFloor55[0] = "I keep thinking I'll find something new but all of these floors are completely empty.";
 textFloor55[1] = "This was no ordinary evacuation. Keep your guard up.";
 
 //floor 60
 textFloor60 = [];
-textFloor60[0] = "Sixty floors. The silence is deafening.";
-textFloor60[1] = "Echoes of the past are loud here. What do you hear?";
+textFloor60[0] = "Sixty floors. The silence here is deafening.";
+textFloor60[1] = "Listen close. What do you hear?";
 textFloor60[2] = "Don't stop. The truth is waiting for you.";
 
 //floor 65
 textFloor65 = [];
-textFloor65[0] = "Sixty-five floors. Shadows linger here.";
-textFloor65[1] = "Do you think the others made it this far? Or did they turn back?";
+textFloor65[0] = "You haven't seen an alien sprinting through endless tunnels, have you?";
+textFloor65[1] = "Do you think the others made it this far? I think most have fallen by now.";
 
 //floor 70
 textFloor70 = [];
 textFloor70[0] = "Seventy floors. Something feels wrong.";
-textFloor70[1] = "Was that a whisper? Keep moving, and don't look back.";
+textFloor70[1] = "Keep moving, and don't look back.";
 
 //floor 75
 textFloor75 = [];
 textFloor75[0] = "Checkpoint reached. You're so close now.";
-textFloor75[1] = "The air is thicker here, heavy with memories.";
-textFloor75[2] = "Whatever's up there... it knows you're coming.";
+textFloor75[1] = "Whatever's up there... it knows you're coming.";
 
 //floor 80
 textFloor80 = [];
-textFloor80[0] = "Eighty floors. The station's core must be near.";
-textFloor80[1] = "Lights flicker. Did you see that? Something moved.";
+textFloor80[0] = "Those were some really hard levels. Very impressive!";
+textFloor80[1] = "There's a buzzing. I think this part of the station has power.";
 
 //floor 85
 textFloor85 = [];

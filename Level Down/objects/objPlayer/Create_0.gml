@@ -26,7 +26,7 @@ gameEnd = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 15 // comment out previous line, and uncomment out this line to customize starting floor
+//currentFloor = 20 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)
@@ -527,20 +527,30 @@ if (initialCollision != noone) {
 
 	}
 	
-	// Retrieve layer IDs
-	var layerPlanets = layer_get_id("Planets");
-	var layerStars = layer_get_id("Stars");
-	var layerBackground = layer_get_id("Background");
+// Retrieve layer IDs
+var layerPlanets = layer_get_id("Planets");
+var layerStars = layer_get_id("Stars");
+var layerBackground = layer_get_id("Background");
 
-	// Parallax scrolling factors for each layer
-	var speedFactor1 = -0.2; // Farther background (moves slower)
-	var speedFactor2 = -0.3; // Middle background
-	var speedFactor3 = -0.4; // Closest background (moves faster)
+// Parallax scrolling factors for each layer
+var speedFactorX1 = -0.2; // Farther background (moves slower horizontally)
+var speedFactorY1 = -0.2; // Farther background (moves slower vertically)
 
-	// Adjust the background positions based on player movement
-	layer_x(layerPlanets, layer_get_x(layerPlanets) - (x - xprevious) * speedFactor1);
-	layer_x(layerStars, layer_get_x(layerStars) - (x - xprevious) * speedFactor2);
-	layer_x(layerBackground, layer_get_x(layerBackground) - (x - xprevious) * speedFactor3);
+var speedFactorX2 = -0.3; // Middle background (moves horizontally)
+var speedFactorY2 = -0.3; // Middle background (moves vertically)
+
+var speedFactorX3 = -0.4; // Closest background (moves faster horizontally)
+var speedFactorY3 = -0.4; // Closest background (moves faster vertically)
+
+// Adjust the background positions based on shadow movement
+layer_x(layerPlanets, layer_get_x(layerPlanets) - (shadow.x - shadow.xprevious) * speedFactorX1);
+layer_y(layerPlanets, layer_get_y(layerPlanets) - (shadow.y - shadow.yprevious) * speedFactorY1);
+
+layer_x(layerStars, layer_get_x(layerStars) - (shadow.x - shadow.xprevious) * speedFactorX2);
+layer_y(layerStars, layer_get_y(layerStars) - (shadow.y - shadow.yprevious) * speedFactorY2);
+
+layer_x(layerBackground, layer_get_x(layerBackground) - (shadow.x - shadow.xprevious) * speedFactorX3);
+layer_y(layerBackground, layer_get_y(layerBackground) - (shadow.y - shadow.yprevious) * speedFactorY3);
 
 
 }
