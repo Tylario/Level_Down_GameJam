@@ -51,7 +51,7 @@ if (objPlayer.currentFloor != lastFloor)
         objNPC_instance.x = 990;
         objNPC_instance.y = 14623 - floorHeight * objPlayer.currentFloor;
         objDialogueIndicator_instance.x = 989;
-        objDialogueIndicator_instance.y = 14571 - floorHeight * objPlayer.currentFloor;
+        objDialogueIndicator_instance.y = 14590 - floorHeight * objPlayer.currentFloor;
     }
     else
     {

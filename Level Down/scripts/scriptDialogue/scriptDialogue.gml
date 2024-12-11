@@ -93,20 +93,34 @@ function textFloor(p){ //p is the current page number
 }
 
 //function that returns entire text array for a given floor
-function totalPages() { 
-	f = objPlayer.currentFloor;
-	
-	if f == 0 {
-		return array_length(textFloor0);
-	} 
-	
-	else if f == 5 {
-		return array_length(textFloor5);
-	} 
-	
-	else {
-		return array_length(textFloor10);
-	}
+// Function that returns entire text array for a given floor
+function totalPages() {
+    f = objPlayer.currentFloor;
+
+    switch (f) {
+        case 0: return array_length(textFloor0);
+        case 5: return array_length(textFloor5);
+        case 10: return array_length(textFloor10);
+        case 15: return array_length(textFloor15);
+        case 20: return array_length(textFloor20);
+        case 25: return array_length(textFloor25);
+        case 30: return array_length(textFloor30);
+        case 35: return array_length(textFloor35);
+        case 40: return array_length(textFloor40);
+        case 45: return array_length(textFloor45);
+        case 50: return array_length(textFloor50);
+        case 55: return array_length(textFloor55);
+        case 60: return array_length(textFloor60);
+        case 65: return array_length(textFloor65);
+        case 70: return array_length(textFloor70);
+        case 75: return array_length(textFloor75);
+        case 80: return array_length(textFloor80);
+        case 85: return array_length(textFloor85);
+        case 90: return array_length(textFloor90);
+        case 95: return array_length(textFloor95);
+        case 100: return array_length(textFloor100);
+        default: return 0; // Return 0 if the floor is not defined
+    }
 }
 
 //function that returns the length of the string on a given page
