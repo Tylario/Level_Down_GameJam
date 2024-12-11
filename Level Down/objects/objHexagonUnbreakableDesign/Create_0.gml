@@ -1,7 +1,7 @@
 // Randomly select a sprite between sprHexagonUnbreakableDesign(1) and sprHexagonUnbreakableDesign(11)
 var random_sprite;
 
-if (random_range(-4, 1) > 0)
+if (random_range(-6, 1) > 0)
 {
 	random_sprite = choose(sprHexagonUnbreakableDesign__1_,
 		sprHexagonUnbreakableDesign__2_, 
