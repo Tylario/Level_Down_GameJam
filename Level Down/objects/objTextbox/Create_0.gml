@@ -39,8 +39,10 @@ textFloor25[2] = "Keep moving. There's no telling what comes next.";
 
 //floor 30
 textFloor30 = [];
-textFloor30[0] = "Were those trampolines?";
-textFloor30[1] = "They must have been experimenting with the unusual gravity.";
+textFloor30[0] = "Was that a trampoline? Looks like they were experimenting with the gravity here.";
+textFloor30[1] = "This is where the demo ends, but there's so much more ahead.";
+textFloor30[2] = "Thank you for playing! The full climb awaits you, astronaut.";
+
 
 //floor 35
 textFloor35 = [];
