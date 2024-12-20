@@ -26,7 +26,7 @@ gameEnd = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 20 // comment out previous line, and uncomment out this line to customize starting floor
+currentFloor = 47 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)

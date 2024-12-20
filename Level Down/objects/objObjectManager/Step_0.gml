@@ -46,20 +46,29 @@ if (objPlayer.currentFloor != lastFloor)
     // NPC and Dialogue Indicator positions based on checkpoint floors
     var objNPC_instance = instance_find(objNPC, 0);
     var objDialogueIndicator_instance = instance_find(objDialogueIndicator, 0);
-    if (objPlayer.currentFloor % 5 == 0)
-    {
-        objNPC_instance.x = 990;
-        objNPC_instance.y = 14623 - floorHeight * objPlayer.currentFloor;
-        objDialogueIndicator_instance.x = 989;
-        objDialogueIndicator_instance.y = 14590 - floorHeight * objPlayer.currentFloor;
-    }
-    else
-    {
-        objNPC_instance.x = 192; // Default position if not a checkpoint floor
-        objNPC_instance.y = 0;
-        objDialogueIndicator_instance.x = 192;
-        objDialogueIndicator_instance.y = 0;
-    }
+	if (objPlayer.currentFloor % 5 == 0)
+	{
+	    random_set_seed(objPlayer.currentFloor);
+	    var xOffset = irandom_range(-160, 160);
+	    var yOffset = irandom_range(-80, 80);
+
+	    objNPC_instance.x = 990 + xOffset;
+	    objNPC_instance.y = 14623 - floorHeight * objPlayer.currentFloor + yOffset;
+	    objDialogueIndicator_instance.x = 989 + xOffset;
+	    objDialogueIndicator_instance.y = 14590 - floorHeight * objPlayer.currentFloor + yOffset;
+	}
+	else
+	{
+	    random_set_seed(objPlayer.currentFloor);
+	    var xOffset = irandom_range(-4, 4);
+	    var yOffset = irandom_range(-2, 2);
+
+	    objNPC_instance.x = 192 + xOffset; // Default position if not a checkpoint floor
+	    objNPC_instance.y = 0 + yOffset;
+	    objDialogueIndicator_instance.x = 192 + xOffset;
+	    objDialogueIndicator_instance.y = 0 + yOffset;
+	}
+
 
     var startX = room_width / 2; // Center X for hexagon rings
     var startY = room_height - 400; // Center Y for hexagon rings
@@ -103,8 +112,8 @@ if (renderTwoLayers)
     {
         if (floorNumber != objPlayer.currentFloor) 
         {
-            image_blend = make_color_rgb(100, 100, 100); // Dark gray for non-current floors
-            image_alpha = 0.5;
+            image_blend = make_color_rgb(40, 40, 40); // 80% darker for non-current floors
+            image_alpha = 1; // Fully opaque
         } 
         else 
         {

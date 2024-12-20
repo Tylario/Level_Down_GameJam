@@ -4,4 +4,5 @@ if (other.currentFloor == floorNumber && objPlayer.jumping == false && objPlayer
 	other.jumpWhileTouchingJump = true;
 	other.jumpTimer = 0;
 	other.jumping = true;
+	audio_play_sound(sndBoing, 1, false, global.volume);
 }

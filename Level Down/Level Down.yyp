@@ -70,6 +70,7 @@
     {"id":{"name":"sndArrowBounce","path":"sounds/sndArrowBounce/sndArrowBounce.yy",},},
     {"id":{"name":"sndBlakeOST","path":"sounds/sndBlakeOST/sndBlakeOST.yy",},},
     {"id":{"name":"sndBlakeSoundtrack","path":"sounds/sndBlakeSoundtrack/sndBlakeSoundtrack.yy",},},
+    {"id":{"name":"sndBoing","path":"sounds/sndBoing/sndBoing.yy",},},
     {"id":{"name":"sndFall","path":"sounds/sndFall/sndFall.yy",},},
     {"id":{"name":"sndHexagon","path":"sounds/sndHexagon/sndHexagon.yy",},},
     {"id":{"name":"sndJump","path":"sounds/sndJump/sndJump.yy",},},
