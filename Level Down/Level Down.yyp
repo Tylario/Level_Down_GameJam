@@ -63,6 +63,7 @@
     {"id":{"name":"objShadow","path":"objects/objShadow/objShadow.yy",},},
     {"id":{"name":"objTextbox","path":"objects/objTextbox/objTextbox.yy",},},
     {"id":{"name":"objVolumeSlider","path":"objects/objVolumeSlider/objVolumeSlider.yy",},},
+    {"id":{"name":"webCode","path":"objects/webCode/webCode.yy",},},
     {"id":{"name":"rmMain","path":"rooms/rmMain/rmMain.yy",},},
     {"id":{"name":"scriptBackground","path":"scripts/scriptBackground/scriptBackground.yy",},},
     {"id":{"name":"scriptDialogue","path":"scripts/scriptDialogue/scriptDialogue.yy",},},
