@@ -1,5 +1,5 @@
 {
-  "$GMScript":"v1",
+  "$GMScript":"",
   "%Name":"scriptPerlinNoise",
   "isCompatibility":false,
   "isDnD":false,
