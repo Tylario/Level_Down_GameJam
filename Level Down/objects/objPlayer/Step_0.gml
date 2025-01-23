@@ -15,3 +15,6 @@ if (gameEnd == true) {
 	sprite_index = -1;
 	objShadow.sprite_index = -1;
 }
+
+glow_alpha = 0.04 + 0.02 * sin(current_time / 300);
+glow_scale = 1 + 0.03 * sin(current_time / 300); 

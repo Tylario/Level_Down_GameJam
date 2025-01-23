@@ -13,6 +13,7 @@
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objHexagonBreakIce","path":"objects/objHexagonBreakIce/objHexagonBreakIce.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objHexagonHologramSlow","path":"objects/objHexagonHologramSlow/objHexagonHologramSlow.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":{"name":"objHexagonLowGravity","path":"objects/objHexagonLowGravity/objHexagonLowGravity.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"objPlayer",

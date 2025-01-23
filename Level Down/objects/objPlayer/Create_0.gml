@@ -4,6 +4,7 @@ background();
 playerMoving = true;
 depth = -10000;
 timeSinceTouchingGround = 0.25;
+timeSinceTouchingLowGravity = -1;
 iceTime = 0;
 arrowDirection = "";
 arrowJumpingTimer = 10;
@@ -22,6 +23,8 @@ yJumpOffset = 0;
 //needToBounce = 0;
 jumpWhileTouchingJump = false;
 gameEnd = false;
+sound_is_playing = false;
+
 
 var ini_file;
 ini_file = ini_open("save.ini");
@@ -132,6 +135,7 @@ function updatePhysics() {
 	// Reset timer if not jumping or falling
 	if (!jumping && !falling && !bouncing) {
 	    timeSinceTouchingGround = timeSinceTouchingGround - (fixed_time_step);
+		timeSinceTouchingLowGravity = timeSinceTouchingLowGravity - (fixed_time_step);
 	}
 
 	// ice tile
@@ -405,15 +409,19 @@ if (initialCollision != noone) {
 	image_speed = isMoving ? 0.5 : 0; // Set this according to your game's needs
 
 	// jumping
-	if (not jumpWhileTouchingJump)
-	{
-		jumpTimer = jumpTimer + fixed_time_step;
-	}
-	else
+	if (jumpWhileTouchingJump)
 	{
 		jumpTimer = jumpTimer + fixed_time_step * 0.5;
 	}
-
+	else if (timeSinceTouchingLowGravity > 0)
+	{
+		jumpTimer = jumpTimer + fixed_time_step * 0.6;
+	}
+	else
+	{
+		jumpTimer = jumpTimer + fixed_time_step;
+	}
+	
 	if (jumpTimer > 0 && jumpTimer < 0.5) {
 	    jumping = true;
 		
@@ -524,6 +532,11 @@ if (initialCollision != noone) {
 		var sound = choose(sndJump1, sndJump2, sndJump3);
 		audio_play_sound(sound, 1, false, global.volume);
 		audio_sound_pitch(sound, 3);
+		if (timeSinceTouchingLowGravity > 0)
+		{
+			audio_play_sound(sndLowGravityJump, 1, false, global.volume);
+			audio_sound_pitch(sndLowGravityJump, 3);
+		}
 
 	}
 	
@@ -551,6 +564,19 @@ layer_y(layerStars, layer_get_y(layerStars) - (shadow.y - shadow.yprevious) * sp
 
 layer_x(layerBackground, layer_get_x(layerBackground) - (shadow.x - shadow.xprevious) * speedFactorX3);
 layer_y(layerBackground, layer_get_y(layerBackground) - (shadow.y - shadow.yprevious) * speedFactorY3);
+
+
+	// Update sound based on timeSinceTouchingLowGravity
+	if (timeSinceTouchingLowGravity > 0 && !sound_is_playing) {
+	    var sound_id = audio_play_sound(sndElectricHum, 1, true); // Start playing the sound looped
+	    audio_sound_pitch(sound_id, 2); // Set pitch to double the normal rate
+	    audio_sound_gain(sound_id, global.volume, 0); // Set volume based on global volume immediately
+	    sound_is_playing = true;
+	} else if (timeSinceTouchingLowGravity <= 0 && sound_is_playing) {
+	    audio_stop_sound(sndElectricHum);
+	    sound_is_playing = false;
+	}
+
 
 
 }
