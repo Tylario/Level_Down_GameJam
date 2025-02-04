@@ -14,7 +14,7 @@ textFloor0[0] = "Welcome, astronaut! Get to the top! That green arrow will take 
 textFloor5 = [];
 textFloor5[0] = "Great job! You've reached a checkpoint.";
 textFloor5[1] = "The next floors are slippery. Tread carefully!";
-textFloor5[2] = "Look at the stars-they're cheering you on!";
+textFloor5[2] = "Look at the stars! They are cheering you on!";
 
 //floor 10
 textFloor10 = [];
@@ -45,7 +45,7 @@ textFloor30[1] = "They must have been experimenting with the unusual gravity.";
 //floor 35
 textFloor35 = [];
 textFloor35[0] = "Thirty-five floors. You're relentless.";
-textFloor35[1] = "The orange suit-it symbolizes hope. Let's make it count.";
+textFloor35[1] = "The orange suit symbolizes hope. Let's make it count.";
 
 //floor 40
 textFloor40 = [];
