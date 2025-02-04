@@ -35,6 +35,7 @@
     {"name":"objHexagonWall","order":15,"path":"objects/objHexagonWall/objHexagonWall.yy",},
     {"name":"objHexagonWin","order":7,"path":"objects/objHexagonWin/objHexagonWin.yy",},
     {"name":"objHexBreakable","order":2,"path":"objects/objHexBreakable/objHexBreakable.yy",},
+    {"name":"objHTMLManager","order":31,"path":"objects/objHTMLManager/objHTMLManager.yy",},
     {"name":"objLevelManager","order":3,"path":"objects/objLevelManager/objLevelManager.yy",},
     {"name":"objLogo","order":10,"path":"objects/objLogo/objLogo.yy",},
     {"name":"objNPC","order":19,"path":"objects/objNPC/objNPC.yy",},

@@ -29,7 +29,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.4.1.152",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"Level Down",
   "resources":[
@@ -54,6 +54,7 @@
     {"id":{"name":"objHexagonWall","path":"objects/objHexagonWall/objHexagonWall.yy",},},
     {"id":{"name":"objHexagonWin","path":"objects/objHexagonWin/objHexagonWin.yy",},},
     {"id":{"name":"objHexBreakable","path":"objects/objHexBreakable/objHexBreakable.yy",},},
+    {"id":{"name":"objHTMLManager","path":"objects/objHTMLManager/objHTMLManager.yy",},},
     {"id":{"name":"objLevelManager","path":"objects/objLevelManager/objLevelManager.yy",},},
     {"id":{"name":"objLogo","path":"objects/objLogo/objLogo.yy",},},
     {"id":{"name":"objNPC","path":"objects/objNPC/objNPC.yy",},},
