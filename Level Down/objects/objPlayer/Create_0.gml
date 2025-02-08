@@ -1,6 +1,6 @@
 //call background generating function
 background();
-
+timeSinceTouchingSpeedTile = 0;
 playerMoving = true;
 depth = -10000;
 timeSinceTouchingGround = 0.25;
@@ -140,6 +140,7 @@ function updatePhysics() {
 
 	// ice tile
 	iceTime = iceTime - (fixed_time_step);
+	
 
 	if (iceTime > 0) {
 	    acceleration = 4;
@@ -148,8 +149,15 @@ function updatePhysics() {
 		{
 			acceleration = 2;
 		}
+	} else if (timeSinceTouchingLowGravity > 0) {
+	    acceleration = 16;
+		maxSpeed = 2.9;
+		if (jumping)
+		{
+			acceleration = 4
+		}
 	} else {
-	    acceleration = 32;
+		acceleration = 32;
 		maxSpeed = 2.2;
 		if (jumping)
 		{
