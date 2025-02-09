@@ -28,7 +28,7 @@ textFloor15[1] = "I think these spaces used to be rooms. The glass walls are all
 //floor 20
 textFloor20 = [];
 textFloor20[0] = "Checkpoint reached. Good work, astronaut.";
-textFloor20[2] = "Keep moving. There's no telling what comes next.";
+textFloor20[1] = "Keep moving. There's no telling what comes next.";
 
 //floor 25
 textFloor25 = [];
