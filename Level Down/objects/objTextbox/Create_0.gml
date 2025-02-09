@@ -28,14 +28,13 @@ textFloor15[1] = "I think these spaces used to be rooms. The glass walls are all
 //floor 20
 textFloor20 = [];
 textFloor20[0] = "Checkpoint reached. Good work, astronaut.";
-textFloor20[1] = "This station once thrived with life. Now, it's just you.";
-textFloor20[2] = "Press on, but remember-you're not alone out here.";
+textFloor20[2] = "Keep moving. There's no telling what comes next.";
 
 //floor 25
 textFloor25 = [];
 textFloor25[0] = "Another checkpoint. You're okay?! That last floor was collapsing beneath you!";
-textFloor25[1] = "Unbreakable, yet unstable. Who designed this place?";
-textFloor25[2] = "Keep moving. There's no telling what comes next.";
+textFloor25[1] = "The next floor has holographic tiles. They flicker in and out of existence.";
+textFloor25[2] = "Watch closely, these tiles blink on and off rhythmically.";
 
 //floor 30
 textFloor30 = [];
