@@ -1,5 +1,5 @@
 //door shut after player enters
-self.sprite_index = sprRocketFlying;
+self.sprite_index = sprRocketDoorClose;
 
 //rocket take off
-alarm[1] = 120;
+alarm[1] = 100;

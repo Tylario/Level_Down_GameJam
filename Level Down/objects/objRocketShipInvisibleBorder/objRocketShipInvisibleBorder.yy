@@ -31,6 +31,9 @@
     "name":"sprRocketStillCollider",
     "path":"sprites/sprRocketStillCollider/sprRocketStillCollider.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"sprRocketStillColliderVisual",
+    "path":"sprites/sprRocketStillColliderVisual/sprRocketStillColliderVisual.yy",
+  },
   "visible":true,
 }
