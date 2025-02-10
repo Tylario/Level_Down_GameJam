@@ -50,7 +50,7 @@ textFloor35[1] = "Something new is ahead.";
 textFloor40 = [];
 textFloor40[0] = "Nice jump at the end there!";
 textFloor40[1] = "You're getting pretty good at this.";
-textFloor40[2] = "I've been told there's 60 more levels... does that scare you?";
+textFloor40[2] = "I've been told there's 60 more floors... does that scare you?";
 
 //floor 45
 textFloor45 = [];
@@ -76,12 +76,12 @@ textFloor60[2] = "Don't stop. The truth is waiting for you.";
 
 //floor 65
 textFloor65 = [];
-textFloor65[0] = "You haven't seen an alien sprinting through endless tunnels, have you?";
-textFloor65[1] = "There is a lot to explore up there.";
+textFloor65[0] = "You haven't seen anyone sprinting through endless tunnels, have you?";
+textFloor65[1] = "If you do see an alien sprinting in zero gravity, tell them they're running the wrong way!.";
 
 //floor 70
 textFloor70 = [];
-textFloor70[0] = "Seventy floors. Something feels wrong.";
+textFloor70[0] = "Seventy floors. The next ones look quite difficult. ";
 textFloor70[1] = "Keep moving, and don't look back.";
 
 //floor 75
@@ -111,6 +111,6 @@ textFloor95[1] = "Everything you've done leads to this moment. Make it count.";
 //floor 100
 textFloor100 = [];
 textFloor100[0] = "You've made it! Look at that...";
-textFloor100[0] = "It's a rocket ship!";
+textFloor100[1] = "It's a rocket ship!";
 textFloor100[2] = "This was always the mission, wasn't it? To find the way home.";
 textFloor100[3] = "Congratulations, astronaut. You've written your legacy in the stars.";

@@ -407,7 +407,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			nothingChance = 0; 
 			hologramSlowChance = 0;
 			lowGravityChance = 0; 
-			tileType = perlinLevelGeneration(0.30, posX, posY, floorNum, 0, 0.30, hexagonUnbreakable, "outer", objHexagonUnbreakable);
+			tileType = perlinLevelGeneration(0.20, posX, posY, floorNum, 0, 0.30, hexagonUnbreakable, "outer", objHexagonUnbreakable);
 			break;
 		case 17:
 			crackedChance = 0
@@ -505,7 +505,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			nothingChance = 0;  
 			hologramSlowChance = 0;
 			lowGravityChance = 0; 
-			tileType = perlinLevelGeneration(0.24, posX, posY, floorNum, 200, 0.73, hexagonIce, "inner", objHexagonUnbreakable);
+			tileType = perlinLevelGeneration(0.24, posX, posY, floorNum, 200, 0.13, hexagonIce, "inner", objHexagonUnbreakable);
 			break;
 		case 24:
 			crackedChance = 0
