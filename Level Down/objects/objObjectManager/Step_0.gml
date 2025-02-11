@@ -1,7 +1,6 @@
 // Check if the floor has changed
 if (objPlayer.currentFloor != lastFloor) 
 {
-    show_debug_message("Player moved to floor: " + string(objPlayer.currentFloor));
 
     if (objPlayer.currentFloor < 0)
     {
@@ -100,6 +99,9 @@ if (objPlayer.currentFloor != lastFloor)
     if (objPlayer.currentFloor != -1) {
         destroyTileLayer(objPlayer.currentFloor);
     }
+	
+			objPlayer.depth = -10000;
+			objShadow.depth = -9999;
 
 }
 

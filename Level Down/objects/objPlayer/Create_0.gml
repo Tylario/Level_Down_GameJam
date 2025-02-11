@@ -29,7 +29,7 @@ sound_is_playing = false;
 var ini_file;
 ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0); // Default to 0 if not found
-//currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
+currentFloor = 100 // comment out previous line, and uncomment out this line to customize starting floor
 ini_close();
 
 if (currentFloor > 0)
@@ -500,6 +500,8 @@ if (initialCollision != noone) {
 	   endFall = true
 	    if (fallingTimer < -1) {
 	        fallingTimer = 0.5;
+			depth = ((-objShadow.y + 16) * 2) + 34000 - (currentFloor * 50);
+			objShadow.depth = ((-objShadow.y + 16) * 2) + 34000 - (currentFloor * 50) + 1;
 	    }
 	}
 	
@@ -510,7 +512,7 @@ if (initialCollision != noone) {
 	    if (fallingTimer < 0.25 && !midFallFloorUpdated) { // Adjust the threshold as needed
 	        currentFloor = currentFloor - 1;
 	        midFallFloorUpdated = true; // Set flag to true to prevent multiple decrements
-	    }
+		}
 	}
 
 	if (fallingTimer < 0 && fallingTimer > -1) {
@@ -530,6 +532,10 @@ if (initialCollision != noone) {
 				}
 			}
 	}
+	
+	
+
+
 	
 		if (jumpingPressed && jumpTimer > 0.57 && !bouncing && !falling && arrowJumpingTimer >= arrowJumpTime && timeSinceTouchingGround > 0.01) {
 	    jumpTimer = 0;

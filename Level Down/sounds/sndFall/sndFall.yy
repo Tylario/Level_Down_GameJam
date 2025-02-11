@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":0.181701,
+  "duration":0.0,
   "name":"sndFall",
   "parent":{
     "name":"Sounds",
