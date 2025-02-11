@@ -67,6 +67,7 @@
     {"id":{"name":"objTextbox","path":"objects/objTextbox/objTextbox.yy",},},
     {"id":{"name":"objVolumeSlider","path":"objects/objVolumeSlider/objVolumeSlider.yy",},},
     {"id":{"name":"rmMain","path":"rooms/rmMain/rmMain.yy",},},
+    {"id":{"name":"scr_custom_rng","path":"scripts/scr_custom_rng/scr_custom_rng.yy",},},
     {"id":{"name":"scriptBackground","path":"scripts/scriptBackground/scriptBackground.yy",},},
     {"id":{"name":"scriptDialogue","path":"scripts/scriptDialogue/scriptDialogue.yy",},},
     {"id":{"name":"scriptPerlinNoise","path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},},

@@ -429,7 +429,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			crackedChance = 0
 			trampolineChance = 0
 			arrowChance = 0
-			wallChance = 0.05
+			wallChance = 0.02
 			breakableChance = 1
 			unbreakableChance = 0
 			breakIceChance = 0; 
@@ -438,13 +438,13 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			fallChance = 0
 			nothingChance = 0;  
 			hologramSlowChance = 0; 
-			tileType = perlinLevelGeneration(0.27, posX, posY, floorNum, 10, 0.22, hexagonIce, "half");
+			tileType = perlinLevelGeneration(0.24, posX, posY, floorNum, 10, 0.22, hexagonIce, "half");
 			break;
 		case 19:
 			crackedChance = 0
 			trampolineChance = 0
 			arrowChance = 0
-			wallChance = 0.05
+			wallChance = 0.04
 			breakableChance = 1
 			unbreakableChance = 0
 			breakIceChance = 0; 
@@ -469,7 +469,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			breakIceChance = 0; 
 			solidIceChance = 0; 
 			iceChance = 0
-			fallChance = 0.075
+			fallChance = 0
 			nothingChance = 0;  
 			hologramSlowChance = 0;
 			lowGravityChance = 0; 
@@ -575,10 +575,10 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			tileType = perlinLevelGeneration(0.60, posX, posY, floorNum, 50, 0.01, hexagonIce, "inner", objHexagonSolidIce, +0.4);
 			break;
 		case 29:
-			crackedChance = 0.005
-			trampolineChance = 0.008
+			crackedChance = 0.01
+			trampolineChance = 0.016
 			arrowChance = 0
-			wallChance = 0.005
+			wallChance = 0.01
 			breakableChance = 0
 			unbreakableChance = 0
 			breakIceChance = 0; 
@@ -722,7 +722,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			nothingChance = 0;  
 			hologramSlowChance = 0;
 			lowGravityChance = 1; 
-			tileType = perlinLevelGeneration(0.48, posX, posY, floorNum, 0, 0.25, hexagonBreakable, "inner", objHexagonUnbreakable);
+			tileType = perlinLevelGeneration(0.48, posX, posY, floorNum, 0, 0.25, hexagonBreakable, "inner", objHexagonUnbreakable, 0.05);
 			break;
 		case 40:
 			tileType = hexagonUnbreakable;
@@ -746,7 +746,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 		case 42:
 			crackedChance = 0
 			trampolineChance = 0
-			arrowChance = 0.43
+			arrowChance = 0.7
 			wallChance = 0
 			breakableChance = 0
 			unbreakableChance = 0.3
@@ -757,11 +757,11 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			nothingChance = 0;  
 			hologramSlowChance = 0;
 			lowGravityChance = 0; 
-			tileType = perlinLevelGeneration(0, posX, posY, floorNum, 2, 0.31, hexagonBreakable, "outer", objHexagonHologramSlow);
+			tileType = perlinLevelGeneration(0, posX, posY, floorNum, 3, 0.31, hexagonBreakable, "outer", objHexagonHologramSlow);
 			break;
 		case 43:
 			crackedChance = 0
-			trampolineChance = 0.015
+			trampolineChance = 0.04
 			arrowChance = 0
 			wallChance = 0.0
 			breakableChance = 0
@@ -773,7 +773,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			nothingChance = 0;  
 			hologramSlowChance = 0;
 			lowGravityChance = 0; 
-			tileType = perlinLevelGeneration(0.55, posX, posY, floorNum, 400, 0.05, hexagonIce, "inner");
+			tileType = perlinLevelGeneration(0.55, posX, posY, floorNum, 405.7, 0.05, hexagonIce, "inner"); //402.4
 			break;
 		case 44:
 			crackedChance = 0
@@ -812,7 +812,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			break;
 		case 47:
 			crackedChance = 0.0
-			trampolineChance = 0.015
+			trampolineChance = 0.025
 			arrowChance = 0
 			wallChance = 0
 			breakableChance = 0
@@ -1179,7 +1179,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			break;
 		case 74:
 			crackedChance = 0
-			trampolineChance = 0.01
+			trampolineChance = 0.03
 			arrowChance = 0
 			wallChance = 0
 			breakableChance = 0
@@ -1191,7 +1191,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			nothingChance = 0; 
 			hologramSlowChance = 0;
 			lowGravityChance = 0; 
-			tileType = perlinLevelGeneration(0.71, posX, posY, floorNum, 540, 0.17, hexagonUnbreakable, "half");
+			tileType = perlinLevelGeneration(0.71, posX, posY, floorNum, 539.95, 0.17, hexagonUnbreakable, "half");
 			break;
 		case 75:
 			tileType = hexagonUnbreakable;
@@ -1200,7 +1200,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			crackedChance = 0.5
 			trampolineChance = 0.01
 			arrowChance = 0.75
-			wallChance = 0.5
+			wallChance = 0.3
 			breakableChance = 0.5
 			unbreakableChance = 0.75
 			breakIceChance = 0; 
@@ -1265,25 +1265,25 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			break;
 		case 81:
 			crackedChance = 0
-			trampolineChance = 0.04
+			trampolineChance = 0
 			arrowChance = 0.
 			wallChance = 0
-			breakableChance = 1
-			unbreakableChance = 1
+			breakableChance = 0
+			unbreakableChance = 0
 			breakIceChance = 0; 
 			solidIceChance = 0; 
 			iceChance = 0
 			fallChance = 0
 			nothingChance = 0; 
 			hologramSlowChance = 0;
-			lowGravityChance = 0; 
-			tileType = perlinLevelGeneration(0.65, posX, posY, floorNum, 0, 0.31, hexagonBreakable, "outer");
+			lowGravityChance = 1; 
+			tileType = perlinLevelGeneration(0.65, posX, posY, floorNum, 300, 0.15, objHexagonLowGravity, "half");
 			break;
 		case 82:
 			crackedChance = 0.05
 			trampolineChance = 0
 			arrowChance = 0
-			wallChance = 0.1
+			wallChance = 0.015
 			breakableChance = 1
 			unbreakableChance = 0.4
 			breakIceChance = 0; 
@@ -1360,7 +1360,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 			nothingChance = 0;  
 			hologramSlowChance = 0;
 			lowGravityChance = 0.1; 
-			tileType = perlinLevelGeneration(0.63, posX, posY, floorNum, 0, 0.50, hexagonBreakable, "half");
+			tileType = perlinLevelGeneration(0.55, posX, posY, floorNum, 0, 0.30, hexagonBreakable, "half");
 			break;
 		case 88:
 			crackedChance = 0
@@ -1542,7 +1542,6 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
 // seed is a random seed value
 // frequency is a value between 0 and 1, where 0 is low frequency and 1 is high frequency
 function perlinLevelGeneration(difficulty, posX, posY, floorNum, seed, frequency, baseLevelTile, generationType, overrideTile, offset = 0) {
-    random_set_seed(floorNum + seed + posX + posY);
 
     var adjustedDifficulty = adjustDifficulty(difficulty);
     var adjustedFrequency = adjustFrequency(frequency);
@@ -1581,7 +1580,8 @@ function perlinLevelGeneration(difficulty, posX, posY, floorNum, seed, frequency
 	    // Rest of the tile generation logic remains unchanged
 	    var totalChance = crackedChance + trampolineChance + arrowChance + wallChance + breakableChance + unbreakableChance + iceChance + solidIceChance + fallChance + breakIceChance + nothingChance + hologramSlowChance + lowGravityChance;
 
-	    var randomChoice = random(totalChance);
+		custom_rng_set_seed(floorNum + seed + posX * 273 + posY * 541);
+	    var randomChoice = custom_rng_float() * totalChance;
 	    var cumulativeChance = 0;
 
 	    // Check for nothingChance
@@ -1630,74 +1630,6 @@ function perlinLevelGeneration(difficulty, posX, posY, floorNum, seed, frequency
 	} else {
 	    return noone;
 	}
-}
-
-
-// @desc difficulty is a value between 0 and 1, where 0 is easy and 1 is hard
-// posX and posY are the coordinates of the tile
-// floorNum is the current floor number
-// seed is a random seed value
-function randomLevelGeneration(difficulty, posX, posY, floorNum, seed, baseLevelTile, overrideTile) {
-    random_set_seed(floorNum + seed + posX + posY);
-
-    // Generate a random number between 0 and 1
-    var noiseValue = random(1);
-
-    if (noiseValue > difficulty) {
-        // If overrideTile is provided and valid, return it for 50% of the random pattern
-        if (overrideTile && noiseValue > 0.5) {
-            return overrideTile;
-        }
-
-        // Calculate total chance for enabled tile types
-        var totalChance = crackedChance + trampolineChance + arrowChance + wallChance + breakableChance + unbreakableChance + iceChance + solidIceChance + fallChance + breakIceChance + hologramSlowChance + lowGravityChance;
-
-        // Generate a random number between 0 and the total chance
-        var randomChoice = random(totalChance);
-        var cumulativeChance = 0;
-
-        // Select the tile type based on cumulative chances
-        cumulativeChance += crackedChance;
-        if (randomChoice < cumulativeChance) return hexagonDeadly;
-
-        cumulativeChance += trampolineChance;
-        if (randomChoice < cumulativeChance) return hexagonJump;
-
-        cumulativeChance += arrowChance;
-        if (randomChoice < cumulativeChance) return hexagonArrow;
-
-        cumulativeChance += wallChance;
-        if (randomChoice < cumulativeChance) return hexagonWall;
-
-        cumulativeChance += breakableChance;
-        if (randomChoice < cumulativeChance) return hexagonBreakable;
-
-        cumulativeChance += unbreakableChance;
-        if (randomChoice < cumulativeChance) return hexagonUnbreakable;
-
-        cumulativeChance += iceChance;
-        if (randomChoice < cumulativeChance) return hexagonIce;
-
-        cumulativeChance += solidIceChance;
-        if (randomChoice < cumulativeChance) return hexagonSolidIce;
-
-        cumulativeChance += fallChance;
-        if (randomChoice < cumulativeChance) return hexagonRandomFall;
-
-        cumulativeChance += breakIceChance;
-        if (randomChoice < cumulativeChance) return objHexagonBreakIce;
-
-        cumulativeChance += hologramSlowChance;
-        if (randomChoice < cumulativeChance) return objHexagonHologramSlow;
-
-        cumulativeChance += lowGravityChance;
-        if (randomChoice < cumulativeChance) return objHexagonLowGravity;
-
-        // Default tile if none selected
-        return baseLevelTile;
-    } else {
-        return noone;
-    }
 }
 
 function adjustDifficulty(difficulty) {

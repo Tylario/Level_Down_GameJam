@@ -1,4 +1,6 @@
-var randomNumber = irandom_range(0, 5);
+custom_rng_set_seed(x * 131 + y * 287);
+var randomNumber = floor(custom_rng_float() * 6);
+
 arrowDirection = "";
 
 switch(randomNumber) {

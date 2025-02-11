@@ -46,6 +46,7 @@
     {"name":"objShadow","order":12,"path":"objects/objShadow/objShadow.yy",},
     {"name":"objTextbox","order":22,"path":"objects/objTextbox/objTextbox.yy",},
     {"name":"objVolumeSlider","order":21,"path":"objects/objVolumeSlider/objVolumeSlider.yy",},
+    {"name":"scr_custom_rng","order":3,"path":"scripts/scr_custom_rng/scr_custom_rng.yy",},
     {"name":"scriptDialogue","order":1,"path":"scripts/scriptDialogue/scriptDialogue.yy",},
     {"name":"scriptPerlinNoise","order":2,"path":"scripts/scriptPerlinNoise/scriptPerlinNoise.yy",},
     {"name":"sndArrowBounce","order":21,"path":"sounds/sndArrowBounce/sndArrowBounce.yy",},
