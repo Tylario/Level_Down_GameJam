@@ -230,6 +230,7 @@
     {"id":{"name":"sprHexagonInstaFall","path":"sprites/sprHexagonInstaFall/sprHexagonInstaFall.yy",},},
     {"id":{"name":"sprHexagonInvisibleWall","path":"sprites/sprHexagonInvisibleWall/sprHexagonInvisibleWall.yy",},},
     {"id":{"name":"sprHexagonJump","path":"sprites/sprHexagonJump/sprHexagonJump.yy",},},
+    {"id":{"name":"sprHexagonJump224","path":"sprites/sprHexagonJump224/sprHexagonJump224.yy",},},
     {"id":{"name":"sprHexagonLowGravity","path":"sprites/sprHexagonLowGravity/sprHexagonLowGravity.yy",},},
     {"id":{"name":"sprHexagonParent","path":"sprites/sprHexagonParent/sprHexagonParent.yy",},},
     {"id":{"name":"sprHexagonSolidIce","path":"sprites/sprHexagonSolidIce/sprHexagonSolidIce.yy",},},

@@ -205,6 +205,7 @@
     {"name":"sprHexagonInstaFall","order":117,"path":"sprites/sprHexagonInstaFall/sprHexagonInstaFall.yy",},
     {"name":"sprHexagonInvisibleWall","order":128,"path":"sprites/sprHexagonInvisibleWall/sprHexagonInvisibleWall.yy",},
     {"name":"sprHexagonJump","order":43,"path":"sprites/sprHexagonJump/sprHexagonJump.yy",},
+    {"name":"sprHexagonJump224","order":158,"path":"sprites/sprHexagonJump224/sprHexagonJump224.yy",},
     {"name":"sprHexagonLowGravity","order":156,"path":"sprites/sprHexagonLowGravity/sprHexagonLowGravity.yy",},
     {"name":"sprHexagonParent","order":8,"path":"sprites/sprHexagonParent/sprHexagonParent.yy",},
     {"name":"sprHexagonSolidIce","order":129,"path":"sprites/sprHexagonSolidIce/sprHexagonSolidIce.yy",},
