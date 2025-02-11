@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"sndBlakeOST",
   "audioGroupId":{
-    "name":"audiogroup_default",
-    "path":"audiogroups/audiogroup_default",
+    "name":"BackgroundMusicBlake",
+    "path":"audiogroups/BackgroundMusicBlake",
   },
   "bitDepth":1,
   "bitRate":128,

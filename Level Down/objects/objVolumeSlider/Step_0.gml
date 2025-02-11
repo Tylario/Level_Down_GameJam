@@ -31,3 +31,10 @@ if (dragging) {
         dragging = false;
     }
 }
+
+// Check if audio is ready and play if not started
+if (!audio_started && audio_group_is_loaded(BackgroundMusicBlake)) {
+    audio_play_sound(sndBlakeOST, 0, true);
+    audio_sound_gain(sndBlakeOST, global.volume, 0);
+    audio_started = true;  // Prevent further playback
+}
