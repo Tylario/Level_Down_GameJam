@@ -47,9 +47,18 @@ if (objPlayer.currentFloor != lastFloor)
     var objDialogueIndicator_instance = instance_find(objDialogueIndicator, 0);
 	if (objPlayer.currentFloor % 5 == 0)
 	{
-	    random_set_seed(objPlayer.currentFloor);
-	    var xOffset = irandom_range(-160, 160);
-	    var yOffset = irandom_range(-80, 80);
+		if (objPlayer.currentFloor == 0)
+		{
+			random_set_seed(objPlayer.currentFloor);
+		    var xOffset = -140;
+		    var yOffset = 0;
+		}
+		else
+		{
+		    random_set_seed(objPlayer.currentFloor);
+		    var xOffset = irandom_range(-160, 160);
+		    var yOffset = irandom_range(-80, 80);
+		}
 
 	    objNPC_instance.x = 990 + xOffset;
 	    objNPC_instance.y = 14623 - floorHeight * objPlayer.currentFloor + yOffset;
