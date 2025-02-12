@@ -4,8 +4,8 @@ x_range = 300; // Horizontal range
 y_range = 200; // Vertical range
 scale = 0.04;  // Scale for Perlin noise (adjust for desired smoothness)
 
-time_on = 4 * room_speed;       // Time the tile stays fully on
-time_off = 3 * room_speed;       // Time the tile stays fully off
+time_on = 3 * room_speed;       // Time the tile stays fully on
+time_off = 2 * room_speed;       // Time the tile stays fully off
 transition_time = 0.25 * room_speed; // Time for each transition
 time_cycle = time_on + time_off + 2 * transition_time; // Total cycle time
 
