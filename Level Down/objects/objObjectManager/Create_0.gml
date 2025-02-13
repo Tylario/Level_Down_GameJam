@@ -169,7 +169,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
     }
 	
 	// Ensuring trampoline spawns on each floor based on adjusted trampolineX and trampolineY positions
-    if (posX == trampolineX && posY == trampolineY && floorNum < 100) {
+    if (posX == trampolineX && posY == trampolineY && floorNum < 100 && floorNum != 40) {
         return hexagonTrampoline;
     }
 	

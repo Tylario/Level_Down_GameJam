@@ -49,8 +49,8 @@ textFloor35[1] = "Something new is ahead.";
 //floor 40
 textFloor40 = [];
 textFloor40[0] = "Nice jump at the end there!";
-textFloor40[1] = "You're getting pretty good at this.";
-textFloor40[2] = "I've been told there's 60 more floors... does that scare you?";
+textFloor40[1] = "I've been told there's 60 more floors...";
+textFloor40[2] = "That is the end of the demo, please wishlist and play the full game <3";
 
 //floor 45
 textFloor45 = [];
