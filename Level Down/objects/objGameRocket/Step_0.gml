@@ -9,6 +9,8 @@ if (gameEnded == true and hasTriggered == false) {
 	//pause and have rocket door shut
 	alarm[0] = 120
 	gameEnded = false;
+	
+	
 	hasTriggered = true;
 }
 
@@ -16,6 +18,14 @@ if (flying) {
 	alarm[4] = 1;
 	objRocketShadow.image_speed = 1;
 }
+
+if (showWinSprite)
+{
+	adder = adder + 2
+	
+}
+
+objPlayer.y = objPlayer.y + adder;
 
 //can restart
 if (canRestart == true) {
@@ -34,6 +44,3 @@ if (y + 65 < objShadow.y) {
 } else {
     depth = objPlayer.depth - 1; // Place slightly behind player
 }
-
-show_debug_message(y + 65)
-show_debug_message(objShadow.y)
