@@ -11,5 +11,5 @@ draw_set_halign(fa_center);
 draw_set_color(c_white);
 
 if (canRestart == true) {
-	//draw_text_transformed(960, 750, "Press \"Z\" to restart", 4, 4, 0);
+	draw_text_transformed(960, 750, "Press \"Z\" to restart", 4, 4, 0);
 }
