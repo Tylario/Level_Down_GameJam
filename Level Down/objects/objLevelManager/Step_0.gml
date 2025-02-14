@@ -3,7 +3,7 @@
 if (keyboard_check(vk_escape)) {
     time += 1 / room_speed;
     if (time >= countdown_time) {
-        game_end();
+        //game_end();
     }
 }
 

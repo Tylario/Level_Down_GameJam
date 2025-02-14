@@ -7,7 +7,7 @@ draw_set_color(c_white);
 var remaining_time = round(countdown_time - time);
 
 if (keyboard_check(vk_escape) && !keyboard_check(ord("R"))) {
-    draw_text_transformed(18, 50, "Quitting in " + string(remaining_time) + "...", 3, 3, 0);
+    //draw_text_transformed(18, 50, "Quitting in " + string(remaining_time) + "...", 3, 3, 0);
 }
 
 if (keyboard_check(ord("R")) && !keyboard_check(vk_escape)) {
