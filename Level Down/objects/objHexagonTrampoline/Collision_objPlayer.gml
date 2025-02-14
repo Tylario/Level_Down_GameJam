@@ -6,7 +6,7 @@ with (objPlayer)
 {
 	if (not jumping and not bouncing and not falling and arrowJumpingTimer >= arrowJumpTime and floorNum == currentFloor)
 	{
-
+			isQuickFalling = false;
 	        bounceTimer = 0.5;
 	        bouncing = true;
 	        timeSinceTouchingGround = 1.5;

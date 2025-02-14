@@ -2,7 +2,6 @@
 	// if false, it will render just the level you are on
 	// if true, it will render also render the level below, but mostly transparent
 renderTwoLayers = true;
-
 lastFloor = -1;
 
 
@@ -169,7 +168,7 @@ function determineTileType(floorNum, posX, posY, isCheckingBelow = false)
     }
 	
 	// Ensuring trampoline spawns on each floor based on adjusted trampolineX and trampolineY positions
-    if (posX == trampolineX && posY == trampolineY && floorNum < 100 && floorNum != 40) {
+    if (posX == trampolineX && posY == trampolineY && floorNum < 100) {
         return hexagonTrampoline;
     }
 	

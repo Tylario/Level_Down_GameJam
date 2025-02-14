@@ -1,7 +1,7 @@
 // Check if the floor has changed
 if (objPlayer.currentFloor != lastFloor) 
 {
-
+	
     if (objPlayer.currentFloor < 0)
     {
         objPlayer.currentFloor = 0;
@@ -19,6 +19,7 @@ if (objPlayer.currentFloor != lastFloor)
 			objPlayer.x = room_width / 2 + (48 * 5) + 15
 		}
 		objPlayer.y = (room_height - 455) - (objPlayer.currentFloor * 100)
+		objPlayer.isQuickFalling = false;
     }
 	
 

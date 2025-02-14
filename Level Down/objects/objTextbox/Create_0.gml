@@ -1,3 +1,4 @@
+isDemo = false;
 //variables
 page = 0; //should be set to 0 when not testing
 drawChar = 0; //how many characters have been drawn
@@ -46,11 +47,22 @@ textFloor35 = [];
 textFloor35[0] = "Thirty-five floors. You're doing so well!";
 textFloor35[1] = "Something new is ahead.";
 
-//floor 40
-textFloor40 = [];
-textFloor40[0] = "Nice jump at the end there!";
-textFloor40[1] = "I've been told there's 60 more floors...";
-textFloor40[2] = "That is the end of the demo, please wishlist and play the full game <3";
+if (isDemo)
+{
+	//floor 40
+	textFloor40 = [];
+	textFloor40[0] = "Nice jump at the end there!";
+	textFloor40[1] = "I've been told there's 60 more floors...";
+	textFloor40[2] = "That is the end of the demo, please wishlist and play the full game <3";
+}
+else
+{
+	//floor 40
+	textFloor40 = [];
+	textFloor40[0] = "Nice jump at the end there!";
+	textFloor40[1] = "I've been told there's 60 more floors...";
+	textFloor40[2] = "Does that scare you?";
+}
 
 //floor 45
 textFloor45 = [];
