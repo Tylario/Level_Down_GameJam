@@ -46,7 +46,7 @@ ini_close();
 
 // Position player based on floor number
 if (currentFloor > 0) {
-    y = y - 100 * currentFloor;
+    y = 14630 - 100 * currentFloor;
     // Alternate x position based on odd/even floor
     if (currentFloor % 2 == 1) {
         x = 900 - (48 * 5);
