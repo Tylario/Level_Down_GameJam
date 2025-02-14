@@ -352,7 +352,7 @@ function processJumpEnd() {
         yJumpOffset = 0;
         if (endJump) {
             endJump = false;
-            if (!place_meeting(x, y, objParentHexagon)) {
+            if (!isOverCurrentFloorHexagon()) {
                 jumpFallTimer = 0;
                 falling = true;
                 endJump = true;
@@ -445,7 +445,7 @@ function endFalling() {
     midFallFloorUpdated = false;
     if (endFall) {
         endFall = false;
-        if (!place_meeting(x, y, objParentHexagon)) {
+        if (!isOverCurrentFloorHexagon()) {
             jumpFallTimer = 0;
             falling = true;
             fallingTimer = 0.202;
@@ -482,6 +482,23 @@ function updateLowGravitySound() {
         audio_stop_sound(sndElectricHum);
         sound_is_playing = false;
     }
+}
+
+function isOverCurrentFloorHexagon() {
+    var hexagons = ds_list_create();
+    var count = instance_place_list(x, y, objParentHexagon, hexagons, false);
+    var validHexagon = false;
+    
+    for (var i = 0; i < count; i++) {
+        var hex = hexagons[| i];
+        if (hex.floorNumber == currentFloor) {
+            validHexagon = true;
+            break;
+        }
+    }
+    
+    ds_list_destroy(hexagons);
+    return validHexagon;
 }
 
 // Main physics and game logic update function
