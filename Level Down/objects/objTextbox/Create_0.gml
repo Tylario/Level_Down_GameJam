@@ -7,7 +7,7 @@ setup = false;
 
 //floor 0
 textFloor0 = [];
-textFloor0[0] = "Welcome, astronaut! Get to the top! That green arrow will take you up!";
+textFloor0[0] = "Welcome, astronaut! Get to the top! That green arrow will take you up! Use WASD or Arrow Keys to move and Space to jump.";
 
 
 //floor 5
