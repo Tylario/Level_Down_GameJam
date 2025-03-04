@@ -41,7 +41,7 @@ sound_is_playing = false;
 // Load or set starting floor
 var ini_file = ini_open("save.ini");
 currentFloor = ini_read_real("SaveData", "LevelNumber", 0);
-//currentFloor = 100 // Uncomment to start at specific floor
+//currentFloor = 28 // Uncomment to start at specific floor
 ini_close();
 
 // Position player based on floor number
